@@ -1,12 +1,42 @@
+const fs = require('fs')
+const { buildClientSchema } = require('graphql')
+
+const createSpectrumSchema = async () => {
+  const json = JSON.parse(
+    fs.readFileSync(`${__dirname}/src/utils/spectrumIntrospection.json`)
+  )
+  return buildClientSchema(json.data)
+}
+
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter Blog',
-    author: 'Kyle Mathews',
-    description: 'A starter blog demonstrating what Gatsby can do.',
-    siteUrl: 'https://gatsby-starter-blog-demo.netlify.com/',
+    title: 'Byteconf',
+    author: 'Bytesized',
+    description: 'A developer community for everyone',
+    siteUrl: 'https://www.byteconf.com',
   },
-  pathPrefix: '/gatsby-starter-blog',
+  // pathPrefix: '/gatsby-starter-blog',
   plugins: [
+    'gatsby-plugin-emotion',
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'SANITY',
+        fieldName: 'sanity',
+        refetchInterval: 60,
+        url: 'https://82qqyrei.api.sanity.io/v1/graphql/byteconf/default',
+      },
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'SPECTRUM',
+        fieldName: 'spectrum',
+        url: 'https://spectrum.chat/api',
+        refetchInterval: 60,
+        createSchema: createSpectrumSchema,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
