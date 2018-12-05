@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import { get } from 'lodash'
+import { get, orderBy } from 'lodash'
 
 import Event from '../components/Event'
 import Nav from '../components/Nav'
@@ -28,8 +28,8 @@ class BlogIndex extends React.Component {
           />
         </Helmet>
         <div className="container mx-auto sm:px-4 justify-center">
-          <div className="flex flex-col flex-wrap justify-between">
-            {events.map(event => (
+          <div className="flex flex-col flex-wrap justify-between mt-8">
+            {orderBy(events, 'start_date', 'desc').map(event => (
               <Event event={event} />
             ))}
           </div>
@@ -56,6 +56,7 @@ export const pageQuery = graphql`
         name
         slug
         start_date
+        youtube_playlist
       }
     }
   }
