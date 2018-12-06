@@ -20,19 +20,19 @@ const Nav = () => (
         </a>
         <a
           className="text-black text-sm font-bold uppercase mr-4 no-underline"
-          href="https://patreon.com/byteconf"
+          href="/s/patreon"
         >
           😍 Support Us
         </a>
         <a
           className="text-black text-sm font-bold uppercase mr-4 no-underline"
-          href="https://blog.byteconf.com"
+          href="/s/blog"
         >
           📰 Blog
         </a>
         <a
           className="text-black text-sm font-bold uppercase mr-4 no-underline"
-          href="https://discordapp.com/invite/KnzprSD"
+          href="/discord"
         >
           💬 Chat
         </a>
