@@ -39,7 +39,7 @@ const Layout = ({ children }) => {
   )
 }
 
-export const layoutQuery = graphql`
+const layoutQuery = graphql`
   query {
     site {
       siteMetadata {
