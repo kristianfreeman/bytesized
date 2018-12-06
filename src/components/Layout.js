@@ -27,6 +27,12 @@ const Layout = ({ children }) => {
                 href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css"
                 rel="stylesheet"
               />
+              <link rel="manifest" href="/manifest.json" />
+              <script
+                src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"
+                async
+              />
+              <script src="/oneSignal.js" async />
             </Helmet>
             <Nav />
             <div className="font-sans flex flex-col min-h-screen bg-white">
