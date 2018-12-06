@@ -17,6 +17,26 @@ module.exports = {
   },
   // pathPrefix: '/gatsby-starter-blog',
   plugins: [
+    'gatsby-plugin-emotion',
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'SANITY',
+        fieldName: 'sanity',
+        refetchInterval: 60,
+        url: 'https://82qqyrei.api.sanity.io/v1/graphql/byteconf/default',
+      },
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'SPECTRUM',
+        fieldName: 'spectrum',
+        url: 'https://spectrum.chat/api',
+        refetchInterval: 60,
+        createSchema: createSpectrumSchema,
+      },
+    },
     {
       resolve: 'gatsby-source-graphql',
       options: {
