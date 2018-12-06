@@ -1,11 +1,66 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import Helmet from 'react-helmet'
-import { get } from 'lodash'
+import { get, orderBy } from 'lodash'
 
-import Nav from '../components/Nav'
+import Event from '../components/Event'
 import Layout from '../components/Layout'
-import { rhythm } from '../utils/typography'
+
+const TODAY = new Date()
+
+const Header = () => (
+  <div className="py-4">
+    <h2 className="text-3xl font-normal py-4">
+      Free developer conferences for everyone, streamed on Twitch.
+    </h2>
+
+    <p>
+      <a
+        className="no-underline text-black"
+        href="/s/blog"
+        title="Byteconf Blog"
+      >
+        <i className="fas fa-newspaper fa-2x border-white pr-4" />
+      </a>
+      <a
+        className="no-underline text-black"
+        href="/s/newsletter"
+        title="Byteconf Newsletter"
+      >
+        <i className="fas fa-envelope fa-2x border-white p-4" />
+      </a>
+      <a
+        className="no-underline text-black"
+        href="/s/twitter"
+        title="@byteconf on Twitter"
+      >
+        <i className="fab fa-twitter fa-2x no-underline border-white p-4" />
+      </a>
+      <a
+        className="no-underline text-black"
+        href="/s/discord"
+        title="Byteconf Discord channel"
+      >
+        <i className="fab fa-discord fa-2x border-white p-4" />
+      </a>
+      <a
+        className="no-underline text-black"
+        href="/s/twitch"
+        title="@byteconf on Twitch"
+      >
+        <i className="fab fa-twitch fa-2x border-white p-4" />
+      </a>
+      <a
+        className="no-underline text-black"
+        href="/s/youtube"
+        title="@byteconf on YouTube"
+      >
+        <i className="fab fa-youtube fa-2x border-white p-4" />
+      </a>
+    </p>
+  </div>
+)
+
+const afterToday = date => new Date(date) > TODAY
 
 import styled from '@emotion/styled'
 
@@ -16,37 +71,32 @@ const Container = styled('div')`
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const siteDescription = data.site.siteMetadata.description
     const events = get(data, 'sanity.allEvents', [])
 
+    const upNext = events.filter(({ start_date }) => afterToday(start_date))
+    const previous = events.filter(({ start_date }) => !afterToday(start_date))
+
     return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <Nav />
-        <Helmet
-          htmlAttributes={{ lang: 'en' }}
-          meta={[{ name: 'description', content: siteDescription }]}
-          title={siteTitle}
-        />
-        <Container>
-          {events.map(event => {
-            return (
-              <div key={event._id}>
-                <h3
-                  style={{
-                    marginBottom: rhythm(1 / 4),
-                  }}
-                >
-                  <a href={`https://byteconf.com/${event.slug}`}>
-                    {event.name}
-                  </a>
-                </h3>
-                <p>{event.description}</p>
-                <p>{event.start_date}</p>
-              </div>
-            )
-          })}
-        </Container>
+      <Layout>
+        <div className="container mx-auto sm:px-4 justify-center">
+          <Header />
+          <div class="py-4">
+            <h3 class="uppercase tracking-wide">Coming Up</h3>
+            <div className="flex flex-wrap justify-between mt-8">
+              {orderBy(upNext, 'start_date', 'desc').map(event => (
+                <Event event={event} />
+              ))}
+            </div>
+          </div>
+          <div class="py-4">
+            <h4 class="uppercase tracking-wide">Previously</h4>
+            <div className="flex flex-wrap justify-between mt-8">
+              {orderBy(previous, 'start_date', 'desc').map(event => (
+                <Event event={event} />
+              ))}
+            </div>
+          </div>
+        </div>
       </Layout>
     )
   }
@@ -56,12 +106,6 @@ export default BlogIndex
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
     sanity {
       allEvents {
         _id
@@ -69,6 +113,9 @@ export const pageQuery = graphql`
         name
         slug
         start_date
+        youtube_playlist
+        cover_path
+        event_type
       }
     }
   }

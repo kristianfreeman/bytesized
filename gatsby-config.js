@@ -38,6 +38,25 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'SANITY',
+        fieldName: 'sanity',
+        refetchInterval: 60,
+        url: 'https://82qqyrei.api.sanity.io/v1/graphql/byteconf/default',
+      },
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'SPECTRUM',
+        fieldName: 'spectrum',
+        url: 'https://spectrum.chat/api',
+        refetchInterval: 60,
+        createSchema: createSpectrumSchema,
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages`,
@@ -89,11 +108,5 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: 'gatsby-plugin-typography',
-      options: {
-        pathToConfigModule: 'src/utils/typography',
-      },
-    },
   ],
 }

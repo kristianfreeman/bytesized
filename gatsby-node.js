@@ -1,16 +1,6 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
-exports.onCreateBabelConfig = ({ actions: { setBabelPlugin } }) => {
-  setBabelPlugin({
-    name: 'babel-plugin-tailwind-components',
-    options: {
-      config: './tailwind.config.js',
-      format: 'auto',
-    },
-  })
-}
-
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
@@ -22,4 +12,41 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
   }
+}
+
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
+
+  return new Promise((resolve, reject) => {
+    const eventTemplate = path.resolve(`src/templates/event.js`)
+    // Query for markdown nodes to use in creating pages.
+    resolve(
+      graphql(
+        `
+          {
+            sanity {
+              allEvents {
+                slug
+              }
+            }
+          }
+        `
+      ).then(result => {
+        if (result.errors) {
+          reject(result.errors)
+        }
+
+        // Create pages for each markdown file.
+        result.data.sanity.allEvents.forEach(({ slug }) => {
+          createPage({
+            path: slug,
+            component: eventTemplate,
+            context: {
+              slug,
+            },
+          })
+        })
+      })
+    )
+  })
 }
