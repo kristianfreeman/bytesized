@@ -9,6 +9,7 @@ import Schedule from '../components/Event/Schedule'
 import Sponsors from '../components/Event/Sponsors'
 
 import S3Url from '../utils/s3Url'
+import './event.css'
 
 import { graphql } from 'gatsby'
 
@@ -56,10 +57,10 @@ const Event = ({ data }) => {
   return (
     <Layout>
       <div
-        className="bg-overlay bg-black min-h-screen"
+        className="bg-cover bg-black min-h-screen"
         style={{
           background: `url(${S3Url(
-            event.coverPath || 'headers/attendees.jpg'
+            event.cover_path || 'headers/attendees.jpg'
           )})`,
         }}
       >
