@@ -101,7 +101,7 @@ export default Index
 export const pageQuery = graphql`
   query {
     sanity {
-      allEvents {
+      allEvents(where: { published: true }) {
         _id
         description
         name

@@ -12,12 +12,12 @@ import S3Url from '../utils/s3Url'
 
 import { graphql } from 'gatsby'
 
-const CFPLink = ({ event: { cfpLink, name, slug } }) => (
+const CFPLink = ({ event: { cfp_link, name, slug } }) => (
   <div className="bg-white text-black text-center py-16">
     <h3 className="text-3xl text-bold uppercase px-4">
       <a
         className="no-underline text-black hover:text-grey-darker"
-        href={cfpLink}
+        href={cfp_link}
       >
         <span className="mr-4">
           <i className="fas fa-lightbulb" />
@@ -33,7 +33,7 @@ const SponsorLink = ({ event }) => (
     <h3 className="text-3xl text-bold uppercase px-4">
       <a
         className="text-white no-underline hover:text-green-darker"
-        href={event.sponsorInterestLink}
+        href={event.sponsor_interest_link}
       >
         <span className="mr-4">
           <i className="fas fa-handshake" />
@@ -85,7 +85,7 @@ const Event = ({ data }) => {
 export const pageQuery = graphql`
   query EventQuery($slug: String!) {
     sanity {
-      allEvents(where: { slug: $slug }) {
+      allEvents(where: { published: true, slug: $slug }) {
         _id
         slug
         start_date
@@ -117,6 +117,7 @@ export const pageQuery = graphql`
           level
           time
           slides
+          position
           event_speaker {
             available_live
             speaker {
