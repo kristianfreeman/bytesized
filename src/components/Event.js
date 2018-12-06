@@ -25,7 +25,7 @@ const Event = ({ event }) => {
         <div className="px-6 py-4 flex flex-col h-full">
           <div className="font-bold text-2xl mb-2 text-white">
             <i className="mr-1 fa <%= event.icon %>" />
-            <a className="text-white" href={event.url}>
+            <a className="text-white" href={event.slug}>
               {event.name}
             </a>
           </div>

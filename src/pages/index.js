@@ -1,10 +1,8 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import Helmet from 'react-helmet'
 import { get, orderBy } from 'lodash'
 
 import Event from '../components/Event'
-import Nav from '../components/Nav'
 import Layout from '../components/Layout'
 
 const TODAY = new Date()
@@ -67,8 +65,6 @@ const afterToday = date => new Date(date) > TODAY
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const siteDescription = data.site.siteMetadata.description
     const events = get(data, 'sanity.allEvents', [])
 
     const upNext = events.filter(({ start_date }) => afterToday(start_date))
@@ -76,23 +72,6 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout>
-        <Nav />
-        <Helmet
-          htmlAttributes={{ lang: 'en' }}
-          meta={[{ name: 'description', content: siteDescription }]}
-          title={siteTitle}
-        >
-          <link
-            rel="stylesheet"
-            href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-            integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
-            crossorigin="anonymous"
-          />
-          <link
-            href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css"
-            rel="stylesheet"
-          />
-        </Helmet>
         <div className="container mx-auto sm:px-4 justify-center">
           <Header />
           <div class="py-4">
@@ -121,12 +100,6 @@ export default BlogIndex
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
     sanity {
       allEvents {
         _id
