@@ -1,6 +1,8 @@
 import React from 'react'
 import LazyLoad from 'react-lazyload'
 
+import { DateTime } from 'luxon'
+
 const s3Url = path => `https://byteconf-production.s3.amazonaws.com/${path}`
 
 const Container = ({ children, eventType, url }) => (
@@ -18,13 +20,13 @@ const Container = ({ children, eventType, url }) => (
 )
 
 const Event = ({ event }) => {
-  const parsedDate = new Date(event.start_date)
+  const parsedDate = DateTime.fromISO(event.start_date)
   return (
     <LazyLoad>
       <Container eventType={event.event_type} url={s3Url(event.cover_path)}>
         <div className="px-6 py-4 flex flex-col h-full">
           <div className="font-bold text-2xl mb-2 text-white">
-            <i className="mr-1 fa <%= event.icon %>" />
+            <i className={`mr-2 fa ${event.icon}`} />
             <a className="text-white" href={event.slug}>
               {event.name}
             </a>
@@ -35,7 +37,7 @@ const Event = ({ event }) => {
             </p>
           )}
           <p className="text-white text-lg font-bold">
-            {parsedDate.toLocaleDateString('en-US')}
+            {parsedDate.toLocaleString(DateTime.DATE_FULL)}
           </p>
           {event.youtube_playlist && (
             <p className="text-white text-sm mt-8 mb-2">

@@ -104,6 +104,7 @@ export const pageQuery = graphql`
       allEvents(where: { published: true }) {
         _id
         description
+        icon
         name
         slug
         start_date

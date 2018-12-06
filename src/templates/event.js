@@ -88,6 +88,7 @@ export const pageQuery = graphql`
       allEvents(where: { published: true, slug: $slug }) {
         _id
         slug
+        icon
         start_date
         name
         status
