@@ -62,13 +62,7 @@ const Header = () => (
 
 const afterToday = date => new Date(date) > TODAY
 
-import styled from '@emotion/styled'
-
-const Container = styled('div')`
-  ${tw`bg-overlay min-h-screen`};
-`
-
-class BlogIndex extends React.Component {
+class Index extends React.Component {
   render() {
     const { data } = this.props
     const events = get(data, 'sanity.allEvents', [])
@@ -102,7 +96,7 @@ class BlogIndex extends React.Component {
   }
 }
 
-export default BlogIndex
+export default Index
 
 export const pageQuery = graphql`
   query {
