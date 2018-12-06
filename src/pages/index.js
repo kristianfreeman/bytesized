@@ -16,42 +16,42 @@ const Header = () => (
     <p>
       <a
         className="no-underline text-black"
-        href="/s/blog"
+        href="https://blog.byteconf.com"
         title="Byteconf Blog"
       >
         <i className="fas fa-newspaper fa-2x border-white pr-4" />
       </a>
       <a
         className="no-underline text-black"
-        href="/s/newsletter"
+        href="https://mailchi.mp/bytesized/byteconf"
         title="Byteconf Newsletter"
       >
         <i className="fas fa-envelope fa-2x border-white p-4" />
       </a>
       <a
         className="no-underline text-black"
-        href="/s/twitter"
+        href="https://twitter.com/byteconf"
         title="@byteconf on Twitter"
       >
         <i className="fab fa-twitter fa-2x no-underline border-white p-4" />
       </a>
       <a
         className="no-underline text-black"
-        href="/s/discord"
+        href="https://discordapp.com/invite/KnzprSD"
         title="Byteconf Discord channel"
       >
         <i className="fab fa-discord fa-2x border-white p-4" />
       </a>
       <a
         className="no-underline text-black"
-        href="/s/twitch"
+        href="https://twitch.tv/byteconf"
         title="@byteconf on Twitch"
       >
         <i className="fab fa-twitch fa-2x border-white p-4" />
       </a>
       <a
         className="no-underline text-black"
-        href="/s/youtube"
+        href="https://youtube.com/byteconf"
         title="@byteconf on YouTube"
       >
         <i className="fab fa-youtube fa-2x border-white p-4" />

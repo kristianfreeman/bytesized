@@ -22,7 +22,7 @@ const Footer = ({ event }) => (
         <p className="py-4">
           <a
             className="uppercase font-bold text-white border-black bg-green hover:bg-red no-underline p-4 rounded-lg"
-            href="/patrons"
+            href="https://patreon.com/byteconf"
           >
             <i className="fab fa-patreon fa-2x no-underline border-white align-middle mr-2" />
             Support us on Patreon
@@ -41,26 +41,35 @@ const Footer = ({ event }) => (
         <h4 className="text-lg pb-8">Follow Us</h4>
         <p className="mb-4">
           <a
-            href="/s/twitter"
+            href="https://blog.byteconf.com"
+            className="no-underline p-4"
+            title="Byteconf Blo"
+          >
+            <i className="fa-2x fas fa-newspaper text-white no-underline border-white" />
+          </a>
+          <a
+            href="https://twitter.com/byteconf"
             className="no-underline p-4"
             title="Byteconf on Twitter"
           >
             <i className="fa-2x fab fa-twitter text-white no-underline border-white" />
           </a>
           <a
-            href="/s/discord"
+            href="https://discordapp.com/invite/KnzprSD"
             className="no-underline p-4"
             title="Byteconf on Discord"
           >
             <i className="fa-2x fab fa-discord text-white no-underline border-white" />
           </a>
           <a
-            href="/s/twitch"
+            href="https://twitch.tv/byteconf"
             className="no-underline p-4"
             title="Byteconf on Twitch"
           >
             <i className="fa-2x fab fa-twitch text-white no-underline border-white" />
           </a>
+        </p>
+        <p className="mb-4">
           <a
             href="https://github.com/byteconf"
             className="no-underline p-4"
@@ -68,24 +77,15 @@ const Footer = ({ event }) => (
           >
             <i className="fa-2x fab fa-github text-white no-underline border-white" />
           </a>
-        </p>
-        <p className="mb-4">
           <a
-            href="/s/medium"
-            className="no-underline p-4"
-            title="Byteconf on Medium"
-          >
-            <i className="fa-2x fab fa-medium text-white no-underline border-white" />
-          </a>
-          <a
-            href="/s/youtube"
+            href="https://youtube.com/byteconf"
             className="no-underline p-4"
             title="Byteconf on YouTube"
           >
             <i className="fa-2x fab fa-youtube text-white no-underline border-white" />
           </a>
           <a
-            href="/s/instagram"
+            href="https://instagram.com/byteconf"
             className="no-underline p-4"
             title="Byteconf on Instagram"
           >

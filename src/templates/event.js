@@ -48,7 +48,7 @@ const SponsorsIfReact = ({ event: { slug } }) =>
   slug === 'react-2018' && <Sponsors />
 
 const SpeakersIfConf = ({ event }) =>
-  event.eventType === 'conference' && <EventSpeakers event={event} />
+  event.event_type === 'conference' && <EventSpeakers event={event} />
 
 const Event = ({ data }) => {
   const event = data.sanity.allEvents.length && data.sanity.allEvents[0]
