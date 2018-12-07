@@ -8,7 +8,7 @@ const EventSpeakers = ({ event }) => (
 
     <div className="flex flex-wrap mt-10 mx-10 justify-center">
       {event.event_speakers.map(({ speaker }) => (
-        <Speaker key={speaker.id} speaker={speaker} />
+        <Speaker key={speaker._id} speaker={speaker} />
       ))}
     </div>
   </div>

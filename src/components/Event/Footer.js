@@ -22,7 +22,7 @@ const Footer = ({ event }) => (
         <p className="py-4">
           <a
             className="uppercase font-bold text-white border-black bg-green hover:bg-red no-underline p-4 rounded-lg"
-            href="/patrons"
+            href="/s/patreon"
           >
             <i className="fab fa-patreon fa-2x no-underline border-white align-middle mr-2" />
             Support us on Patreon

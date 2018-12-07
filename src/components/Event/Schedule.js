@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import Talk from '../Talk'
+import { orderBy } from 'lodash'
 
 const Schedule = ({ event }) => (
   <div className="bg-black text-white text-center py-16">
@@ -14,13 +15,8 @@ const Schedule = ({ event }) => (
     </div>
 
     <div className="mt-12 mx-10">
-      {event.talks.map(talk => (
-        <Talk
-          key={talk.id}
-          company={false}
-          social={false}
-          talk={talk}
-        />
+      {orderBy(event.talks, 'position').map(talk => (
+        <Talk key={talk._id} company={false} social={false} talk={talk} />
       ))}
     </div>
   </div>

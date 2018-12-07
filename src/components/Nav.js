@@ -14,19 +14,19 @@ const Nav = () => (
       <div className="hidden md:flex items-center justify-center">
         <a
           className="text-black text-sm font-bold uppercase mr-4 no-underline"
-          href="/sponsor"
+          href="https://bytesized.typeform.com/to/wBXCdI"
         >
           🙌 Sponsor
         </a>
         <a
           className="text-black text-sm font-bold uppercase mr-4 no-underline"
-          href="/patrons"
+          href="/s/patreon"
         >
           😍 Support Us
         </a>
         <a
           className="text-black text-sm font-bold uppercase mr-4 no-underline"
-          href="https://www.byteconf.com/s/blog"
+          href="/s/blog"
         >
           📰 Blog
         </a>

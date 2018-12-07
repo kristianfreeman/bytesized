@@ -17,13 +17,12 @@ module.exports = {
   },
   // pathPrefix: '/gatsby-starter-blog',
   plugins: [
-    'gatsby-plugin-emotion',
     {
       resolve: 'gatsby-source-graphql',
       options: {
         typeName: 'SANITY',
         fieldName: 'sanity',
-        refetchInterval: 60,
+        refetchInterval: 15,
         url: 'https://82qqyrei.api.sanity.io/v1/graphql/byteconf/default',
       },
     },
@@ -33,26 +32,7 @@ module.exports = {
         typeName: 'SPECTRUM',
         fieldName: 'spectrum',
         url: 'https://spectrum.chat/api',
-        refetchInterval: 60,
-        createSchema: createSpectrumSchema,
-      },
-    },
-    {
-      resolve: 'gatsby-source-graphql',
-      options: {
-        typeName: 'SANITY',
-        fieldName: 'sanity',
-        refetchInterval: 60,
-        url: 'https://82qqyrei.api.sanity.io/v1/graphql/byteconf/default',
-      },
-    },
-    {
-      resolve: 'gatsby-source-graphql',
-      options: {
-        typeName: 'SPECTRUM',
-        fieldName: 'spectrum',
-        url: 'https://spectrum.chat/api',
-        refetchInterval: 60,
+        refetchInterval: 15,
         createSchema: createSpectrumSchema,
       },
     },
@@ -90,19 +70,19 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-107917910-6`,
       },
     },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Byteconf`,
+        short_name: `Byteconf`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/assets/gatsby-icon.png`,
+        icon: `src/assets/byteconf-full.png`,
       },
     },
     `gatsby-plugin-offline`,

@@ -9,15 +9,16 @@ import Schedule from '../components/Event/Schedule'
 import Sponsors from '../components/Event/Sponsors'
 
 import S3Url from '../utils/s3Url'
+import './event.css'
 
 import { graphql } from 'gatsby'
 
-const CFPLink = ({ event: { cfpLink, name, slug } }) => (
+const CFPLink = ({ event: { cfp_link, name, slug } }) => (
   <div className="bg-white text-black text-center py-16">
     <h3 className="text-3xl text-bold uppercase px-4">
       <a
         className="no-underline text-black hover:text-grey-darker"
-        href={cfpLink}
+        href={cfp_link}
       >
         <span className="mr-4">
           <i className="fas fa-lightbulb" />
@@ -33,7 +34,7 @@ const SponsorLink = ({ event }) => (
     <h3 className="text-3xl text-bold uppercase px-4">
       <a
         className="text-white no-underline hover:text-green-darker"
-        href={event.sponsorInterestLink}
+        href={event.sponsor_interest_link}
       >
         <span className="mr-4">
           <i className="fas fa-handshake" />
@@ -48,7 +49,7 @@ const SponsorsIfReact = ({ event: { slug } }) =>
   slug === 'react-2018' && <Sponsors />
 
 const SpeakersIfConf = ({ event }) =>
-  event.eventType === 'conference' && <EventSpeakers event={event} />
+  event.event_type === 'conference' && <EventSpeakers event={event} />
 
 const Event = ({ data }) => {
   const event = data.sanity.allEvents.length && data.sanity.allEvents[0]
@@ -56,10 +57,10 @@ const Event = ({ data }) => {
   return (
     <Layout>
       <div
-        className="bg-overlay bg-black min-h-screen"
+        className="bg-cover bg-black min-h-screen"
         style={{
           background: `url(${S3Url(
-            event.coverPath || 'headers/attendees.jpg'
+            event.cover_path || 'headers/attendees.jpg'
           )})`,
         }}
       >
@@ -85,9 +86,10 @@ const Event = ({ data }) => {
 export const pageQuery = graphql`
   query EventQuery($slug: String!) {
     sanity {
-      allEvents(where: { slug: $slug }) {
+      allEvents(where: { published: true, slug: $slug }) {
         _id
         slug
+        icon
         start_date
         name
         status
@@ -117,6 +119,7 @@ export const pageQuery = graphql`
           level
           time
           slides
+          position
           event_speaker {
             available_live
             speaker {
