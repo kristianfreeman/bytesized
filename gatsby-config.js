@@ -18,6 +18,14 @@ module.exports = {
   // pathPrefix: '/gatsby-starter-blog',
   plugins: [
     {
+      resolve: `gatsby-source-ghost`,
+      options: {
+        apiUrl: `https://blog.byteconf.com`,
+        clientId: `ghost-frontend`,
+        clientSecret: `4e07c342dd06`,
+      },
+    },
+    {
       resolve: 'gatsby-source-graphql',
       options: {
         typeName: 'SANITY',
