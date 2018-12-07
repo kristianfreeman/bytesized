@@ -5,6 +5,8 @@ import { get, orderBy } from 'lodash'
 import Event from '../components/Event'
 import Layout from '../components/Layout'
 
+import s3Url from '../utils/s3Url'
+
 const TODAY = new Date()
 
 const NewPost = ({ post: { node } }) => (
@@ -88,10 +90,55 @@ const Header = () => (
 
 const afterToday = date => new Date(date) > TODAY
 
+const Patreon = () => (
+  <div class="p-4">
+    <div class="pb-2">
+      <p class="block leading-normal text-lg py-8">
+        Support our mission of bringing developer conferences to everyone, for
+        as little as $2/mo. You'll get a shoutout in future streams, and access
+        to exclusive content, Discord channels, and more.
+      </p>
+
+      <div class="mb-4">
+        <p>
+          <a
+            class="uppercase font-bold text-white border-black bg-green hover:bg-red no-underline p-4 rounded-lg"
+            href="/patrons"
+          >
+            <i class="fab fa-patreon fa-2x no-underline border-white align-middle mr-2" />
+            Support us on Patreon
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+)
+
+const Sponsors = ({ sponsors }) => (
+  <div class="p-4">
+    <h3 class="text-black uppercase tracking-wide">Sponsors</h3>
+    <div class="py-8 md:flex items-center sm:w-full md:w-2/3">
+      {sponsors.map(sponsor => (
+        <div className="sm:w-full md:w-50 pr-4 py-4 md:py-0">
+          <a href={sponsor.url}>
+            <img src={s3Url(sponsor.image)} alt={sponsor.name} />
+          </a>
+        </div>
+      ))}
+    </div>
+    <div className="py-8 md:flex items-center sm:w-full md:w-2/3">
+      <a className="text-white no-underline uppercase" href="/sponsor">
+        Become a sponsor →
+      </a>
+    </div>
+  </div>
+)
+
 class Index extends React.Component {
   render() {
     const { data } = this.props
     const events = get(data, 'sanity.allEvents', [])
+    const sponsors = get(data, 'sanity.allSponsors', [])
     const posts = get(data, 'allGhostPost.edges', [])
     const recentPost = posts.length && posts[0]
 
@@ -119,6 +166,10 @@ class Index extends React.Component {
               ))}
             </div>
           </div>
+          <div className="py-4">
+            <Patreon />
+            <Sponsors sponsors={sponsors} />
+          </div>
         </div>
       </Layout>
     )
@@ -140,6 +191,12 @@ export const pageQuery = graphql`
         youtube_playlist
         cover_path
         event_type
+      }
+      allSponsors(where: { type: "homepage" }) {
+        _id
+        name
+        image
+        url
       }
     }
     allGhostPost(limit: 1, sort: { order: DESC, fields: [published_at] }) {

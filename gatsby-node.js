@@ -66,6 +66,14 @@ exports.createPages = ({ graphql, actions }) => {
       fromPath: '/s/twitter',
       toPath: 'https://twitter.com/byteconf',
     },
+    {
+      fromPath: '/sponsor',
+      toPath: 'https://bytesized.typeform.com/to/wBXCdI',
+    },
+    {
+      fromPath: '/sponsors',
+      toPath: 'https://bytesized.typeform.com/to/wBXCdI',
+    },
   ]
 
   routes.forEach(({ fromPath, toPath, redirectInBrowser = true }) => {
