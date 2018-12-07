@@ -39,6 +39,10 @@ exports.createPages = ({ graphql, actions }) => {
       toPath: 'https://patreon.com/byteconf',
     },
     {
+      fromPath: '/patrons',
+      toPath: 'https://patreon.com/byteconf',
+    },
+    {
       fromPath: '/s/twitch',
       toPath: 'https://twitch.tv/byteconf',
     },
