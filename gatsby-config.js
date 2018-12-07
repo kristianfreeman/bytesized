@@ -22,7 +22,7 @@ module.exports = {
       options: {
         apiUrl: `https://blog.byteconf.com`,
         clientId: `ghost-frontend`,
-        clientSecret: `4e07c342dd06`,
+        clientSecret: process.env.GHOST_SECRET,
       },
     },
     {
