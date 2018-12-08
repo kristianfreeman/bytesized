@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const fs = require('fs')
 const { buildClientSchema } = require('graphql')
 
@@ -17,6 +19,7 @@ module.exports = {
   },
   // pathPrefix: '/gatsby-starter-blog',
   plugins: [
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-ghost`,
       options: {

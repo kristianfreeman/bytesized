@@ -11,7 +11,7 @@ const TODAY = new Date()
 
 const NewPost = ({ post: { node } }) => (
   <div className="pb-8">
-    <a href={node.url} className="no-underline" title={node.title}>
+    <a href={`/blog/${node.slug}`} className="no-underline" title={node.title}>
       <div
         className="flex-wrap p-2 hover:bg-yellow bg-yellow-dark items-center text-black leading-none rounded lg:rounded-full flex lg:inline-flex"
         role="alert"
@@ -207,7 +207,7 @@ export const pageQuery = graphql`
           featured
           feature_image
           published_at
-          url
+          slug
           primary_author {
             name
           }

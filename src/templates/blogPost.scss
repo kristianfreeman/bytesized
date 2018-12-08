@@ -1,0 +1,27 @@
+.blog-post {
+  font-size: 125%;
+  line-height: 1.75rem;
+
+  .author { p { margin-bottom: 0; } }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  pre,
+  ul,
+  ol { margin-bottom: 1.5rem; }
+
+  figure {
+    margin: 2rem 0;
+
+    figcaption {
+      color: #808080;
+      margin-top: 15px;
+      text-align: center;
+    }
+  }
+}

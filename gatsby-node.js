@@ -86,6 +86,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
     const eventTemplate = path.resolve(`src/templates/event.js`)
+    const postTemplate = path.resolve(`src/templates/blogPost.js`)
     // Query for markdown nodes to use in creating pages.
     resolve(
       graphql(
@@ -96,12 +97,29 @@ exports.createPages = ({ graphql, actions }) => {
                 slug
               }
             }
+            allGhostPost {
+              edges {
+                node {
+                  slug
+                }
+              }
+            }
           }
         `
       ).then(result => {
         if (result.errors) {
           reject(result.errors)
         }
+
+        result.data.allGhostPost.edges.forEach(({ node: { slug } }) => {
+          createPage({
+            path: `/blog/${slug}`,
+            component: postTemplate,
+            context: {
+              slug,
+            },
+          })
+        })
 
         // Create pages for each markdown file.
         result.data.sanity.allEvents.forEach(({ slug }) => {
