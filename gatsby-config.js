@@ -17,7 +17,6 @@ module.exports = {
     description: 'A developer community for everyone',
     siteUrl: 'https://www.byteconf.com',
   },
-  // pathPrefix: '/gatsby-starter-blog',
   plugins: [
     `gatsby-plugin-sass`,
     {
@@ -25,7 +24,7 @@ module.exports = {
       options: {
         apiUrl: `https://blog.byteconf.com`,
         clientId: `ghost-frontend`,
-        clientSecret: process.env.GHOST_SECRET,
+        clientSecret: `a9581dc692c6`,
       },
     },
     {
