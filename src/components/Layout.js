@@ -52,9 +52,53 @@ const Layout = ({ children }) => {
               <meta property="og:url" content="https://www.byteconf.com/" />
               <meta name="twitter:card" content="summary_large_image" />
               <meta name="twitter:site" content="@byteconf" />
+              <script
+                async
+                src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/prism.min.js"
+              />
+              <script
+                async
+                src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/plugins/line-numbers/prism-line-numbers.min.js"
+              />
+              <link
+                rel="stylesheet"
+                type="text/css"
+                href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/themes/prism.min.css"
+              />
+              <link
+                rel="stylesheet"
+                type="text/css"
+                href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/plugins/line-numbers/prism-line-numbers.min.css"
+              />
+              <link
+                rel="stylesheet"
+                type="text/css"
+                href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/themes/prism-coy.min.css"
+              />
+
+              <script
+                async
+                src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-css.min.js"
+              />
+              <script
+                async
+                src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-html.min.js"
+              />
+              <script
+                async
+                src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-javascript.min.js"
+              />
+              <script
+                async
+                src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-jsx.min.js"
+              />
+              <script
+                async
+                src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-sql.min.js"
+              />
             </Helmet>
             <Nav />
-            <div className="font-sans flex flex-col min-h-screen bg-white">
+            <div className="pt-12 font-sans flex flex-col min-h-screen bg-white">
               {children}
             </div>
           </React.Fragment>

@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
 const Nav = () => (
-  <div className="bg-white w-full px-4 border-b">
+  <div className="bg-white w-full px-4 border-b fixed">
     <div className="flex flex-wrap md:justify-between py-4 container mx-auto">
       <div className="flex-1 flex items-center">
         <a
@@ -24,12 +25,12 @@ const Nav = () => (
         >
           😍 Support Us
         </a>
-        <a
+        <Link
           className="text-black text-sm font-bold uppercase mr-4 no-underline"
-          href="/s/blog"
+          to="/blog"
         >
           📰 Blog
-        </a>
+        </Link>
         <a
           className="text-black text-sm font-bold uppercase mr-4 no-underline"
           href="/discord"
