@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 const Nav = () => (
-  <div className="bg-white w-full px-4 border-b fixed">
+  <div className="bg-white w-full px-4 border-b fixed z-50">
     <div className="flex flex-wrap md:justify-between py-4 container mx-auto">
       <div className="flex-1 flex items-center">
         <a
