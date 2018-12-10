@@ -1,5 +1,6 @@
 import * as React from 'react'
 
+import { Helmet } from 'react-helmet'
 import Layout from '../components/Layout'
 import { graphql } from 'gatsby'
 
@@ -48,6 +49,14 @@ const Post = ({ data }) => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>{post.title} | Byteconf</title>
+        <meta property="og:title" content={post.title} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={post.feature_image} />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:site" content="@byteconf" />
+      </Helmet>
       <div className="container max-w-lg mx-auto text-center pt-8">
         <div className="uppercase tracking-wide text-blue font-semibold pb-4">
           {new Date(post.published_at).toLocaleDateString('en-US')}{' '}
@@ -75,6 +84,7 @@ export const pageQuery = graphql`
       id
       html
       title
+      feature_image
       published_at
       primary_tag {
         name
