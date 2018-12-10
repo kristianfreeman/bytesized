@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import { Helmet } from 'react-helmet'
+
 import Layout from '../components/Layout'
 import EventHeader from '../components/Event/Header'
 import EventHero from '../components/Event/Hero'
@@ -53,15 +55,24 @@ const SpeakersIfConf = ({ event }) =>
 
 const Event = ({ data }) => {
   const event = data.sanity.allEvents.length && data.sanity.allEvents[0]
+  const cover = S3Url(event.cover_path || 'headers/attendees.jpg')
 
   return (
     <Layout>
+      <Helmet>
+        <title>{event.name} | Byteconf</title>
+        <meta name="description" content={event.simple_copy} />
+        <meta property="og:title" content={event.name} />
+        <meta property="og:description" content={event.simple_copy} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={cover} />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:site" content="@byteconf" />
+      </Helmet>
       <div
         className="bg-cover bg-black min-h-screen"
         style={{
-          background: `url(${S3Url(
-            event.cover_path || 'headers/attendees.jpg'
-          )})`,
+          background: `url(${cover})`,
         }}
       >
         <EventHero event={event} />
