@@ -74,6 +74,10 @@ exports.createPages = ({ graphql, actions }) => {
       fromPath: '/sponsors',
       toPath: 'https://bytesized.typeform.com/to/wBXCdI',
     },
+    {
+      fromPath: '/merry',
+      toPath: 'https://gleam.io/nWZ4c/a-very-merry-byteconf',
+    },
   ]
 
   routes.forEach(({ fromPath, toPath, redirectInBrowser = true }) => {
