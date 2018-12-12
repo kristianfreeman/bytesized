@@ -153,7 +153,7 @@ class Index extends React.Component {
           <div className="py-4">
             <h3 className="uppercase tracking-wide">Coming Up</h3>
             <div className="flex flex-wrap justify-between mt-8">
-              {orderBy(upNext, 'start_date', 'desc').map(event => (
+              {orderBy(upNext, 'start_date', 'asc').map(event => (
                 <Event event={event} key={event._id} />
               ))}
             </div>
