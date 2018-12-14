@@ -67,17 +67,17 @@ exports.createPages = ({ graphql, actions }) => {
       toPath: 'https://twitter.com/byteconf',
     },
     {
+      fromPath: '/s/periscope',
+      toPath: 'https://www.pscp.tv/byteconf',
+    },
+    {
       fromPath: '/sponsor',
       toPath: 'https://bytesized.typeform.com/to/wBXCdI',
     },
     {
       fromPath: '/sponsors',
       toPath: 'https://bytesized.typeform.com/to/wBXCdI',
-    },
-    {
-      fromPath: '/merry',
-      toPath: 'https://bit.ly/merrybyteconf',
-    },
+    }
   ]
 
   routes.forEach(({ fromPath, toPath, redirectInBrowser = true }) => {
