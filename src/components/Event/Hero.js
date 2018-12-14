@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import * as moment from 'moment'
 import RelativeTime from '../RelativeTime'
+import ReactTwitchEmbedVideo from 'react-twitch-embed-video'
 
 class EventHero extends React.Component {
   render() {
@@ -32,6 +33,7 @@ class EventHero extends React.Component {
           </div>
 
           <div className="mt-4">
+            <ReactTwitchEmbedVideo channel="byteconf" />
             {event.youtube_playlist && (
               <div className="mt-8">
                 <a
