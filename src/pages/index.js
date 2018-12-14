@@ -7,6 +7,8 @@ import Layout from '../components/Layout'
 
 import s3Url from '../utils/s3Url'
 
+import moment from 'moment'
+
 const TODAY = new Date()
 
 const NewPost = ({ post: { node } }) => (
@@ -88,6 +90,8 @@ const Header = () => (
   </div>
 )
 
+const isToday = date => moment(date).isSame(TODAY, 'day')
+
 const afterToday = date => new Date(date) > TODAY
 
 const Patreon = () => (
@@ -142,6 +146,7 @@ class Index extends React.Component {
     const posts = get(data, 'allGhostPost.edges', [])
     const recentPost = posts.length && posts[0]
 
+    const today = events.filter(({ start_date }) => isToday(start_date))
     const upNext = events.filter(({ start_date }) => afterToday(start_date))
     const previous = events.filter(({ start_date }) => !afterToday(start_date))
 
@@ -150,6 +155,13 @@ class Index extends React.Component {
         <div className="container mx-auto sm:px-4 justify-center">
           <Header />
           {recentPost && <NewPost post={recentPost} />}
+          {today && (
+            <div className="mb-12">
+              {today.map(event => (
+                <Event event={event} key={event._id} live />
+              ))}
+            </div>
+          )}
           <div className="py-4">
             <h3 className="uppercase tracking-wide">Coming Up</h3>
             <div className="flex flex-wrap justify-between mt-8">
