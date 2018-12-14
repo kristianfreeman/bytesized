@@ -39,14 +39,6 @@ const Event = ({ event, live = false }) => {
           <p className="text-white text-lg font-bold">
             {parsedDate.toLocaleString(DateTime.DATE_FULL)}
           </p>
-          {live && (
-            <p className="text-white text-lg font-bold py-4 uppercase tracked">
-              <i className="fas fa-video mr-2" />
-              <a className="text-white" href={event.slug}>
-                Live right now - tune in
-              </a>
-            </p>
-          )}
           {event.youtube_playlist && (
             <p className="text-white text-sm mt-8 mb-2">
               <a

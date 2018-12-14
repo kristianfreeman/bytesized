@@ -32,13 +32,6 @@ class EventHero extends React.Component {
           </div>
 
           <div className="mt-4">
-            <a
-              className="py-2 px-3 rounded-lg bg-black no-underline hover:underline text-white"
-              href="/s/twitch"
-            >
-              <i className="fab fa-youtube mr-2" />
-              Watch {event.name} on Twitch
-            </a>
             {event.youtube_playlist && (
               <div className="mt-8">
                 <a
