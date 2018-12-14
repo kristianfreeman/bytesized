@@ -76,7 +76,7 @@ exports.createPages = ({ graphql, actions }) => {
     },
     {
       fromPath: '/merry',
-      toPath: 'https://gleam.io/nWZ4c/a-very-merry-byteconf',
+      toPath: 'https://bit.ly/merrybyteconf',
     },
   ]
 

@@ -7,7 +7,7 @@ const Nav = () => (
       <p className="font-semibold uppercase text-center">
         <i className="fa fa-tree mr-2 text-white" />
         <a className="no-underline text-white hover:underline" href="/merry">
-          We're giving away over $700 in web dev courses, subscriptions and more
+          We're giving away over $2000 in web dev courses, subscriptions and more
         </a>
         <i className="fa fa-tree ml-2 text-white" />
       </p>
