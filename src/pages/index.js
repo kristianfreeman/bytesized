@@ -95,7 +95,7 @@ const isToday = date => moment(date).isSame(TODAY, 'day')
 const afterToday = date => new Date(date) > TODAY
 
 const Patreon = () => (
-  <div class="p-4">
+  <div class="py-2 md:py-4">
     <div class="pb-2">
       <p class="block leading-normal text-lg py-8">
         Support our mission of bringing developer conferences to everyone, for
@@ -119,7 +119,7 @@ const Patreon = () => (
 )
 
 const Sponsors = ({ sponsors }) => (
-  <div class="p-4">
+  <div class="py-4">
     <h3 class="text-black uppercase tracking-wide">Sponsors</h3>
     <div class="py-8 md:flex items-center sm:w-full md:w-2/3">
       {sponsors.map(sponsor => (
@@ -152,7 +152,7 @@ class Index extends React.Component {
 
     return (
       <Layout>
-        <div className="container mx-auto sm:px-4 justify-center">
+        <div className="container mx-auto pt-8 md:pt-0 sm:px-4 justify-center">
           <Header />
           {recentPost && <NewPost post={recentPost} />}
           {today.length > 0 && (

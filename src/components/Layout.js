@@ -98,7 +98,7 @@ const Layout = ({ children }) => {
               />
             </Helmet>
             <Nav />
-            <div className="pt-16 font-sans flex flex-col min-h-screen bg-white">
+            <div className="pt-16 font-sans flex flex-col min-h-screen bg-white mx-2 md:mx-0">
               {children}
             </div>
           </React.Fragment>
