@@ -155,7 +155,7 @@ class Index extends React.Component {
         <div className="container mx-auto sm:px-4 justify-center">
           <Header />
           {recentPost && <NewPost post={recentPost} />}
-          {today && (
+          {today.length > 0 && (
             <div className="mb-12">
               {today.map(event => (
                 <Event event={event} key={event._id} live />
