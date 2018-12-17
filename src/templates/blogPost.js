@@ -53,7 +53,15 @@ const Post = ({ data }) => {
         <title>{post.title} | Byteconf</title>
         <meta property="og:title" content={post.title} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={post.feature_image} />
+        {post.feature_image && (
+          <meta property="twitter:image" content={post.feature_image} />
+        )}
+        {post.feature_image && (
+          <meta property="og:image" content={post.feature_image} />
+        )}
+        {post.custom_excerpt && (
+          <meta property="twitter:description" content={post.custom_excerpt} />
+        )}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:site" content="@byteconf" />
       </Helmet>
@@ -82,6 +90,8 @@ export const pageQuery = graphql`
   query BlogPostQuery($slug: String!) {
     ghostPost(slug: { eq: $slug }) {
       id
+      custom_excerpt
+      feature_image
       html
       title
       feature_image
