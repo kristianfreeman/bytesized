@@ -164,7 +164,7 @@ class Index extends React.Component {
           )}
           <div className="py-4">
             <h3 className="uppercase tracking-wide">Coming Up</h3>
-            <div className="flex flex-wrap justify-between mt-8">
+            <div className="p-2 mt-8">
               {orderBy(upNext, 'start_date', 'asc').map(event => (
                 <Event event={event} key={event._id} />
               ))}
@@ -172,7 +172,7 @@ class Index extends React.Component {
           </div>
           <div className="py-4">
             <h4 className="uppercase tracking-wide">Previously</h4>
-            <div className="flex flex-wrap justify-between mt-8">
+            <div className="p-2 mt-8">
               {orderBy(previous, 'start_date', 'desc').map(event => (
                 <Event event={event} key={event._id} />
               ))}
