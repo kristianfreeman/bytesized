@@ -98,9 +98,7 @@ const Patreon = () => (
   <div class="py-2 md:py-4">
     <div class="pb-2">
       <p class="block leading-normal text-lg py-8">
-        Support our mission of bringing developer conferences to everyone, for
-        as little as $2/mo. You'll get a shoutout in future streams, and access
-        to exclusive content, Discord channels, and more.
+        {"Support our mission of bringing developer conferences to everyone, for as little as $2/mo. You'll get a shoutout in future streams, and access to exclusive content, Discord channels, and more."}
       </p>
 
       <div class="mb-4">
