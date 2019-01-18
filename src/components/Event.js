@@ -1,5 +1,4 @@
 import React from 'react'
-import LazyLoad from 'react-lazyload'
 
 import { DateTime } from 'luxon'
 
@@ -22,39 +21,37 @@ const Container = ({ children, eventType, url }) => (
 const Event = ({ event, live = false }) => {
   const parsedDate = DateTime.fromISO(event.start_date)
   return (
-    <LazyLoad>
-      <Container eventType={event.event_type} url={s3Url(event.cover_path)}>
-        <div className={`px-6 py-${live ? 12 : 4} flex flex-col h-full`}>
-          <div className="font-bold text-2xl mb-2 text-white">
-            <i className={`mr-2 fa ${event.icon}`} />
-            <a className="text-white" href={event.slug}>
-              {event.name}
-            </a>
-          </div>
-          {Date.parse(event.start_date) > Date.now() && (
-            <p className="text-white text-lg pt-4 pb-6 flex-grow">
-              {event.description}
-            </p>
-          )}
-          <p className="text-white text-lg font-bold">
-            {parsedDate.toLocaleString(DateTime.DATE_FULL)}
-          </p>
-          {event.youtube_playlist && (
-            <p className="text-white text-sm mt-8 mb-2">
-              <a
-                href={event.youtube_playlist}
-                className="no-underline text-white"
-              >
-                <i className="fab fa-youtube mr-1 text-white" />{' '}
-                <span className="text-white no-underline hover:underline">
-                  Watch on YouTube
-                </span>
-              </a>
-            </p>
-          )}
+    <Container eventType={event.event_type} url={s3Url(event.cover_path)}>
+      <div className={`px-6 py-${live ? 12 : 4} flex flex-col h-full`}>
+        <div className="font-bold text-2xl mb-2 text-white">
+          <i className={`mr-2 fa ${event.icon}`} />
+          <a className="text-white" href={event.slug}>
+            {event.name}
+          </a>
         </div>
-      </Container>
-    </LazyLoad>
+        {Date.parse(event.start_date) > Date.now() && (
+          <p className="text-white text-lg pt-4 pb-6 flex-grow">
+            {event.description}
+          </p>
+        )}
+        <p className="text-white text-lg font-bold">
+          {parsedDate.toLocaleString(DateTime.DATE_FULL)}
+        </p>
+        {event.youtube_playlist && (
+          <p className="text-white text-sm mt-8 mb-2">
+            <a
+              href={event.youtube_playlist}
+              className="no-underline text-white"
+            >
+              <i className="fab fa-youtube mr-1 text-white" />{' '}
+              <span className="text-white no-underline hover:underline">
+                Watch on YouTube
+              </span>
+            </a>
+          </p>
+        )}
+      </div>
+    </Container>
   )
 }
 
