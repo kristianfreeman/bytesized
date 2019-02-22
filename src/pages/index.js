@@ -67,6 +67,13 @@ const Header = () => (
       </a>
       <a
         className="no-underline text-black"
+        href="https://t.me/byteconf"
+        title="Byteconf Telegram channel"
+      >
+        <i className="fab fa-telegram fa-2x border-white p-4" />
+      </a>
+      <a
+        className="no-underline text-black"
         href="/s/discord"
         title="Byteconf Discord channel"
       >
@@ -98,7 +105,9 @@ const Patreon = () => (
   <div class="py-2 md:py-4">
     <div class="pb-2">
       <p class="block leading-normal text-lg py-8">
-        {"Support our mission of bringing developer conferences to everyone, for as little as $2/mo. You'll get a shoutout in future streams, and access to exclusive content, Discord channels, and more."}
+        {
+          "Support our mission of bringing developer conferences to everyone, for as little as $2/mo. You'll get a shoutout in future streams, and access to exclusive content, Discord channels, and more."
+        }
       </p>
 
       <div class="mb-4">
@@ -176,10 +185,6 @@ class Index extends React.Component {
               ))}
             </div>
           </div>
-          <div className="py-4">
-            <Patreon />
-            <Sponsors sponsors={sponsors} />
-          </div>
         </div>
       </Layout>
     )
@@ -198,6 +203,7 @@ export const pageQuery = graphql`
         name
         slug
         start_date
+        end_date
         youtube_playlist
         cover_path
         event_type

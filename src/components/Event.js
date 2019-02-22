@@ -1,6 +1,22 @@
 import React from 'react'
 
 import { DateTime } from 'luxon'
+import RelativeTime from './RelativeTime'
+
+const DateString = ({ start_date, end_date }) => {
+  const start = DateTime.fromISO(start_date)
+  const end = DateTime.fromISO(end_date)
+
+  if (start.hasSame(end, 'day')) {
+    return <RelativeTime date={start_date} />
+  } else {
+    return (
+      <div>
+        <RelativeTime date={start_date} /> to <RelativeTime date={end_date} />
+      </div>
+    )
+  }
+}
 
 const s3Url = path => `https://byteconf-production.s3.amazonaws.com/${path}`
 
@@ -35,7 +51,7 @@ const Event = ({ event, live = false }) => {
           </p>
         )}
         <p className="text-white text-lg font-bold">
-          {parsedDate.toLocaleString(DateTime.DATE_FULL)}
+          <DateString start_date={event.start_date} end_date={event.end_date} />
         </p>
         {event.youtube_playlist && (
           <p className="text-white text-sm mt-8 mb-2">

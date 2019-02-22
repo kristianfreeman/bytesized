@@ -1,43 +1,52 @@
 import * as React from 'react'
 
 import RelativeTime from '../RelativeTime'
-
 import S3Url from '../../utils/s3Url'
+import { DateTime } from 'luxon'
+
+const DateString = ({ start_date, end_date }) => {
+  const start = DateTime.fromISO(start_date)
+  const end = DateTime.fromISO(end_date)
+
+  if (start.hasSame(end, 'day')) {
+    return <RelativeTime date={start_date} />
+  } else {
+    return (
+      <div>
+        <RelativeTime date={start_date} /> to <RelativeTime date={end_date} />
+      </div>
+    )
+  }
+}
 
 const Footer = ({ event }) => (
   <div className="bg-purple-darkest text-white p-8">
     <div className="flex flex-wrap m-5">
-      <div className="sm:w-full md:w-1/3">
-        <h4 className="text-lg mb-4 mr-4">
-          {event.name} - <RelativeTime date={event.start_date} />
+      <div className="sm:w-full md:w-1/3 pb-4">
+        <h4 className="text-lg mb-4 pr-8">
+          {event.name} -{' '}
+          <DateString start_date={event.start_date} end_date={event.end_date} />
         </h4>
         <p>{event.location}</p>
       </div>
 
-      <div className="sm:w-full md:w-1/3 mb-4 md:mb-0">
-        <h4 className="text-md sm:pt-4 md:pt-0 mb-4 lg:mr-8">
-          Are you interested in supporting Byteconf's mission of free developer
-          conferences for everyone?
-        </h4>
-        <p className="py-4">
-          <a
-            className="uppercase font-bold text-white border-black bg-green hover:bg-red no-underline p-4 rounded-lg"
-            href="/s/patreon"
-          >
-            <i className="fab fa-patreon fa-2x no-underline border-white align-middle mr-2" />
-            Support us on Patreon
-          </a>
-        </p>
-      </div>
-
-      <div className="sm:w-full md:w-1/3">
+      <div className="sm:w-full md:w-1/3 pb-4">
         <h4 className="text-lg mb-4">Contact Us</h4>
-        <p className="mb-8">
+        <p class="mb-4">
           Email:{' '}
           <a href="mailto:conf@bytesized.xyz" className="text-grey">
             conf@bytesized.xyz
           </a>
         </p>
+        <p className="mb-8 pb-4">
+          Byteconf attendees are expected to follow our{' '}
+          <a class="text-grey" href="http://confcodeofconduct.com/">
+            Conference Code of Conduct
+          </a>
+          .
+        </p>
+      </div>
+      <div className="sm:w-full md:w-1/3">
         <h4 className="text-lg pb-8">Follow Us</h4>
         <p className="mb-4">
           <a
@@ -46,6 +55,13 @@ const Footer = ({ event }) => (
             title="Byteconf on Twitter"
           >
             <i className="fa-2x fab fa-twitter text-white no-underline border-white" />
+          </a>
+          <a
+            href="https://t.me/byteconf"
+            className="no-underline p-4"
+            title="Byteconf on Telegram"
+          >
+            <i className="fa-2x fab fa-telegram text-white no-underline border-white" />
           </a>
           <a
             href="/s/discord"
@@ -61,6 +77,8 @@ const Footer = ({ event }) => (
           >
             <i className="fa-2x fab fa-twitch text-white no-underline border-white" />
           </a>
+        </p>
+        <p className="mb-4">
           <a
             href="https://github.com/byteconf"
             className="no-underline p-4"
@@ -68,8 +86,6 @@ const Footer = ({ event }) => (
           >
             <i className="fa-2x fab fa-github text-white no-underline border-white" />
           </a>
-        </p>
-        <p className="mb-4">
           <a
             href="/s/medium"
             className="no-underline p-4"

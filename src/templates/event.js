@@ -102,6 +102,7 @@ export const pageQuery = graphql`
         slug
         icon
         start_date
+        end_date
         name
         status
         location

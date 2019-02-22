@@ -15,15 +15,9 @@ const Nav = () => (
       <div className="hidden md:flex items-center justify-center">
         <a
           className="text-black text-sm font-bold uppercase mr-4 no-underline"
-          href="https://bytesized.typeform.com/to/wBXCdI"
+          href="http://confcodeofconduct.com/"
         >
-          🙌 Sponsor
-        </a>
-        <a
-          className="text-black text-sm font-bold uppercase mr-4 no-underline"
-          href="/s/patreon"
-        >
-          😍 Support Us
+          😍 Code of Conduct
         </a>
         <Link
           className="text-black text-sm font-bold uppercase mr-4 no-underline"
@@ -33,7 +27,7 @@ const Nav = () => (
         </Link>
         <a
           className="text-black text-sm font-bold uppercase mr-4 no-underline"
-          href="/discord"
+          href="https://t.me/byteconf"
         >
           💬 Chat
         </a>
