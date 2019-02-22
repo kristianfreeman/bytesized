@@ -50,8 +50,13 @@ const Post = ({ data }) => {
   return (
     <Layout>
       <Helmet>
-        <title>{post.title} | Byteconf</title>
-        <meta property="og:title" content={post.title} />
+        <title>
+          {post.title} - {post.primary_author.name} | Byteconf
+        </title>
+        <meta
+          property="og:title"
+          content={`${post.title} - ${post.primary_author.name}`}
+        />
         <meta property="og:type" content="website" />
         {post.feature_image && (
           <meta property="twitter:image" content={post.feature_image} />
