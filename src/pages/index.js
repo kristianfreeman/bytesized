@@ -38,8 +38,8 @@ const NewPost = ({ post: { node } }) => (
 )
 
 const Header = () => (
-  <div className="py-4">
-    <h2 className="text-3xl font-normal py-4">
+  <div className="pb-4">
+    <h2 className="text-3xl font-normal pb-4">
       Free developer conferences for everyone, streamed on Twitch.
     </h2>
 
