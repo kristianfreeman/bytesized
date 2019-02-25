@@ -39,7 +39,7 @@ const Footer = ({ event }) => (
           </a>
         </p>
         <p className="mb-8 pb-4">
-          Byteconf attendees are expected to follow our{' '}
+          Byteconf attendees and speakers are expected to follow our{' '}
           <a class="text-grey" href="http://confcodeofconduct.com/">
             Conference Code of Conduct
           </a>

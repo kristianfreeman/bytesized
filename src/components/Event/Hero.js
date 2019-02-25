@@ -1,7 +1,24 @@
 import * as React from 'react'
 
 import * as moment from 'moment'
+
+import { DateTime } from 'luxon'
 import RelativeTime from '../RelativeTime'
+
+const DateString = ({ start_date, end_date }) => {
+  const start = DateTime.fromISO(start_date)
+  const end = DateTime.fromISO(end_date)
+
+  if (start.hasSame(end, 'day')) {
+    return <RelativeTime date={start_date} />
+  } else {
+    return (
+      <div>
+        <RelativeTime date={start_date} /> to <RelativeTime date={end_date} />
+      </div>
+    )
+  }
+}
 
 class EventHero extends React.Component {
   render() {
@@ -19,13 +36,16 @@ class EventHero extends React.Component {
             {event.name}
           </h1>
 
-          <h2 className="text-3xl font-normal mb-2">
-            <RelativeTime date={event.start_date} />
-          </h2>
+          <div className="text-3xl font-normal mb-2">
+            <DateString
+              start_date={event.start_date}
+              end_date={event.end_date}
+            />
+          </div>
 
-          <h2 className="text-base text-grey font-normal uppercase mb-8">
+          <div className="text-base text-grey font-normal uppercase mb-8">
             {event.location}
-          </h2>
+          </div>
 
           <div className="mt-4">
             <p className="block leading-normal text-xl">{event.simple_copy}</p>
