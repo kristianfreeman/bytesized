@@ -25,9 +25,11 @@ const Talk = ({
       />
       <div className="text-center sm:text-left sm:flex-grow">
         <div className="mb-4">
-          <p className="text-2xl leading-tight text-grey-darkest tracking-wide mb-2">
-            <RelativeTime date={time} type="time" />
-          </p>
+          {time && (
+            <p className="text-2xl leading-tight text-grey-darkest tracking-wide mb-2">
+              <RelativeTime date={time} type="time" />
+            </p>
+          )}
           <p className="text-xl leading-tight font-bold text-black mb-2">
             {name}
           </p>
