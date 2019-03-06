@@ -18,33 +18,37 @@ const Talk = ({
 }) => (
   <div className="bg-white mx-auto max-w-md shadow-lg rounded-lg overflow-hidden my-8">
     <div className="sm:flex sm:items-center px-6 py-4">
-      <img
-        src={S3Url(speaker.static_image_path)}
-        className="block h-16 sm:h-24 rounded-full mx-auto mb-4 sm:mb-0 sm:mr-6 sm:ml-0"
-        alt={speaker.name}
-      />
       <div className="text-center sm:text-left sm:flex-grow">
-        <div className="mb-4">
-          {time && (
-            <p className="text-2xl leading-tight text-grey-darkest tracking-wide mb-2">
-              <RelativeTime date={time} type="time" />
+        <div className="flex mb-4 items-center">
+          <div className="flex-1">
+            {time && (
+              <p className="text-2xl leading-tight text-grey-darkest tracking-wide mb-2">
+                <RelativeTime date={time} type="time" />
+              </p>
+            )}
+            <p className="text-xl leading-tight font-bold text-black mb-2">
+              {name}
             </p>
-          )}
-          <p className="text-xl leading-tight font-bold text-black mb-2">
-            {name}
-          </p>
-          <p className="text-xs leading-tight my-4">
-            <TalkLevel level={level} />
-          </p>
-          <p className="text-md leading-tight text-grey-dark">{speaker.name}</p>
-          {company && (
-            <p className="mt-1 text-grey-dark text-base">{speaker.company}</p>
-          )}
-          {social && <span>social here</span>}
+            <p className="text-xs leading-tight my-4">
+              <TalkLevel level={level} />
+            </p>
+            <p className="text-md leading-tight text-grey-dark">
+              {speaker.name}
+            </p>
+            {company && (
+              <p className="mt-1 text-grey-dark text-base">{speaker.company}</p>
+            )}
+            {social && <span>social here</span>}
+          </div>
+          <img
+            src={S3Url(speaker.static_image_path)}
+            className="md:block h-16 sm:h-24 rounded-full mx-auto mb-4 sm:mb-0 sm:mr-6 sm:ml-0 hidden"
+            alt={speaker.name}
+          />
         </div>
 
         {description && (
-          <div className="text-black leading-tight pb-2">
+          <div className="text-black leading-tight py-2">
             <Markdown source={description} />
           </div>
         )}

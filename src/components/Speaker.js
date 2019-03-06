@@ -4,11 +4,9 @@ import S3Url from '../utils/s3Url'
 
 const Speaker = ({ speaker }) => (
   <div className="sm:w-full md:w-1/5 rounded overflow-hidden shadow-lg mx-2 my-4">
-    <img
-      src={S3Url(speaker.static_image_path)}
-      className="w-full"
-      alt={speaker.name}
-    />
+    <div className="flex items-center w-full" style={{ height: '272px' }}>
+      <img src={S3Url(speaker.static_image_path)} alt={speaker.name} />
+    </div>
 
     <div className="px-6 py-4 border-solid border-t-4">
       <div className="font-bold text-xl mb-2">{speaker.name}</div>

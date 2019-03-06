@@ -24,7 +24,7 @@ const Schedule = ({ event }) => {
       <div className="mt-12 mx-10">
         {Object.keys(groupedTalks).map(key => {
           return (
-            <div key={key}>
+            <div className="pt-2" key={key}>
               <h2>
                 <RelativeTime date={DateTime.fromISO(key)} />
               </h2>
