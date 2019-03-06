@@ -32,7 +32,7 @@ const Footer = ({ event }) => (
 
       <div className="sm:w-full md:w-1/3 pb-4">
         <h4 className="text-lg mb-4">Contact Us</h4>
-        <p class="mb-4">
+        <p className="mb-4">
           Email:{' '}
           <a href="mailto:conf@bytesized.xyz" className="text-grey">
             conf@bytesized.xyz
@@ -40,7 +40,7 @@ const Footer = ({ event }) => (
         </p>
         <p className="mb-8 pb-4">
           Byteconf attendees and speakers are expected to follow our{' '}
-          <a class="text-grey" href="http://confcodeofconduct.com/">
+          <a className="text-grey" href="http://confcodeofconduct.com/">
             Conference Code of Conduct
           </a>
           .

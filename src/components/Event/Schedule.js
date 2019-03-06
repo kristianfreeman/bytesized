@@ -1,16 +1,14 @@
 import * as React from 'react'
 
 import { DateTime } from 'luxon'
+import RelativeTime from '../RelativeTime'
 import Talk from '../Talk'
 import { groupBy, orderBy } from 'lodash'
 
-const groupByDate = talks =>
-  groupBy(talks, talk =>
-    DateTime.fromISO(talk.time).toLocaleString(DateTime.DATE_HUGE)
-  )
-
 const Schedule = ({ event }) => {
-  const groupedTalks = groupByDate(event.talks)
+  const groupedTalks = groupBy(event.talks, talk =>
+    DateTime.fromISO(talk.time).toISODate()
+  )
 
   return (
     <div className="bg-black text-white text-center py-16">
@@ -27,7 +25,9 @@ const Schedule = ({ event }) => {
         {Object.keys(groupedTalks).map(key => {
           return (
             <div key={key}>
-              <h2>{key}</h2>
+              <h2>
+                <RelativeTime date={DateTime.fromISO(key)} />
+              </h2>
               {orderBy(groupedTalks[key], 'position').map(talk => (
                 <Talk
                   key={talk._id}
