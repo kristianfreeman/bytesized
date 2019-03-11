@@ -3,13 +3,6 @@ require('dotenv').config()
 const fs = require('fs')
 const { buildClientSchema } = require('graphql')
 
-const createSpectrumSchema = async () => {
-  const json = JSON.parse(
-    fs.readFileSync(`${__dirname}/src/utils/spectrumIntrospection.json`)
-  )
-  return buildClientSchema(json.data)
-}
-
 module.exports = {
   siteMetadata: {
     title: 'Byteconf',
@@ -34,16 +27,6 @@ module.exports = {
         fieldName: 'sanity',
         refetchInterval: 15,
         url: 'https://82qqyrei.api.sanity.io/v1/graphql/byteconf/default',
-      },
-    },
-    {
-      resolve: 'gatsby-source-graphql',
-      options: {
-        typeName: 'SPECTRUM',
-        fieldName: 'spectrum',
-        url: 'https://spectrum.chat/api',
-        refetchInterval: 15,
-        createSchema: createSpectrumSchema,
       },
     },
     {

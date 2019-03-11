@@ -2,9 +2,9 @@
 
 👋 This is the source code for [byteconf.com](https://www.byteconf.com)!
 
-Byteconf is a developer community for everyone. We build free developer conferences and stream them online, like [Byteconf React](https://www.byteconf.com/react-2018)! 
+Byteconf is a developer community for everyone. We build free developer conferences and stream them online, like [Byteconf React](https://www.byteconf.com/react-2018)!
 
-This website is the landing page for all of our events, and an increasing number of additional things like [blog posts](https://www.byteconf.com/blog), [chat](https://spectrum.chat/byteconf), and all kinds of other things. 
+This website is the landing page for all of our events, and an increasing number of additional things like [blog posts](https://www.byteconf.com/blog) and all kinds of other things.
 
 The tech stack:
 - The site is built with [Gatsby](https://gatsbyjs.org)
