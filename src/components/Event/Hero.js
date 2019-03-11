@@ -25,47 +25,68 @@ class EventHero extends React.Component {
     const { event } = this.props
 
     return (
-      <div className="flex flex-grow flex-col container mx-auto sm:px-4 text-white justify-center min-h-screen">
-        <div className="px-10 pb-20">
-          <h1 className="text-4xl mt-16 mb-4 uppercase">
-            {event.icon && (
-              <span className="mr-4">
-                <i className={`fas ${event.icon}`} />
-              </span>
-            )}
-            {event.name}
-          </h1>
+      <React.Fragment>
+        <div className="flex flex-grow flex-col container mx-auto sm:px-4 text-white justify-center min-h-screen">
+          <div className="px-10 pb-20">
+            <h1 className="text-4xl mt-16 mb-4 uppercase">
+              {event.icon && (
+                <span className="mr-4">
+                  <i className={`fas ${event.icon}`} />
+                </span>
+              )}
+              {event.name}
+            </h1>
 
-          <div className="text-3xl font-normal mb-2">
-            <DateString
-              start_date={event.start_date}
-              end_date={event.end_date}
-            />
-          </div>
+            <div className="text-3xl font-normal mb-2">
+              <DateString
+                start_date={event.start_date}
+                end_date={event.end_date}
+              />
+            </div>
 
-          <div className="text-base text-grey font-normal uppercase mb-8">
-            {event.location}
-          </div>
+            <div className="text-base text-grey font-normal uppercase mb-8">
+              {event.location}
+            </div>
 
-          <div className="mt-4">
-            <p className="block leading-normal text-xl">{event.simple_copy}</p>
-          </div>
+            <div className="mt-4">
+              <p className="block leading-normal text-xl">
+                {event.simple_copy}
+              </p>
+            </div>
 
-          <div className="mt-4">
-            {event.youtube_playlist && (
-              <div className="mt-8">
-                <a
-                  className="py-2 px-3 rounded-lg bg-black no-underline hover:underline text-white"
-                  href={event.youtube_playlist}
-                >
-                  <i className="fab fa-youtube mr-2" />
-                  Watch {event.name} on YouTube
-                </a>
-              </div>
-            )}
+            <div className="mt-4">
+              {event.youtube_playlist && (
+                <div className="mt-8">
+                  <a
+                    className="py-2 px-3 rounded-lg bg-black no-underline hover:underline text-white"
+                    href={event.youtube_playlist}
+                  >
+                    <i className="fab fa-youtube mr-2" />
+                    Watch {event.name} on YouTube
+                  </a>
+                </div>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+        <div className="flex flex-grow flex-col mx-auto sm:px-4 text-white justify-center bg-green-darkest">
+          <div className="text-center py-10">
+            <h2 className="text-3xl">Join our newsletter</h2>
+            <p className="text-lg py-6">
+              We send out just a few emails a month about new events like{' '}
+              {event.name}, get feedback from the community, and more!
+            </p>
+            <div className="my-6">
+              <a
+                className="p-4 text-white no-underline bg-green hover:bg-green-dark rounded-lg text-lg"
+                href="/s/newsletter"
+              >
+                Sign up now
+              </a>
+            </div>
+          </div>
+        </div>
+      </React.Fragment>
     )
   }
 }

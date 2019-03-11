@@ -21,16 +21,16 @@ const DateString = ({ start_date, end_date }) => {
 
 const Footer = ({ event }) => (
   <div className="bg-purple-darkest text-white p-8">
-    <div className="flex flex-wrap m-5">
-      <div className="sm:w-full md:w-1/3 pb-4">
+    <div className="flex flex-wrap m-5 justify-center">
+      <div className="w-full md:w-1/3 pb-4">
         <h4 className="text-lg mb-4 pr-8">
           {event.name} -{' '}
           <DateString start_date={event.start_date} end_date={event.end_date} />
         </h4>
-        <p>{event.location}</p>
+        <p className="mb-8 pb-4">{event.location}</p>
       </div>
 
-      <div className="sm:w-full md:w-1/3 pb-4">
+      <div className="w-full md:w-1/3 pb-4">
         <h4 className="text-lg mb-4">Contact Us</h4>
         <p className="mb-4">
           Email:{' '}
@@ -46,9 +46,17 @@ const Footer = ({ event }) => (
           .
         </p>
       </div>
-      <div className="sm:w-full md:w-1/3">
+
+      <div className="w-full md:w-1/3 pb-4">
         <h4 className="text-lg pb-8">Follow Us</h4>
         <p className="mb-4">
+          <a
+            href="/s/newsletter"
+            className="no-underline p-4"
+            title="Join our newsletter"
+          >
+            <i className="fa-2x fas fa-envelope text-white no-underline border-white" />
+          </a>
           <a
             href="/s/twitter"
             className="no-underline p-4"
@@ -63,6 +71,8 @@ const Footer = ({ event }) => (
           >
             <i className="fa-2x fab fa-telegram text-white no-underline border-white" />
           </a>
+        </p>
+        <p className="mb-4">
           <a
             href="/s/discord"
             className="no-underline p-4"
@@ -77,8 +87,6 @@ const Footer = ({ event }) => (
           >
             <i className="fa-2x fab fa-twitch text-white no-underline border-white" />
           </a>
-        </p>
-        <p className="mb-4">
           <a
             href="https://github.com/byteconf"
             className="no-underline p-4"
@@ -86,6 +94,8 @@ const Footer = ({ event }) => (
           >
             <i className="fa-2x fab fa-github text-white no-underline border-white" />
           </a>
+        </p>
+        <p className="mb-4">
           <a
             href="/s/medium"
             className="no-underline p-4"

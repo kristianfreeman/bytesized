@@ -25,6 +25,12 @@ const Nav = () => (
         >
           📰 Blog
         </Link>
+        <Link
+          className="text-black text-sm font-bold uppercase mr-4 no-underline"
+          to="/s/newsletter"
+        >
+          💌 Newsletter
+        </Link>
         <a
           className="text-black text-sm font-bold uppercase mr-4 no-underline"
           href="https://t.me/byteconf"
