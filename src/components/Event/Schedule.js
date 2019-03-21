@@ -8,7 +8,7 @@ import { groupBy, orderBy } from 'lodash'
 const Schedule = ({ event }) => {
   const groupedTalks = groupBy(event.talks, talk =>
     DateTime.fromISO(talk.time)
-      .setZone('UTC')
+      .setZone('UTC', { keepLocalTime: true })
       .toISODate()
   )
 
