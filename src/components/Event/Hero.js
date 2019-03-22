@@ -21,6 +21,12 @@ const DateString = ({ start_date, end_date }) => {
   }
 }
 
+const Twitch = () => {
+  return typeof window !== 'undefined' ? (
+    <ReactTwitchEmbedVideo channel="byteconf" />
+  ) : null
+}
+
 class EventHero extends React.Component {
   render() {
     const { event } = this.props
@@ -56,7 +62,7 @@ class EventHero extends React.Component {
             </div>
 
             <div className="mt-4">
-              <ReactTwitchEmbedVideo channel="byteconf" />
+              <Twitch />
               {event.youtube_playlist && (
                 <div className="mt-8">
                   <a
