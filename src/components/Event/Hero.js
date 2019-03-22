@@ -4,6 +4,7 @@ import * as moment from 'moment'
 
 import { DateTime } from 'luxon'
 import RelativeTime from '../RelativeTime'
+import ReactTwitchEmbedVideo from 'react-twitch-embed-video'
 
 const DateString = ({ start_date, end_date }) => {
   const start = DateTime.fromISO(start_date)
@@ -55,6 +56,7 @@ class EventHero extends React.Component {
             </div>
 
             <div className="mt-4">
+              <ReactTwitchEmbedVideo channel="byteconf" />
               {event.youtube_playlist && (
                 <div className="mt-8">
                   <a

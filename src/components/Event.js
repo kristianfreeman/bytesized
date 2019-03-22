@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { DateTime } from 'luxon'
+import ReactTwitchEmbedVideo from 'react-twitch-embed-video'
 import RelativeTime from './RelativeTime'
 
 const DateString = ({ start_date, end_date }) => {
@@ -53,6 +54,11 @@ const Event = ({ event, live = false }) => {
         <p className="text-white text-lg font-bold">
           <DateString start_date={event.start_date} end_date={event.end_date} />
         </p>
+        {live && (
+          <div className="pt-8">
+            <ReactTwitchEmbedVideo channel="byteconf" width="100%" />
+          </div>
+        )}
         {event.youtube_playlist && (
           <p className="text-white text-sm mt-8 mb-2">
             <a

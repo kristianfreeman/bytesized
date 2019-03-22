@@ -165,7 +165,9 @@ class Index extends React.Component {
           {today.length > 0 && (
             <div className="mb-12">
               {today.map(event => (
-                <Event event={event} key={event._id} live />
+                <div>
+                  <Event event={event} key={event._id} live />
+                </div>
               ))}
             </div>
           )}
