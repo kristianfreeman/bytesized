@@ -5,6 +5,8 @@ import * as moment from 'moment'
 import { DateTime } from 'luxon'
 import RelativeTime from '../RelativeTime'
 
+import ReactPlayer from 'react-player'
+
 const DateString = ({ start_date, end_date }) => {
   const start = DateTime.fromISO(start_date)
   const end = DateTime.fromISO(end_date)
@@ -23,6 +25,9 @@ const DateString = ({ start_date, end_date }) => {
 const Twitch = () => (
   <div>
     <div className="mt-8">
+      <div className="pb-12">
+        <ReactPlayer url="https://twitch.tv/byteconf" playing />
+      </div>
       <a
         className="no-underline text-2xl p-4 mr-4 bg-blue text-white hover:bg-blue-light"
         href="/s/twitch"
