@@ -28,18 +28,20 @@ const Twitch = () => (
       <div className="pb-12">
         <ReactPlayer url="https://twitch.tv/byteconf" playing />
       </div>
-      <a
-        className="no-underline text-2xl p-4 mr-4 bg-blue text-white hover:bg-blue-light"
-        href="/s/twitch"
-      >
-        Watch live on Twitch
-      </a>
-      <a
-        className="no-underline text-2xl p-4 mr-4 bg-blue text-white hover:bg-blue-light"
-        href="/s/youtube"
-      >
-        Watch live on YouTube
-      </a>
+      <div className="flex">
+        <a
+          className="no-underline text-2xl p-4 mr-4 bg-blue text-white hover:bg-blue-light"
+          href="/s/twitch"
+        >
+          Watch live on Twitch
+        </a>
+        <a
+          className="no-underline text-2xl p-4 mr-4 bg-blue text-white hover:bg-blue-light"
+          href="/s/youtube"
+        >
+          Watch live on YouTube
+        </a>
+      </div>
     </div>
   </div>
 )

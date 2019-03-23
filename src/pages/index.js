@@ -153,9 +153,13 @@ class Index extends React.Component {
     const posts = get(data, 'allGhostPost.edges', [])
     const recentPost = posts.length && posts[0]
 
-    const today = events.filter(({ start_date }) => isToday(start_date))
+    const today = events.filter(
+      ({ start_date, end_date }) => isToday(start_date) || isToday(end_date)
+    )
     const upNext = events.filter(({ start_date }) => afterToday(start_date))
-    const previous = events.filter(({ start_date }) => !afterToday(start_date))
+    const previous = events.filter(
+      ({ end_date }) => !isToday(end_date) && !afterToday(end_date)
+    )
 
     return (
       <Layout>
@@ -171,14 +175,17 @@ class Index extends React.Component {
               ))}
             </div>
           )}
-          <div className="py-4">
-            <h3 className="uppercase tracking-wide">Coming Up</h3>
-            <div className="p-2 mt-8">
-              {orderBy(upNext, 'start_date', 'asc').map(event => (
-                <Event event={event} key={event._id} />
-              ))}
+          {upNext.length ? (
+            <div className="py-4">
+              <h3 className="uppercase tracking-wide">Coming Up</h3>
+              <div className="p-2 mt-8">
+                {orderBy(upNext, 'start_date', 'asc').map(event => (
+                  <Event event={event} key={event._id} />
+                ))}
+              </div>
+              }
             </div>
-          </div>
+          ) : null}
           <div className="py-4">
             <h4 className="uppercase tracking-wide">Previously</h4>
             <div className="p-2 mt-8">
