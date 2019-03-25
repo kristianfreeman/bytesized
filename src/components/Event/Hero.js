@@ -5,8 +5,6 @@ import * as moment from 'moment'
 import { DateTime } from 'luxon'
 import RelativeTime from '../RelativeTime'
 
-import ReactPlayer from 'react-player'
-
 const DateString = ({ start_date, end_date }) => {
   const start = DateTime.fromISO(start_date)
   const end = DateTime.fromISO(end_date)
@@ -21,30 +19,6 @@ const DateString = ({ start_date, end_date }) => {
     )
   }
 }
-
-const Twitch = () => (
-  <div>
-    <div className="mt-8">
-      <div className="pb-12">
-        <ReactPlayer url="https://twitch.tv/byteconf" playing />
-      </div>
-      <div className="flex">
-        <a
-          className="no-underline text-2xl p-4 mr-4 bg-blue text-white hover:bg-blue-light"
-          href="/s/twitch"
-        >
-          Watch live on Twitch
-        </a>
-        <a
-          className="no-underline text-2xl p-4 mr-4 bg-blue text-white hover:bg-blue-light"
-          href="/s/youtube"
-        >
-          Watch live on YouTube
-        </a>
-      </div>
-    </div>
-  </div>
-)
 
 class EventHero extends React.Component {
   render() {
@@ -81,7 +55,6 @@ class EventHero extends React.Component {
             </div>
 
             <div className="mt-4">
-              <Twitch />
               {event.youtube_playlist && (
                 <div className="mt-8">
                   <a
