@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
                 crossorigin="anonymous"
               />
               <link
-                href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css"
+                href="https://cdn.jsdelivr.net/npm/tailwindcss@0.7.4/dist/tailwind.min.css"
                 rel="stylesheet"
               />
               <link rel="manifest" href="/manifest.json" />
