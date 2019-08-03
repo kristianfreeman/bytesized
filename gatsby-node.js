@@ -56,7 +56,7 @@ exports.createPages = ({ graphql, actions }) => {
     },
     {
       fromPath: '/s/newsletter',
-      toPath: 'https://mailchi.mp/bytesized/byteconf',
+      toPath: 'https://buttondown.email/bytesizedcode',
     },
     {
       fromPath: '/s/blog',
