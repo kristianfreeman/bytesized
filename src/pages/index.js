@@ -67,20 +67,6 @@ const Header = () => (
       </a>
       <a
         className="no-underline text-black"
-        href="https://t.me/byteconf"
-        title="Byteconf Telegram channel"
-      >
-        <i className="fab fa-telegram fa-2x border-white p-4" />
-      </a>
-      <a
-        className="no-underline text-black"
-        href="/s/discord"
-        title="Byteconf Discord channel"
-      >
-        <i className="fab fa-discord fa-2x border-white p-4" />
-      </a>
-      <a
-        className="no-underline text-black"
         href="/s/twitch"
         title="@byteconf on Twitch"
       >

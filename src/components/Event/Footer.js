@@ -65,28 +65,14 @@ const Footer = ({ event }) => (
             <i className="fa-2x fab fa-twitter text-white no-underline border-white" />
           </a>
           <a
-            href="https://t.me/byteconf"
-            className="no-underline p-4"
-            title="Byteconf on Telegram"
-          >
-            <i className="fa-2x fab fa-telegram text-white no-underline border-white" />
-          </a>
-        </p>
-        <p className="mb-4">
-          <a
-            href="/s/discord"
-            className="no-underline p-4"
-            title="Byteconf on Discord"
-          >
-            <i className="fa-2x fab fa-discord text-white no-underline border-white" />
-          </a>
-          <a
             href="/s/twitch"
             className="no-underline p-4"
             title="Byteconf on Twitch"
           >
             <i className="fa-2x fab fa-twitch text-white no-underline border-white" />
           </a>
+        </p>
+        <p className="mb-4">
           <a
             href="https://github.com/byteconf"
             className="no-underline p-4"
@@ -94,28 +80,12 @@ const Footer = ({ event }) => (
           >
             <i className="fa-2x fab fa-github text-white no-underline border-white" />
           </a>
-        </p>
-        <p className="mb-4">
-          <a
-            href="/s/medium"
-            className="no-underline p-4"
-            title="Byteconf on Medium"
-          >
-            <i className="fa-2x fab fa-medium text-white no-underline border-white" />
-          </a>
           <a
             href="/s/youtube"
             className="no-underline p-4"
             title="Byteconf on YouTube"
           >
             <i className="fa-2x fab fa-youtube text-white no-underline border-white" />
-          </a>
-          <a
-            href="/s/instagram"
-            className="no-underline p-4"
-            title="Byteconf on Instagram"
-          >
-            <i className="fa-2x fab fa-instagram text-white no-underline border-white" />
           </a>
         </p>
       </div>

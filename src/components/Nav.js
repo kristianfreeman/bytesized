@@ -31,12 +31,6 @@ const Nav = () => (
         >
           💌 Newsletter
         </Link>
-        <a
-          className="text-black text-sm font-bold uppercase mr-4 no-underline"
-          href="https://t.me/byteconf"
-        >
-          💬 Chat
-        </a>
       </div>
     </div>
   </div>
