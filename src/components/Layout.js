@@ -101,6 +101,7 @@ const Layout = ({ children }) => {
             <div className="pt-16 font-sans flex flex-col min-h-screen bg-white mx-2 md:mx-0">
               {children}
             </div>
+            <script async data-uid="65208fc89b" src="https://f.convertkit.com/65208fc89b/eba5287578.js"></script>
           </React.Fragment>
         )
       }}

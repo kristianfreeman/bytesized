@@ -35,28 +35,12 @@ exports.createPages = ({ graphql, actions }) => {
       toPath: 'https://github.com/byteconf',
     },
     {
-      fromPath: '/s/patreon',
-      toPath: 'https://patreon.com/byteconf',
-    },
-    {
-      fromPath: '/patrons',
-      toPath: 'https://patreon.com/byteconf',
-    },
-    {
       fromPath: '/s/twitch',
       toPath: 'https://twitch.tv/byteconf',
     },
     {
-      fromPath: '/discord',
-      toPath: 'https://discordapp.com/invite/KnzprSD',
-    },
-    {
-      fromPath: '/s/discord',
-      toPath: 'https://discordapp.com/invite/KnzprSD',
-    },
-    {
       fromPath: '/s/newsletter',
-      toPath: 'https://buttondown.email/bytesizedcode',
+      toPath: 'https://pages.convertkit.com/7228472d12/4145a836f0',
     },
     {
       fromPath: '/s/blog',
@@ -65,18 +49,6 @@ exports.createPages = ({ graphql, actions }) => {
     {
       fromPath: '/s/twitter',
       toPath: 'https://twitter.com/byteconf',
-    },
-    {
-      fromPath: '/s/periscope',
-      toPath: 'https://www.pscp.tv/byteconf',
-    },
-    {
-      fromPath: '/sponsor',
-      toPath: 'https://bytesized.typeform.com/to/wBXCdI',
-    },
-    {
-      fromPath: '/sponsors',
-      toPath: 'https://bytesized.typeform.com/to/wBXCdI',
     }
   ]
 
