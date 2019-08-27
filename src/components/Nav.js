@@ -21,7 +21,7 @@ const Nav = () => (
         </a>
         <Link
           className="text-black text-sm font-bold uppercase mr-4 no-underline"
-          to="/blog"
+          to="https://www.bytesized.xyz"
         >
           📰 Blog
         </Link>
