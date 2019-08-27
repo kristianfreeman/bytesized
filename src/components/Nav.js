@@ -19,12 +19,12 @@ const Nav = () => (
         >
           😍 Code of Conduct
         </a>
-        <Link
+        <a
           className="text-black text-sm font-bold uppercase mr-4 no-underline"
-          to="https://www.bytesized.xyz"
+          href="https://www.bytesized.xyz"
         >
           📰 Blog
-        </Link>
+        </a>
         <Link
           className="text-black text-sm font-bold uppercase mr-4 no-underline"
           to="/s/newsletter"

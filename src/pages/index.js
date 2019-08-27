@@ -13,7 +13,11 @@ const TODAY = new Date()
 
 const NewPost = ({ post: { node } }) => (
   <div className="pb-8">
-    <a href={`/blog/${node.slug}`} className="no-underline" title={node.title}>
+    <a
+      href={`https://www.bytesized.xyz/${node.slug}`}
+      className="no-underline"
+      title={node.title}
+    >
       <div
         className="flex-wrap p-2 hover:bg-yellow bg-yellow-dark items-center text-black leading-none rounded lg:rounded-full flex lg:inline-flex"
         role="alert"
@@ -46,7 +50,7 @@ const Header = () => (
     <p>
       <a
         className="no-underline text-black"
-        href="/s/blog"
+        href="https://bytesized.xyz"
         title="Byteconf Blog"
       >
         <i className="fas fa-newspaper fa-2x border-white pr-4" />
