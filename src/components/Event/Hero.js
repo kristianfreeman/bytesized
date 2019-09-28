@@ -27,7 +27,7 @@ class EventHero extends React.Component {
     return (
       <React.Fragment>
         <div className="pt-12 flex flex-grow flex-col container mx-auto">
-          <div className="w-1/2">
+          <div className="w-full px-4 md:px-0 md:w-1/2">
             <div className="text-xl">
               <DateString
                 start_date={event.start_date}

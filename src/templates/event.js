@@ -70,10 +70,10 @@ const Event = ({ data }) => {
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:site" content="@byteconf" />
       </Helmet>
-      <Nav title={event.name} showSubtitle={false} />
+      <Nav customTitle={event.name} showSubtitle={false} />
       <EventHero event={event} />
       <svg
-        className="-mt-24"
+        className="md:-mt-24"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
       >

@@ -26,15 +26,10 @@ const Layout = ({ children }) => {
                 crossorigin="anonymous"
               />
               <link
-                href="https://cdn.jsdelivr.net/npm/tailwindcss@0.7.4/dist/tailwind.min.css"
+                href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap"
                 rel="stylesheet"
               />
               <link rel="manifest" href="/manifest.json" />
-              <script
-                src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"
-                async
-              />
-              <script src="/oneSignal.js" async />
               <meta
                 name="description"
                 content="Free developer conferences for everyone"
