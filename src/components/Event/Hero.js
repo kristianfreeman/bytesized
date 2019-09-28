@@ -26,7 +26,7 @@ class EventHero extends React.Component {
 
     return (
       <React.Fragment>
-        <div className="pt-24 flex flex-grow flex-col container mx-auto">
+        <div className="pt-12 flex flex-grow flex-col container mx-auto">
           <div className="w-1/2">
             <div className="text-xl">
               <DateString
@@ -46,7 +46,7 @@ class EventHero extends React.Component {
               {event.youtube_playlist && (
                 <div className="py-4">
                   <a
-                    className="py-2 px-3 rounded-lg bg-black no-underline hover:underline text-white"
+                    className="py-2 px-3 rounded-lg bg-red-800 no-underline hover:underline text-white"
                     href={event.youtube_playlist}
                   >
                     <i className="fab fa-youtube mr-2" />

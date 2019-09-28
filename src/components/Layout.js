@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
         const siteTitle = data.site.siteMetadata.title
         const siteDescription = data.site.siteMetadata.description
         return (
-          <div className="border-blue-900 border-t-8">
+          <div>
             <Helmet
               htmlAttributes={{ lang: 'en' }}
               meta={[{ name: 'description', content: siteDescription }]}

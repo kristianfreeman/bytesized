@@ -21,7 +21,7 @@ const Nav = ({ title = 'Bytesized', showSubtitle = true }) => (
           YouTube
         </a>
         <a
-          className="ml-8 no-underline bg-blue-900 text-white rounded-full p-4 font-bold"
+          className="ml-8 no-underline bg-orange-200 text-orange-800 rounded-full p-4 font-bold"
           href="https://www.bytesized.xyz/newsletter"
         >
           Join our newsletter
