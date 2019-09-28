@@ -77,7 +77,7 @@ exports.createPages = ({ graphql, actions }) => {
     {
       fromPath: '/sponsors',
       toPath: 'https://bytesized.typeform.com/to/wBXCdI',
-    }
+    },
   ]
 
   routes.forEach(({ fromPath, toPath, redirectInBrowser = true }) => {
@@ -117,7 +117,7 @@ exports.createPages = ({ graphql, actions }) => {
 
         result.data.allGhostPost.edges.forEach(({ node: { slug } }) => {
           createPage({
-            path: `/blog/${slug}`,
+            path: `/${slug}`,
             component: postTemplate,
             context: {
               slug,

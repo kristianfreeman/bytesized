@@ -1,8 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import Nav from './Nav'
 import favicon from '../assets/byteconf-full.png'
+import './Layout.css'
 
 const Layout = ({ children }) => {
   return (
@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
         const siteTitle = data.site.siteMetadata.title
         const siteDescription = data.site.siteMetadata.description
         return (
-          <React.Fragment>
+          <div className="border-blue-900 border-t-8">
             <Helmet
               htmlAttributes={{ lang: 'en' }}
               meta={[{ name: 'description', content: siteDescription }]}
@@ -97,11 +97,8 @@ const Layout = ({ children }) => {
                 src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-sql.min.js"
               />
             </Helmet>
-            <Nav />
-            <div className="pt-16 font-sans flex flex-col min-h-screen bg-white mx-2 md:mx-0">
-              {children}
-            </div>
-          </React.Fragment>
+            {children}
+          </div>
         )
       }}
     />

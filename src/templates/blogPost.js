@@ -70,11 +70,11 @@ const Post = ({ data }) => {
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:site" content="@byteconf" />
       </Helmet>
-      <div className="container max-w-lg mx-auto text-center pt-8">
-        <div className="uppercase tracking-wide text-blue font-semibold pb-4">
+      <div className="container max-w-lg mx-auto text-center pt-12">
+        <div className="uppercase tracking-wide text-gray-800 font-semibold pb-4">
           {new Date(post.published_at).toLocaleDateString('en-US')}{' '}
           <span className="text-black font-light">&middot;</span>{' '}
-          <span className="no-underline text-blue">
+          <span className="no-underline text-gray-800">
             {post.primary_tag.name}
           </span>
         </div>

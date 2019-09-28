@@ -16,29 +16,26 @@ const Talk = ({
     time,
   },
 }) => (
-  <div className="bg-white mx-auto max-w-md shadow-lg rounded-lg overflow-hidden my-8">
-    <div className="sm:flex sm:items-center px-6 py-4">
+  <div className="bg-white mx-auto max-w-md shadow-lg rounded overflow-hidden my-8">
+    <div className="sm:flex sm:items-center p-12">
       <div className="text-center sm:text-left sm:flex-grow">
         <div className="flex mb-4 items-center">
           <div className="flex-1">
             {time && (
-              <p className="text-2xl leading-tight text-grey-darkest tracking-wide mb-2">
+              <p className="text-2xl leading-tight text-grey-darkest tracking-wide py-2">
                 <RelativeTime date={time} type="time" />
               </p>
             )}
-            <p className="text-xl leading-tight font-bold text-black mb-2">
+            <p className="text-2xl leading-tight font-bold text-black pt-4 pb-2">
               {name}
             </p>
-            <p className="text-xs leading-tight my-4">
-              <TalkLevel level={level} />
-            </p>
-            <p className="text-md leading-tight text-grey-dark">
-              {speaker.name}
-            </p>
+            <p className="text-xl leading-tight pb-4">{speaker.name}</p>
             {company && (
               <p className="mt-1 text-grey-dark text-base">{speaker.company}</p>
             )}
-            {social && <span>social here</span>}
+            <p className="text-xs py-4">
+              <TalkLevel level={level} />
+            </p>
           </div>
           <img
             src={S3Url(speaker.static_image_path)}
@@ -48,29 +45,26 @@ const Talk = ({
         </div>
 
         {description && (
-          <div className="text-black leading-tight py-2">
+          <div className="text-black leading-relaxed py-2">
             <Markdown source={description} />
           </div>
         )}
 
         {available_live && (
           <div
-            className="flex items-center bg-blue text-white text-sm font-bold p-4 mt-2"
+            className="flex items-center bg-blue-200 text-blue-800 p-4 mt-4"
             role="alert"
           >
-            <i className="text-white fas fa-comment-dots fa-lg mr-2" />
+            <i className="text-blue-400 fas fa-comment-dots fa-lg mr-2" />
             <p>Speaker will participate in live chat during the conference</p>
           </div>
         )}
 
         {slides && (
-          <div className="my-4">
-            <a
-              className="border rounded-lg border-black hover:bg-grey-light hover:border-grey-light p-2 no-underline"
-              href={slides}
-            >
-              <i className="fas fa-folder text-black fa-md" />
-              <span className="text-black ml-1">View the slides</span>
+          <div className="my-8 flex items-center">
+            <a className="p-2 no-underline" href={slides}>
+              <i className="text-gray-500 fas fa-link mr-2" />
+              <span className="text-gray-800">Slides</span>
             </a>
           </div>
         )}

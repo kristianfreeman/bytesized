@@ -93,7 +93,7 @@ const Footer = ({ event }) => (
 
     <div className="flex flex-grow flex-col mx-auto text-white text-center">
       <p className="block leading-normal text-sm sm:mx-6 md:mx-24 py-8">
-        © Copyright Bytesized, LLC 2018. All Rights Reserved.
+        © Copyright Bytesized, LLC 2018-2019. All Rights Reserved.
       </p>
     </div>
   </div>

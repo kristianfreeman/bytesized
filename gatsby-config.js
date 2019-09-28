@@ -11,11 +11,12 @@ module.exports = {
     siteUrl: 'https://www.byteconf.com',
   },
   plugins: [
+    `gatsby-plugin-postcss`,
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-ghost`,
       options: {
-        apiUrl: `https://blog.byteconf.com`,
+        apiUrl: `https://www.bytesized.xyz`,
         clientId: `ghost-frontend`,
         clientSecret: `a9581dc692c6`,
       },

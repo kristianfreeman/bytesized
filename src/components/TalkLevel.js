@@ -3,11 +3,11 @@ import * as React from 'react'
 const textForLevel = level => {
   switch (level) {
     case 'beginner':
-      return 'bg-green'
+      return 'bg-green-400'
     case 'intermediate':
-      return 'bg-grey-dark'
+      return 'bg-gray-600'
     case 'advanced':
-      return 'bg-red'
+      return 'bg-red-400'
     default:
       return 'bg-black'
   }
@@ -15,7 +15,7 @@ const textForLevel = level => {
 
 const TalkLevel = ({ level }) => (
   <span
-    className={`text-white font-bold p-2 rounded-full uppercase ${textForLevel(
+    className={`text-white font-bold px-4 py-2 rounded-full uppercase ${textForLevel(
       level
     )}`}
   >

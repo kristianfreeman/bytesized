@@ -3,6 +3,7 @@ import * as React from 'react'
 import { Helmet } from 'react-helmet'
 
 import Layout from '../components/Layout'
+import Nav from '../components/Nav'
 import EventHeader from '../components/Event/Header'
 import EventHero from '../components/Event/Hero'
 import EventSpeakers from '../components/Event/Speakers'
@@ -69,14 +70,8 @@ const Event = ({ data }) => {
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:site" content="@byteconf" />
       </Helmet>
-      <div
-        className="bg-cover bg-black min-h-screen"
-        style={{
-          background: `url(${cover})`,
-        }}
-      >
-        <EventHero event={event} />
-      </div>
+      <Nav title={event.name} showSubtitle={false} />
+      <EventHero event={event} />
       {event.status === 'announced' ? (
         <div>
           <CFPLink event={event} />

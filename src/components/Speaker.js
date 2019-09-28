@@ -3,14 +3,14 @@ import * as React from 'react'
 import S3Url from '../utils/s3Url'
 
 const Speaker = ({ speaker }) => (
-  <div className="sm:w-full md:w-1/5 rounded overflow-hidden shadow-lg mx-2 my-4">
+  <div className="sm:w-full md:w-1/5 overflow-hidden mx-2 my-4">
     <div className="flex items-center w-full" style={{ maxHeight: '342px' }}>
       <img src={S3Url(speaker.static_image_path)} alt={speaker.name} />
     </div>
 
-    <div className="px-6 py-4 border-solid border-t-4">
+    <div className="px-6 py-4">
       <div className="font-bold text-xl mb-2">{speaker.name}</div>
-      <p className="text-grey-darker text-base">{speaker.company}</p>
+      <p>{speaker.company}</p>
       <div className="mt-4">
         {speaker.twitter && (
           <a
