@@ -22,7 +22,7 @@ const Nav = ({ title = 'Bytesized', showSubtitle = true }) => (
         </a>
         <a
           className="ml-8 no-underline bg-blue-900 text-white rounded-full p-4 font-bold"
-          href="https://bytesized.xyz/newsletter"
+          href="https://www.bytesized.xyz/newsletter"
         >
           Join our newsletter
         </a>
