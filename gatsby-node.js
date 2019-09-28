@@ -20,7 +20,7 @@ exports.createPages = ({ graphql, actions }) => {
   const routes = [
     {
       fromPath: '/s/youtube',
-      toPath: 'https://youtube.com/byteconf',
+      toPath: 'https://www.youtube.com/channel/UC046lFvJZhiwSRWsoH8SFjg',
     },
     {
       fromPath: '/s/instagram',
@@ -56,7 +56,7 @@ exports.createPages = ({ graphql, actions }) => {
     },
     {
       fromPath: '/s/newsletter',
-      toPath: 'https://buttondown.email/bytesizedcode',
+      toPath: 'https://www.bytesized.xyz/newsletter',
     },
     {
       fromPath: '/s/blog',
