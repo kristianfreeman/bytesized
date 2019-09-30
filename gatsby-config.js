@@ -5,10 +5,10 @@ const { buildClientSchema } = require('graphql')
 
 module.exports = {
   siteMetadata: {
-    title: 'Byteconf',
+    title: 'Bytesized',
     author: 'Bytesized',
     description: 'A developer community for everyone',
-    siteUrl: 'https://www.byteconf.com',
+    siteUrl: 'https://www.bytesized.xyz',
   },
   plugins: [
     `gatsby-plugin-postcss`,
