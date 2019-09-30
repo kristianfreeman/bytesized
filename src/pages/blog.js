@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby'
 import { filter, get, orderBy } from 'lodash'
 
 import Layout from '../components/Layout'
+import Nav from '../components/Nav'
 import s3Url from '../utils/s3Url'
 
 const Post = ({ post }) => (
@@ -46,6 +47,7 @@ class Blog extends React.Component {
 
     return (
       <Layout>
+        <Nav />
         <div className="container flex flex-wrap mx-auto py-8 sm:px-4 justify-between max-w-lg">
           {featured.map(({ node }) => (
             <Post key={node.id} post={node} />

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-const Nav = ({ customTitle = 'Bytesized', showSubtitle = true }) => (
+const Nav = ({ customTitle, showSubtitle = true }) => (
   <div className="container mx-auto md:w-full bg-white py-12">
     <div className="flex">
       <div className="flex-1 px-4 md:px-0">
@@ -14,6 +14,13 @@ const Nav = ({ customTitle = 'Bytesized', showSubtitle = true }) => (
             </a>
           )}
         </h1>
+        {customTitle && (
+          <div>
+            <a className="hover:underline text-orange-800" href="/">
+              Brought to you by Bytesized
+            </a>
+          </div>
+        )}
         {showSubtitle && (
           <div class="w-full md:w-1/2 mt-2">
             Learn to code with free guides, screencasts, and{' '}
@@ -23,6 +30,9 @@ const Nav = ({ customTitle = 'Bytesized', showSubtitle = true }) => (
         )}
       </div>
       <div className="hidden md:flex items-center justify-center">
+        <a className="ml-8 no-underline" href="/blog">
+          Blog
+        </a>
         <a className="ml-8 no-underline" href="/s/youtube">
           YouTube
         </a>

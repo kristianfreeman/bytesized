@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import { Helmet } from 'react-helmet'
 import Layout from '../components/Layout'
+import Nav from '../components/Nav'
 import { graphql } from 'gatsby'
 
 import './blogPost.scss'
@@ -49,6 +50,7 @@ const Post = ({ data }) => {
 
   return (
     <Layout>
+      <Nav />
       <Helmet>
         <title>
           {post.title} - {post.primary_author.name} | Byteconf
@@ -70,7 +72,7 @@ const Post = ({ data }) => {
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:site" content="@byteconf" />
       </Helmet>
-      <div className="container max-w-lg mx-auto text-center pt-12">
+      <div className="mx-auto text-center pt-12">
         <div className="uppercase tracking-wide text-gray-800 font-semibold pb-4">
           {new Date(post.published_at).toLocaleDateString('en-US')}{' '}
           <span className="text-black font-light">&middot;</span>{' '}
@@ -80,7 +82,7 @@ const Post = ({ data }) => {
         </div>
         <h1 className="text-5xl m-0 mb-8">{post.title}</h1>
       </div>
-      <div className="container blog-post mx-auto px-2 sm:w-full md:max-w-lg">
+      <div className="blog-post mx-auto sm:w-full md:max-w-2xl">
         <div
           className="post-full-content"
           dangerouslySetInnerHTML={{ __html: post.html }}
