@@ -16,7 +16,7 @@ module.exports = {
     {
       resolve: `gatsby-source-ghost`,
       options: {
-        apiUrl: `https://www.bytesized.xyz`,
+        apiUrl: `https://blog.bytesized.xyz`,
         clientId: `ghost-frontend`,
         clientSecret: `a9581dc692c6`,
       },

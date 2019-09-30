@@ -44,10 +44,6 @@ const Author = ({
 
 const Post = ({ data }) => {
   const post = data && data.ghostPost
-  if (!post) {
-    return null
-  }
-
   return (
     <Layout>
       <Nav />
