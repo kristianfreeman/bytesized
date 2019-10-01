@@ -10,9 +10,6 @@ const Posts = () => {
           node {
             slug
             title
-            primary_tag {
-              name
-            }
           }
         }
       }
@@ -32,11 +29,6 @@ const Posts = () => {
                 <a className="hover:underline" href={post.slug}>
                   {post.title}
                 </a>
-                {post.primary_tag && (
-                  <span className="lowercase bg-orange-200 text-orange-800 mx-4 px-4 py-2 rounded-lg text-base">
-                    {post.primary_tag.name}
-                  </span>
-                )}
               </div>
             </div>
           ))}
