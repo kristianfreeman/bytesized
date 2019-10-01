@@ -39,7 +39,7 @@ const Events = () => {
   )
 
   return (
-    <div className="flex-1">
+    <div className="w-full md:flex-1">
       <h4 className="text-2xl font-bold">Byteconf</h4>
       <p>Free developer conferences, streamed online</p>
       <div className="py-4">

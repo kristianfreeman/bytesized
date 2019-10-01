@@ -18,7 +18,7 @@ const Posts = () => {
 
   const posts = get(data, 'allGhostPost.edges', []).map(({ node }) => node)
   return (
-    <div>
+    <div className="w-full md:flex-1">
       <h4 className="text-2xl font-bold">Blog</h4>
       <p>Learn how to code with our free tutorials and guides</p>
       <div className="py-4">
