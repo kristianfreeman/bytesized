@@ -68,7 +68,7 @@ const Post = ({ data }) => {
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:site" content="@byteconf" />
       </Helmet>
-      <div className="mx-auto text-center pt-12">
+      <div className="px-4 md:px-0 mx-auto text-center pt-12">
         <div className="uppercase tracking-wide text-gray-800 font-semibold pb-4">
           {new Date(post.published_at).toLocaleDateString('en-US')}{' '}
           <span className="text-black font-light">&middot;</span>{' '}
@@ -78,7 +78,7 @@ const Post = ({ data }) => {
         </div>
         <h1 className="text-5xl m-0 mb-8">{post.title}</h1>
       </div>
-      <div className="blog-post mx-auto sm:w-full md:max-w-2xl">
+      <div className="blog-post mx-auto px-4 md:px-0 sm:w-full md:max-w-2xl">
         <div
           className="post-full-content"
           dangerouslySetInnerHTML={{ __html: post.html }}
