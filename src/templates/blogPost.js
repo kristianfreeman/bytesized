@@ -20,7 +20,7 @@ const Author = ({
     )}
     <div>
       <p className="text-xl pb-2 text-black font-bold leading-none">{name}</p>
-      <p className="text-grey-dark pb-4">{bio}</p>
+      {bio && <p className="text-grey-dark pb-4">{bio}</p>}
       <p className="text-grey-dark">
         {facebook && (
           <a href={facebook}>

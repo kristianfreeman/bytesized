@@ -2,6 +2,11 @@
   font-size: 125%;
   line-height: 1.75rem;
 
+  a {
+    color: #9c4221;
+    &:hover { text-decoration: underline; }
+  }
+
   .author { p { margin-bottom: 0; } }
 
   h1,
