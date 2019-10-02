@@ -9,8 +9,9 @@ import './blogPost.scss'
 
 const Author = ({
   author: { profile_image, name, bio, facebook, twitter, website },
+  justName = false,
 }) => (
-  <div className="author flex items-center pt-4 pb-12">
+  <div className="author flex items-center my-12">
     {profile_image && (
       <img
         className="w-16 h-16 rounded-full mr-4"
@@ -20,24 +21,28 @@ const Author = ({
     )}
     <div>
       <p className="text-xl pb-2 text-black font-bold leading-none">{name}</p>
-      {bio && <p className="text-grey-dark pb-4">{bio}</p>}
-      <p className="text-grey-dark">
-        {facebook && (
-          <a href={facebook}>
-            <i className="text-black roman mr-4 fab fa-facebook" />
-          </a>
-        )}
-        {twitter && (
-          <a href={`https://twitter.com/${twitter}`}>
-            <i className="text-black roman mr-4 fab fa-twitter" />
-          </a>
-        )}
-        {website && (
-          <a href={website}>
-            <i className="text-black roman mr-4 fas fa-link" />
-          </a>
-        )}
-      </p>
+      {!justName && (
+        <React.Fragment>
+          {bio && <p className="pb-4">{bio}</p>}
+          <p className="text-grey-dark">
+            {facebook && (
+              <a href={facebook}>
+                <i className="text-black roman mr-4 fab fa-facebook" />
+              </a>
+            )}
+            {twitter && (
+              <a href={`https://twitter.com/${twitter}`}>
+                <i className="text-black roman mr-4 fab fa-twitter" />
+              </a>
+            )}
+            {website && (
+              <a href={website}>
+                <i className="text-black roman mr-4 fas fa-link" />
+              </a>
+            )}
+          </p>
+        </React.Fragment>
+      )}
     </div>
   </div>
 )
@@ -68,22 +73,28 @@ const Post = ({ data }) => {
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:site" content="@byteconf" />
       </Helmet>
-      <div className="px-4 md:px-0 mx-auto text-center pt-12">
-        <div className="uppercase tracking-wide text-gray-800 font-semibold pb-4">
-          {new Date(post.published_at).toLocaleDateString('en-US')}{' '}
-          <span className="text-black font-light">&middot;</span>{' '}
-          <span className="no-underline text-gray-800">
-            {post.primary_tag.name}
-          </span>
+      <div className="container mx-auto">
+        <div className="blog-post px-4 md:px-0">
+          <div className="px-4 md:px-0 pt-12">
+            <div className="uppercase tracking-wide font-semibold">
+              {new Date(post.published_at).toLocaleDateString('en-US')}{' '}
+              <span className="text-black font-light">&middot;</span>{' '}
+              <a
+                className="no-underline text-orange-800 hover:underline"
+                href={`/` + post.primary_tag.slug}
+              >
+                {post.primary_tag.name}
+              </a>
+            </div>
+            <h1 className="mt-16">{post.title}</h1>
+            <Author author={post.primary_author} justName />
+          </div>
+          <div
+            className="post-full-content"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
+          <Author author={post.primary_author} />
         </div>
-        <h1 className="text-5xl m-0 mb-8">{post.title}</h1>
-      </div>
-      <div className="blog-post mx-auto px-4 md:px-0 sm:w-full md:max-w-2xl">
-        <div
-          className="post-full-content"
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
-        <Author author={post.primary_author} />
       </div>
     </Layout>
   )

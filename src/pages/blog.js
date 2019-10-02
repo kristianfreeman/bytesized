@@ -8,7 +8,7 @@ import s3Url from '../utils/s3Url'
 
 const Post = ({ post }) => (
   <div className={`rounded overflow-hidden w-full py-4`}>
-    <div className="px-6 py-4">
+    <div className="py-4">
       {post.featured && (
         <p className="font-bold tracking-wide text-yellow-dark uppercase mb-2">
           Featured
@@ -27,11 +27,14 @@ const Post = ({ post }) => (
         <p className="text-grey-darker text-base">{post.custom_excerpt}</p>
       )}
     </div>
-    <div className="px-6 py-4 md:py-0">
+    <div className="py-4 md:py-0">
       {post.tags.map(tag => (
-        <span className="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2">
+        <a
+          className="text-sm bg-orange-200 text-orange-800 mr-2 lowercase py-2 px-4 rounded-full"
+          href={`/` + tag.slug}
+        >
           {tag.name}
-        </span>
+        </a>
       ))}
     </div>
   </div>
@@ -48,7 +51,7 @@ class Blog extends React.Component {
     return (
       <Layout>
         <Nav />
-        <div className="container flex flex-wrap mx-auto py-8 sm:px-4 justify-between max-w-lg">
+        <div className="container mx-auto flex flex-wrap py-8 px-4 md:px-0 justify-between">
           {featured.map(({ node }) => (
             <Post key={node.id} post={node} />
           ))}
