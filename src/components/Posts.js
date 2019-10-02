@@ -10,6 +10,10 @@ const Posts = () => {
           node {
             slug
             title
+            primary_tag {
+              name
+              slug
+            }
           }
         }
       }
@@ -24,11 +28,19 @@ const Posts = () => {
       <div className="py-4">
         <div className="mt-4">
           {posts.map(post => (
-            <div className={`flex flex-col py-2`}>
-              <div className="text-xl text-red-800 flex items-center">
+            <div className={`py-2`}>
+              <div className="text-xl text-red-800">
                 <a className="hover:underline" href={post.slug}>
                   {post.title}
                 </a>
+                {post.primary_tag && (
+                  <a
+                    className="text-sm bg-orange-200 ml-2 text-orange-800 lowercase py-1 px-2 rounded-full"
+                    href={post.primary_tag.slug}
+                  >
+                    {post.primary_tag.name}
+                  </a>
+                )}
               </div>
             </div>
           ))}

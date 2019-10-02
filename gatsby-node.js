@@ -91,6 +91,8 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     const eventTemplate = path.resolve(`src/templates/event.js`)
     const postTemplate = path.resolve(`src/templates/blogPost.js`)
+    const tagTemplate = path.resolve(`src/templates/tag.js`)
+
     // Query for markdown nodes to use in creating pages.
     resolve(
       graphql(
@@ -108,6 +110,14 @@ exports.createPages = ({ graphql, actions }) => {
                 }
               }
             }
+            allGhostTag {
+              edges {
+                node {
+                  name
+                  slug
+                }
+              }
+            }
           }
         `
       ).then(result => {
@@ -120,6 +130,17 @@ exports.createPages = ({ graphql, actions }) => {
             path: `/${slug}`,
             component: postTemplate,
             context: {
+              slug,
+            },
+          })
+        })
+
+        result.data.allGhostTag.edges.forEach(({ node: { name, slug } }) => {
+          createPage({
+            path: `/${slug}`,
+            component: tagTemplate,
+            context: {
+              name,
               slug,
             },
           })
