@@ -75,7 +75,7 @@ const Post = ({ data }) => {
       </Helmet>
       <div className="container mx-auto">
         <div className="blog-post px-4 md:px-0">
-          <div className="px-4 md:px-0 pt-12">
+          <div className="pt-12">
             <div className="uppercase tracking-wide font-semibold">
               {new Date(post.published_at).toLocaleDateString('en-US')}{' '}
               <span className="text-black font-light">&middot;</span>{' '}
