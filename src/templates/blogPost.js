@@ -1,9 +1,11 @@
 import * as React from 'react'
 
+import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
+
+import CTA from '../components/CTA'
 import Layout from '../components/Layout'
 import Nav from '../components/Nav'
-import { graphql } from 'gatsby'
 
 import './blogPost.scss'
 
@@ -73,27 +75,32 @@ const Post = ({ data }) => {
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:site" content="@byteconf" />
       </Helmet>
-      <div className="container mx-auto">
-        <div className="blog-post px-4 md:px-0">
-          <div className="pt-12">
-            <div className="uppercase tracking-wide font-semibold">
-              {new Date(post.published_at).toLocaleDateString('en-US')}{' '}
-              <span className="text-black font-light">&middot;</span>{' '}
-              <a
-                className="no-underline text-orange-800 hover:underline"
-                href={`/` + post.primary_tag.slug}
-              >
-                {post.primary_tag.name}
-              </a>
+      <div className="container mx-auto lg:flex">
+        <div className="w-full lg:flex-1">
+          <div className="blog-post px-4 md:px-0">
+            <div className="pt-12">
+              <div className="uppercase tracking-wide font-semibold">
+                {new Date(post.published_at).toLocaleDateString('en-US')}{' '}
+                <span className="text-black font-light">&middot;</span>{' '}
+                <a
+                  className="no-underline text-orange-800 hover:underline"
+                  href={`/` + post.primary_tag.slug}
+                >
+                  {post.primary_tag.name}
+                </a>
+              </div>
+              <h1 className="mt-16">{post.title}</h1>
+              <Author author={post.primary_author} justName />
             </div>
-            <h1 className="mt-16">{post.title}</h1>
-            <Author author={post.primary_author} justName />
+            <div
+              className="post-full-content"
+              dangerouslySetInnerHTML={{ __html: post.html }}
+            />
+            <Author author={post.primary_author} />
           </div>
-          <div
-            className="post-full-content"
-            dangerouslySetInnerHTML={{ __html: post.html }}
-          />
-          <Author author={post.primary_author} />
+        </div>
+        <div className="lg:py-12 lg:ml-16 lg:self-end">
+          <CTA />
         </div>
       </div>
     </Layout>
