@@ -16,7 +16,7 @@ const Talk = ({
     time,
   },
 }) => (
-  <div className="bg-white mx-auto max-w-md shadow-lg rounded overflow-hidden my-8">
+  <div className="bg-white mx-auto max-w-2xl shadow-lg rounded overflow-hidden my-8">
     <div className="sm:flex sm:items-center p-12">
       <div className="text-center sm:text-left sm:flex-grow">
         <div className="flex mb-4 items-center">
