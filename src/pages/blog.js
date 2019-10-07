@@ -17,7 +17,7 @@ const Post = ({ post }) => (
       <div className="font-bold text-yellow text-xl mb-2">
         <a
           className="text-3xl text-black no-underline hover:underline"
-          href={`/blog/${post.slug}`}
+          href={`/${post.slug}`}
         >
           {post.title}
         </a>
