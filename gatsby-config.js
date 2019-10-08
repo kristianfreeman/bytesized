@@ -11,6 +11,12 @@ module.exports = {
     siteUrl: 'https://www.bytesized.xyz',
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `UA-107917910-6`,
+      },
+    },
     `gatsby-plugin-postcss`,
     `gatsby-plugin-sass`,
     {
@@ -60,12 +66,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: `UA-107917910-6`,
-      },
-    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
