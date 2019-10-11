@@ -56,11 +56,11 @@ const Post = ({ data }) => {
       <Nav />
       <Helmet>
         <title>
-          {post.title} - {post.primary_author.name} | Byteconf
+          {post.title} | Bytesized Code
         </title>
         <meta
           property="og:title"
-          content={`${post.title} - ${post.primary_author.name}`}
+          content={`${post.title} | Bytesized Code`}
         />
         <meta property="og:type" content="website" />
         {post.feature_image && (
