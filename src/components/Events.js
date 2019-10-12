@@ -26,17 +26,14 @@ const Events = () => {
           youtube_playlist
           cover_path
           event_type
+          status
         }
       }
     }
   `)
 
   const events = get(data, 'sanity.allEvents', [])
-
-  const upNext = events.filter(({ start_date }) => afterToday(start_date))
-  const previous = events.filter(
-    ({ end_date }) => !isToday(end_date) && !afterToday(end_date)
-  )
+  const announced = events.filter(({ status }) => status !== 'planning')
 
   return (
     <div className="w-full md:flex-1">
@@ -44,7 +41,7 @@ const Events = () => {
       <p>Free developer conferences, streamed online</p>
       <div className="py-4">
         <div className="mt-4">
-          {orderBy(previous, 'start_date', 'desc').map(event => (
+          {orderBy(announced, 'start_date', 'desc').map(event => (
             <Event event={event} key={event._id} />
           ))}
         </div>
