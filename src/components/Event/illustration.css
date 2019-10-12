@@ -1,0 +1,16 @@
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-40px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+.illustration {
+  transform: translatey(0px);
+  animation: float 10s ease-in-out;
+}

@@ -17,7 +17,7 @@ import './event.css'
 import { graphql } from 'gatsby'
 
 const CFPLink = ({ event: { cfp_link, name, slug } }) => (
-  <div className="bg-white text-black text-center py-16">
+  <div className="text-center py-16">
     <h3 className="text-3xl text-bold uppercase px-4">
       <a
         className="no-underline text-black hover:text-grey-darker"
@@ -33,10 +33,10 @@ const CFPLink = ({ event: { cfp_link, name, slug } }) => (
 )
 
 const SponsorLink = ({ event }) => (
-  <div className="bg-yellow-dark text-white text-center py-16" id="speakers">
+  <div className="text-center py-16" id="speakers">
     <h3 className="text-3xl text-bold uppercase px-4">
       <a
-        className="text-white no-underline hover:text-green-darker"
+        className="no-underline hover:text-green-darker"
         href={event.sponsor_interest_link}
       >
         <span className="mr-4">
@@ -72,39 +72,41 @@ const Event = ({ data }) => {
       </Helmet>
       <Nav customTitle={event.name} showSubtitle={false} />
       <EventHero event={event} />
-      <svg
-        className="md:-mt-24"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
-      >
-        <path
-          fill="#FEEBC8"
-          fill-opacity="1"
-          d="M0,128L60,154.7C120,181,240,235,360,240C480,245,600,203,720,176C840,149,960,139,1080,122.7C1200,107,1320,85,1380,74.7L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
-        ></path>
-      </svg>
-      {event.status === 'announced' ? (
+      {['announced', 'planning'].includes(event.status) ? (
         <div>
           <CFPLink event={event} />
           <SponsorLink event={event} />
         </div>
       ) : (
-        <div>
-          <SpeakersIfConf event={event} />
+        <>
           <svg
-            className="-mt-24 -mb-12"
+            className="md:-mt-24"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1440 320"
           >
             <path
               fill="#FEEBC8"
               fill-opacity="1"
-              d="M0,288L80,293.3C160,299,320,309,480,298.7C640,288,800,256,960,240C1120,224,1280,224,1360,224L1440,224L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
+              d="M0,128L60,154.7C120,181,240,235,360,240C480,245,600,203,720,176C840,149,960,139,1080,122.7C1200,107,1320,85,1380,74.7L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
             ></path>
           </svg>
-          <Schedule event={event} />
-          <SponsorsIfReact event={event} />
-        </div>
+          <div>
+            <SpeakersIfConf event={event} />
+            <svg
+              className="-mt-24 -mb-12"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1440 320"
+            >
+              <path
+                fill="#FEEBC8"
+                fill-opacity="1"
+                d="M0,288L80,293.3C160,299,320,309,480,298.7C640,288,800,256,960,240C1120,224,1280,224,1360,224L1440,224L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
+              ></path>
+            </svg>
+            <Schedule event={event} />
+            <SponsorsIfReact event={event} />
+          </div>
+        </>
       )}
       <Footer event={event} />
     </Layout>
@@ -114,7 +116,7 @@ const Event = ({ data }) => {
 export const pageQuery = graphql`
   query EventQuery($slug: String!) {
     sanity {
-      allEvents(where: { published: true, slug: $slug }) {
+      allEvents(where: { slug: $slug }) {
         _id
         slug
         icon
@@ -128,6 +130,7 @@ export const pageQuery = graphql`
         youtube_playlist
         sponsor_interest_link
         cfp_link
+        rsvp_url
         cover_path
         event_speakers {
           available_live
