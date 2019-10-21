@@ -77,8 +77,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Byteconf`,
-        short_name: `Byteconf`,
+        name: `Bytesized Code`,
+        short_name: `Bytesized Code`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
@@ -87,7 +87,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
-    'gatsby-plugin-no-sourcemaps',
+    `gatsby-plugin-react-helmet`
   ],
 }
