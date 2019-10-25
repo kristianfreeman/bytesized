@@ -3,8 +3,8 @@ on:
     branches:
       - master
   repository_dispatch:
-  # schedule:
-  #   - cron: "0 * * * *"
+  schedule:
+    - cron: "0 * * * *"
 
 jobs:
   deploy:
@@ -22,3 +22,9 @@ jobs:
         apiKey: ${{ secrets.apiKey }}
         email: ${{ secrets.email }}
         environment: "production"
+    - name: Validate with scraper
+      uses: signalnerve/scraper-action@0.0.1
+      with:
+        url: "https://www.bytesized.xyz/"
+        selector: "h1"
+        test: "Bytesized"
