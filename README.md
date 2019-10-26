@@ -11,7 +11,7 @@ The tech stack:
 - The site is built with [Gatsby](https://gatsbyjs.org)
 - Event, speaker, and talk data is sourced from our [Sanity.io](https://sanity.io) instance. Our Sanity.io schema is open-source, [check it out](https://github.com/byteconf/byteconf-sanity-schema)!
 - Blog posts are sourced from our [Ghost](https://ghost.org) instance. [Interested in contributing?](https://www.bytesized.xyz/accepting-story-submissions)
-- The site is deployed hourly using GitHub Pages, and hosted with [Cloudflare Workers](https://workers.cloudflare.com).
+- The site is deployed hourly using GitHub Actions, and hosted with [Cloudflare Workers](https://workers.cloudflare.com).
 
 We're interested in contributions, but we're still trying to figure out how to do that well! More to come soon 👀
 

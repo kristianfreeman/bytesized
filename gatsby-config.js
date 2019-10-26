@@ -23,8 +23,7 @@ module.exports = {
       resolve: `gatsby-source-ghost`,
       options: {
         apiUrl: `https://blog.bytesized.xyz`,
-        clientId: `ghost-frontend`,
-        clientSecret: `a9581dc692c6`,
+        contentApiKey: `04c5f19f6ffede798a15d61f7e`,
       },
     },
     {
