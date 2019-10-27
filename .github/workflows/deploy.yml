@@ -23,7 +23,7 @@ jobs:
         email: ${{ secrets.email }}
         environment: "production"
     - name: Validate with scraper
-      uses: signalnerve/scraper-action@0.0.1
+      uses: signalnerve/scraper-action@master
       with:
         url: "https://www.bytesized.xyz/"
         selector: "h1"
