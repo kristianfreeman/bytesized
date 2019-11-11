@@ -90,6 +90,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
     const eventTemplate = path.resolve(`src/templates/event.js`)
+    const eventRSVPTemplate = path.resolve(`src/templates/eventRSVP.js`)
     const postTemplate = path.resolve(`src/templates/blogPost.js`)
     const tagTemplate = path.resolve(`src/templates/tag.js`)
 
@@ -153,6 +154,13 @@ exports.createPages = ({ graphql, actions }) => {
             component: eventTemplate,
             context: {
               slug,
+            },
+          })
+          createPage({
+            path: slug + '/thanks',
+            component: eventRSVPTemplate,
+            context: {
+              slug
             },
           })
         })
