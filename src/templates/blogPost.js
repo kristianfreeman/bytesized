@@ -16,7 +16,7 @@ const Author = ({
   <div className="author flex items-center my-12">
     {profile_image && (
       <img
-        className="w-16 h-16 rounded-full mr-4"
+        className="w-16 h-16 rounded-full mr-4 shadow-lg hover:shadow-2xl inner-shadow transition-all"
         src={profile_image}
         alt={name}
       />
@@ -29,17 +29,17 @@ const Author = ({
           <p className="text-grey-dark">
             {facebook && (
               <a href={facebook}>
-                <i className="text-black roman mr-4 fab fa-facebook" />
+                <i className="text-black hover:text-green-800 transition-all roman mr-4 fab fa-facebook" />
               </a>
             )}
             {twitter && (
               <a href={`https://twitter.com/${twitter}`}>
-                <i className="text-black roman mr-4 fab fa-twitter" />
+                <i className="text-black hover:text-blue-800 transition-all roman mr-4 fab fa-twitter" />
               </a>
             )}
             {website && (
               <a href={website}>
-                <i className="text-black roman mr-4 fas fa-link" />
+                <i className="text-black hover:text-gray-800 transition-all roman mr-4 fas fa-link" />
               </a>
             )}
           </p>
@@ -55,13 +55,8 @@ const Post = ({ data }) => {
     <Layout>
       <Nav />
       <Helmet>
-        <title>
-          {post.title} | Bytesized Code
-        </title>
-        <meta
-          property="og:title"
-          content={`${post.title} | Bytesized Code`}
-        />
+        <title>{post.title} | Bytesized Code</title>
+        <meta property="og:title" content={`${post.title} | Bytesized Code`} />
         <meta property="og:type" content="website" />
         {post.feature_image && (
           <meta property="twitter:image" content={post.feature_image} />

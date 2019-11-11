@@ -33,14 +33,22 @@ const Events = () => {
   `)
 
   const events = get(data, 'sanity.allEvents', [])
-  const announced = events.filter(({ status }) => status !== 'planning')
+  const filtered = events.filter(({ status }) => status !== 'planning')
+  const [recent, ...announced] = filtered
 
   return (
-    <div className="w-full md:flex-1">
-      <h4 className="text-2xl font-bold">Byteconf</h4>
-      <p>Free developer conferences, streamed online</p>
-      <div className="py-4">
-        <div className="mt-4">
+    <div className="w-full md:flex-1 py-8">
+      <h3 className="text-4xl font-bold mb-8">Events</h3>
+      <p className="text-xl measure-wide">
+        Byteconf is our free developer conference series, streamed online. Learn
+        from the best speakers and teachers in the programming world, right from
+        your home.
+      </p>
+      <div className="py-12 md:flex">
+        <div className="flex items-stretch w-full md:flex-1">
+          <Event event={recent} recent />
+        </div>
+        <div className="md:flex md:flex-wrap w-full md:flex-1">
           {orderBy(announced, 'start_date', 'desc').map(event => (
             <Event event={event} key={event._id} />
           ))}

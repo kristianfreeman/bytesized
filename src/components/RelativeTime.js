@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { DateTime } from 'luxon'
 
-const pastFormat = 'MMMM d'
-const upcomingFormat = 'EEEE, MMMM d'
+const pastFormat = 'MMMM d, yyyy'
+const upcomingFormat = 'EEEE, MMMM d, yyyy'
 
 const time = 't'
 

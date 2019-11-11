@@ -16,18 +16,18 @@ const Schedule = ({ event }) => {
     <div className="text-center py-24">
       <h3 className="text-3xl font-bold">Schedule</h3>
 
-      <div className="my-6 max-w-lg mx-auto">
-        <h4 className="font-normal mb-4">
+      <div className="mt-8 mb-12 max-w-xl mx-auto">
+        <h4 className="text-xl">
           All times listed are in your browser's timezone,{' '}
           {Intl.DateTimeFormat().resolvedOptions().timeZone}.
         </h4>
       </div>
 
-      <div className="mt-12 mx-10">
+      <div>
         {Object.keys(groupedTalks).map(key => {
           return (
-            <div className="pt-2" key={key}>
-              <h2 className="text-lg">
+            <div className="mt-24" key={key}>
+              <h2 className="text-lg uppercase tracking-widest font-semibold">
                 <RelativeTime date={DateTime.fromISO(key)} />
               </h2>
               {orderBy(groupedTalks[key], 'position').map(talk => (

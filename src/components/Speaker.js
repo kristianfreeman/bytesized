@@ -3,40 +3,36 @@ import * as React from 'react'
 import S3Url from '../utils/s3Url'
 
 const Speaker = ({ speaker }) => (
-  <div className="sm:w-full md:w-1/5 overflow-hidden mx-2 my-4">
-    <div className="flex items-center w-full">
+  <div className="sm:w-full md:w-1/4 overflow-hidden m-8">
+    <div className="flex items-center justify-center w-full h-auto shadow hover:shadow-lg transition-all">
       <img
+        className="w-full h-full"
         src={S3Url(speaker.static_image_path)}
         alt={speaker.name}
-        style={{ maxHeight: '342px' }}
       />
     </div>
 
     <div className="px-6 py-4">
-      <div className="font-bold text-xl mb-2">{speaker.name}</div>
-      <p>{speaker.company}</p>
+      <div className="font-bold text-2xl mb-2">{speaker.name}</div>
+      <p className="text-lg">{speaker.company}</p>
       <div className="mt-4">
         {speaker.twitter && (
           <a
             href={speaker.twitter}
-            className="no-underline mr-2"
+            className="no-underline mr-4"
             title="Twitter"
           >
-            <i className="fab fa-twitter text-black fa-lg" />
+            <i className="fab fa-twitter text-gray-600 hover:text-blue-800 transition-all fa-2x" />
           </a>
         )}
         {speaker.github && (
-          <a href={speaker.github} className="no-underline mr-2" title="GitHub">
-            <i className="fab fa-github text-black fa-lg" />
+          <a href={speaker.github} className="no-underline mr-4" title="GitHub">
+            <i className="fab fa-github text-gray-600 hover:text-black transition-all fa-2x" />
           </a>
         )}
         {speaker.website && (
-          <a
-            href={speaker.website}
-            className="no-underline mr-2"
-            title="Website"
-          >
-            <i className="fas fa-link text-black fa-lg" />
+          <a href={speaker.website} className="no-underline" title="Website">
+            <i className="fas fa-link text-gray-600 hover:text-green-900 transition-all fa-2x" />
           </a>
         )}
       </div>

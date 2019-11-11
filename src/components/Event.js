@@ -1,44 +1,48 @@
 import React from 'react'
 
-import { DateTime } from 'luxon'
-import RelativeTime from './RelativeTime'
-
-const DateString = ({ start_date, end_date }) => {
-  const start = DateTime.fromISO(start_date)
-  const end = DateTime.fromISO(end_date)
-
-  if (start.hasSame(end, 'day')) {
-    return <RelativeTime date={start_date} />
-  } else {
-    return (
-      <div>
-        <RelativeTime date={start_date} /> – <RelativeTime date={end_date} />
-      </div>
-    )
-  }
-}
-
 const s3Url = path => `https://byteconf-production.s3.amazonaws.com/${path}`
 
-const Container = ({ children, url }) => (
-  <div className={`w-full mb-4 md:flex-2 overflow-hidden`}>{children}</div>
+const Container = ({ children, recent, url }) => (
+  <div
+    className={`h-full shadow hover:shadow-2xl transition-all hover:lighten ${
+      recent ? 'w-full' : ''
+    }`}
+    style={{
+      backgroundImage: `url(${url})`,
+      backgroundSize: `cover`,
+      paddingLeft: recent ? '' : '10px',
+      paddingRight: recent ? '' : '10px',
+    }}
+  >
+    {children}
+  </div>
 )
 
-const Event = ({ event }) => {
-  const parsedDate = DateTime.fromISO(event.start_date)
+const Event = ({ event, recent }) => {
   return (
-    <Container url={s3Url(event.cover_path)}>
-      <div className={`flex flex-col`}>
-        <div className="text-2xl text-red-800 flex">
-          <div className="flex mr-2 w-8 items-center justify-center">
-            <i className={`fa ${event.icon}`} />
+    <a
+      className={recent ? 'w-full' : 'w-full md:w-1/2 h-64'}
+      href={event.slug}
+      style={{
+        marginBottom: '10px',
+        paddingLeft: recent ? '' : '10px',
+        paddingRight: recent ? '' : '10px',
+      }}
+    >
+      <Container recent={recent} url={s3Url(event.cover_path)}>
+        <div className={`flex items-center justify-center h-full p-4 md:p-0`}>
+          <div className="py-2 px-4 shadow hover:shadow-2xl transition-all bg-white rounded text-center">
+            <h1
+              className={`text-black text-2xl md:text-base ${
+                recent ? 'md:text-4xl' : ''
+              } font-bold`}
+            >
+              {event.name}
+            </h1>
           </div>
-          <a className="hover:underline" href={event.slug}>
-            {event.name}
-          </a>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </a>
   )
 }
 

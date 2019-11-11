@@ -7,7 +7,7 @@ import { DateTime } from 'luxon'
 import RelativeTime from '../RelativeTime'
 
 const RSVP = ({ event: { name, rsvp_url } }) => (
-  <div className="bg-white p-8 w-full md:flex-1 md:w-1/3 shadow shadow-2 mt-8 md:mt-0 md:ml-16 md:m-8 text-center">
+  <div className="bg-white p-12 w-full md:flex-1 md:w-1/3 shadow shadow-lg mt-8 md:mt-0 md:ml-16 md:m-8 text-center">
     <h2 className="text-2xl font-bold">Get your free ticket</h2>
     <p className="mt-4 mb-8 text-lg">
       We'll also sign you up for Bytesized Weekly, our newsletter covering
@@ -15,7 +15,7 @@ const RSVP = ({ event: { name, rsvp_url } }) => (
       unsubscribe at any time.
     </p>
     <a
-      className="bg-orange-200 text-orange-800 font-bold p-2 text-lg"
+      className="bg-orange-200 text-orange-800 hover:bg-orange-800 hover:text-white transition-all font-bold p-4 text-lg"
       href={rsvp_url}
     >
       Register for {name}
@@ -43,36 +43,49 @@ class EventHero extends React.Component {
     const { event } = this.props
 
     return (
-      <div className="md:flex items-center container mx-auto">
-        <div className="w-full md:flex-2 px-4 md:px-0 md:w-1/2">
-          <div className="text-xl">
-            <DateString
-              start_date={event.start_date}
-              end_date={event.end_date}
-            />{' '}
-            · {event.location}
-          </div>
-
-          <div className="mt-4">
-            <p className="block leading-normal text-xl">{event.simple_copy}</p>
-          </div>
-
-          {event.youtube_playlist && (
-            <div className="mt-12">
-              <div className="py-4">
-                <a
-                  className="py-2 px-3 rounded-lg bg-red-800 no-underline hover:underline text-white"
-                  href={event.youtube_playlist}
-                >
-                  <i className="fab fa-youtube mr-2" />
-                  Watch {event.name} on YouTube
-                </a>
-              </div>
+      <>
+        <div className="container mx-auto my-8">
+          <h1 className="text-4xl px-4 md:px-0 font-bold">{event.name}</h1>
+        </div>
+        <div className="md:flex items-center container mx-auto pt-8 pb-16">
+          <div className="w-full md:flex-2 px-4 md:px-0 md:w-1/2">
+            <div className="font-bold text-2xl mb-8">
+              <DateString
+                start_date={event.start_date}
+                end_date={event.end_date}
+              />
             </div>
+
+            <div className="mt-4">
+              <p className="block leading-normal text-2xl">
+                {event.simple_copy}
+              </p>
+            </div>
+
+            {event.youtube_playlist && (
+              <div className="mt-12">
+                <div className="py-4">
+                  <a
+                    className="py-2 px-4 rounded-lg bg-red-800 hover:bg-red-900 transition-all text-white text-lg md:text-2xl shadow hover:shadow-xl"
+                    href={event.youtube_playlist}
+                  >
+                    <i className="fab fa-youtube mr-2" />
+                    Watch {event.name} on YouTube
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
+          {event.status != 'finished' ? (
+            <RSVP event={event} />
+          ) : (
+            <img
+              className="illustration transition-all hover:lighten-sm w-1/2"
+              src={illustration}
+            />
           )}
         </div>
-        {event.status != 'finished' && <RSVP event={event} />}
-      </div>
+      </>
     )
   }
 }

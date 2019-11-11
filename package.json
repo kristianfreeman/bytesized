@@ -37,7 +37,8 @@
     "react-helmet": "^5.2.0",
     "react-lazyload": "^2.3.0",
     "react-markdown": "^4.0.4",
-    "react-player": "^1.9.3"
+    "react-player": "^1.9.3",
+    "tailwindcss-transitions": "^2.1.0"
   },
   "devDependencies": {
     "eslint": "^4.19.1",

@@ -28,7 +28,7 @@ const CFPLink = ({ event: { cfp_link, name, slug } }) => (
     </p>
     <p className="py-8">
       <a
-        className="text-2xl bg-blue-800 text-white hover:bg-blue-600 w-full p-2"
+        className="text-2xl hover:bg-yellow-700 text-white bg-yellow-800 transition-all w-full px-4 py-2 shadow hover:shadow-2xl"
         href={cfp_link}
       >
         View the Call for Papers for {name}
@@ -41,7 +41,7 @@ const Sponsors = ({ event }) => (
   <div className="bg-white w-full md:w-1/2 container mx-auto shadow mt-16 mb-32 md:mb-0 p-8">
     <h3 className="text-2xl mb-8">Sponsors and community partners</h3>
     <a
-      className="bg-blue-800 text-white p-2"
+      className="hover:bg-yellow-700 text-white bg-yellow-800 transition-all w-full px-4 py-2 shadow hover:shadow-lg"
       href={event.sponsor_interest_link}
     >
       Check out our sponsorship prospectus
@@ -68,7 +68,9 @@ const Event = ({ data }) => {
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:site" content="@byteconf" />
       </Helmet>
-      <Nav customTitle={event.name} showSubtitle={false} />
+      <div className="mb-32">
+        <Nav />
+      </div>
       <EventHero event={event} />
       <>
         <svg
@@ -78,6 +80,7 @@ const Event = ({ data }) => {
           style={{ zIndex: -1 }}
         >
           <path
+            className="shadow-inner"
             fill="#FEEBC8"
             fill-opacity="1"
             d="M0,128L60,154.7C120,181,240,235,360,240C480,245,600,203,720,176C840,149,960,139,1080,122.7C1200,107,1320,85,1380,74.7L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
@@ -92,7 +95,7 @@ const Event = ({ data }) => {
           </div>
 
           <svg
-            className="-mt-48 relative"
+            className="-mt-48 relative inner-shadow"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1440 320"
             style={{ zIndex: -1 }}

@@ -2,12 +2,20 @@ import React from 'react'
 import { get, orderBy } from 'lodash'
 import { useStaticQuery, graphql } from 'gatsby'
 
+import Post from './Post'
+
 const Posts = () => {
   const data = useStaticQuery(graphql`
     query {
       allGhostPost(limit: 5) {
         edges {
           node {
+            excerpt
+            published_at
+            primary_author {
+              name
+            }
+            feature_image
             slug
             title
             primary_tag {
@@ -20,29 +28,33 @@ const Posts = () => {
     }
   `)
 
-  const posts = get(data, 'allGhostPost.edges', []).map(({ node }) => node)
+  const [first, ...posts] = get(data, 'allGhostPost.edges', []).map(
+    ({ node }) => node
+  )
+
   return (
-    <div className="w-full md:flex-1">
-      <h4 className="text-2xl font-bold">Blog</h4>
-      <p>Learn how to code with our free tutorials and guides</p>
-      <div className="py-4">
-        <div className="mt-4">
+    <div className="w-full md:flex-1 py-8">
+      <div className="md:flex md:items-center">
+        <div className="w-full md:flex-1">
+          <h3 className="text-4xl font-bold mb-8">Learn</h3>
+          <p className="text-xl measure-wide">
+            Learn how to code with our free tutorials and guides.
+          </p>
+        </div>
+        <div className="w-full md:flex-1 md:text-right mt-8 md:mt-0">
+          <a
+            className="bg-orange-800 hover:bg-orange-600 text-white transition-all px-4 py-2 shadow hover:shadow-2xl transition-all text-lg"
+            href="/blog"
+          >
+            Read the Bytesized blog
+          </a>
+        </div>
+      </div>
+      <div className="py-8">
+        <Post full post={first} />
+        <div className="mt-8 flex flex-wrap items-stretch">
           {posts.map(post => (
-            <div className={`py-2`}>
-              <div className="text-xl text-red-800">
-                <a className="hover:underline" href={post.slug}>
-                  {post.title}
-                </a>
-                {post.primary_tag && (
-                  <a
-                    className="text-sm bg-orange-200 ml-2 text-orange-800 lowercase py-1 px-2 rounded-full"
-                    href={post.primary_tag.slug}
-                  >
-                    {post.primary_tag.name}
-                  </a>
-                )}
-              </div>
-            </div>
+            <Post post={post} />
           ))}
         </div>
       </div>
