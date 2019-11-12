@@ -14,7 +14,15 @@ const Post = ({ post }) => (
 const Full = ({ post }) => (
   <a className="w-full h-full bg-white flex-1 mb-4" href={`/` + post.slug}>
     <div className="bg-white shadow hover:shadow-xl transition-all p-8 flex flex-col h-full my-4 border border-gray-200">
-      <h3 className="text-3xl font-bold">{post.title}</h3>
+      <div className="flex">
+        <h3 className="text-3xl font-bold flex-1">{post.title}</h3>
+        {post.featured && (
+          <span className="flex items-center justify-center uppercase leading-tight font-bold hover:text-yellow-600 transition-all">
+            <span className="fas fa-star mr-2 align-middle" />
+            Featured
+          </span>
+        )}
+      </div>
       <h4 className="text-xl py-4">By {post.primary_author.name}</h4>
       <ReactMarkdown
         allowedTypes={['root', 'text', 'paragraph']}
