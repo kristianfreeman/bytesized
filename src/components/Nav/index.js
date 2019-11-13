@@ -12,7 +12,7 @@ const Nav = () => (
         <img className="h-48" src={nav} />
       </Link>
     </div>
-    <div className="text-center my-8 text-xl hidden md:block">
+    <div className="text-center my-8 lg:text-xl hidden md:block">
       <Link
         className="hover:font-bold hover:text-red-800 transition-all mx-8"
         to="/conference"

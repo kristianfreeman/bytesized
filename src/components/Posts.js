@@ -33,7 +33,7 @@ const Posts = () => {
   )
 
   return (
-    <div className="w-full md:flex-1 py-8">
+    <div className="w-full md:flex-1 pt-8">
       <div className="md:flex md:items-center">
         <div className="w-full md:flex-1">
           <h3 className="text-4xl font-bold mb-8">Learn</h3>

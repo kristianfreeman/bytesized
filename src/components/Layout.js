@@ -1,8 +1,12 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+
 import favicon from '../assets/byteconf-full.png'
 import './Layout.css'
+
+import CTA from './CTA'
+import Footer from './Footer'
 
 const Layout = ({ children }) => {
   return (
@@ -93,6 +97,8 @@ const Layout = ({ children }) => {
               />
             </Helmet>
             {children}
+            <CTA />
+            <Footer />
           </div>
         )
       }}

@@ -2,8 +2,8 @@ import React from 'react'
 
 import Events from '../components/Events'
 import HomepageHero from '../components/HomepageHero'
-import Nav from '../components/Nav'
 import Layout from '../components/Layout'
+import Nav from '../components/Nav'
 import Posts from '../components/Posts'
 
 const Index = () => (

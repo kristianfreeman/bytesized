@@ -2,14 +2,13 @@ import * as React from 'react'
 
 import { Helmet } from 'react-helmet'
 
-import Layout from '../components/Layout'
-import Nav from '../components/Nav'
 import EventHeader from '../components/Event/Header'
 import EventHero from '../components/Event/Hero'
 import EventSpeakers from '../components/Event/Speakers'
-import Footer from '../components/Event/Footer'
-import Schedule from '../components/Event/Schedule'
+import Layout from '../components/Layout'
 import LegacySponsors from '../components/Event/Sponsors'
+import Nav from '../components/Nav'
+import Schedule from '../components/Event/Schedule'
 
 import S3Url from '../utils/s3Url'
 import './event.css'
@@ -115,7 +114,6 @@ const Event = ({ data }) => {
           <SponsorsIfReact event={event} />
         </div>
       </>
-      <Footer event={event} />
     </Layout>
   )
 }

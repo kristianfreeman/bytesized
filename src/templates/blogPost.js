@@ -3,7 +3,6 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import CTA from '../components/CTA'
 import Layout from '../components/Layout'
 import Nav from '../components/Nav'
 
@@ -71,7 +70,7 @@ const Post = ({ data }) => {
         <meta property="twitter:site" content="@byteconf" />
       </Helmet>
       <div className="container mx-auto lg:flex">
-        <div className="w-full lg:flex-1">
+        <div className="w-full">
           <div className="blog-post px-4 md:px-0">
             <div className="pt-12">
               <div className="uppercase tracking-wide font-semibold">
@@ -93,9 +92,6 @@ const Post = ({ data }) => {
             />
             <Author author={post.primary_author} />
           </div>
-        </div>
-        <div className="lg:py-12 lg:ml-16 lg:self-end">
-          <CTA />
         </div>
       </div>
     </Layout>
