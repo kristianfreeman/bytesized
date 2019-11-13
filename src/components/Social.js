@@ -1,6 +1,10 @@
 import React from 'react'
 
-const Social = ({ alignment = 'center', size = '2x' }) => (
+const Social = ({
+  alignment = 'center',
+  color = 'text-gray-600',
+  size = '2x',
+}) => (
   <div className={`text-${alignment}`}>
     <p className="mb-4">
       <a
@@ -9,7 +13,7 @@ const Social = ({ alignment = 'center', size = '2x' }) => (
         title="Join our newsletter"
       >
         <i
-          className={`fa-${size} fas fa-envelope text-gray-600 hover:text-green-800 transition-all no-underline border-white`}
+          className={`fa-${size} fas fa-envelope ${color} hover:text-green-800 transition-all no-underline border-white`}
         />
       </a>
       <a
@@ -18,7 +22,7 @@ const Social = ({ alignment = 'center', size = '2x' }) => (
         title="Byteconf on Twitter"
       >
         <i
-          className={`fa-${size} fab fa-twitter text-gray-600 hover:text-blue-800 transition-all no-underline border-white`}
+          className={`fa-${size} fab fa-twitter ${color} hover:text-blue-800 transition-all no-underline border-white`}
         />
       </a>
       <a
@@ -27,7 +31,7 @@ const Social = ({ alignment = 'center', size = '2x' }) => (
         title="Byteconf on YouTube"
       >
         <i
-          className={`fa-${size} fab fa-youtube text-gray-600 hover:text-red-800 transition-all no-underline border-white`}
+          className={`fa-${size} fab fa-youtube ${color} hover:text-red-800 transition-all no-underline border-white`}
         />
       </a>
     </p>

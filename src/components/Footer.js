@@ -13,7 +13,7 @@ const Footer = () => (
           <img alt="Bytesized" className="w-32 h-32 mb-8" src={logo} />
         </Link>
         <div className="ml-2">
-          <Social alignment="left" />
+          <Social alignment="left" color="text-black" />
         </div>
       </div>
       <div className="w-full lg:mx-0 mx-4 lg:flex-1 lg:border-dashed lg:border-r lg:border-gray-400 mt-8 lg:mt-0 lg:flex lg:flex-col lg:items-center lg:justify-center">

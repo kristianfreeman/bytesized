@@ -43,7 +43,7 @@ const HomepageHero = () => {
           name: heroEvent.name,
           slug: heroEvent.slug,
           description: heroEvent.description,
-          image: S3Url('headers/attendees.jpg'),
+          image: S3Url(heroEvent.cover_path || 'headers/attendees.jpg'),
         }
       : {
           name: heroPost.title,
@@ -67,10 +67,12 @@ const HomepageHero = () => {
           <span className="font-bold text-white text-xl">What's new</span>
         </div>
         <div className="p-8 bg-white rounded-lg text-center shadow hover:shadow-2xl transition-all">
-          <h1 className="text-black transition-all hover:text-gray-800 text-4xl font-bold">
+          <h1 className="text-black transition-all hover:text-gray-800 text-4xl font-bold measure-narrow">
             {heroItem.name}
           </h1>
-          <p className="text-black text-xl">{heroItem.description}</p>
+          {heroItem.description && (
+            <p className="text-black text-xl">{heroItem.description}</p>
+          )}
         </div>
       </div>
     </Link>
