@@ -7,6 +7,7 @@ import './Layout.css'
 
 import CTA from './CTA'
 import Footer from './Footer'
+import Share from './Share'
 
 const Layout = ({ children }) => {
   return (
@@ -99,6 +100,7 @@ const Layout = ({ children }) => {
             {children}
             <CTA />
             <Footer />
+            <Share />
           </div>
         )
       }}
