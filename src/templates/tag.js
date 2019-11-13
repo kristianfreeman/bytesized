@@ -3,7 +3,6 @@ import { Link, graphql } from 'gatsby'
 import { filter, get, orderBy } from 'lodash'
 
 import Layout from '../components/Layout'
-import Nav from '../components/Nav'
 import Post from '../components/Post'
 import s3Url from '../utils/s3Url'
 
@@ -16,7 +15,6 @@ class Tag extends React.Component {
 
     return (
       <Layout>
-        <Nav />
         <div className="mt-32 mb-16 container mx-auto px-4 md:px-0 flex items-center justify-center">
           {tag.feature_image && (
             <div className="flex-1 flex items-center justify-center">

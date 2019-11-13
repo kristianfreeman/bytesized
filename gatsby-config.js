@@ -17,6 +17,14 @@ module.exports = {
         trackingId: `UA-107917910-6`,
       },
     },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        defaultLayouts: {
+          default: require.resolve('./src/components/MdxLayout.js'),
+        },
+      },
+    },
     `gatsby-plugin-postcss`,
     `gatsby-plugin-sass`,
     {
@@ -86,6 +94,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`
+    `gatsby-plugin-react-helmet`,
   ],
 }

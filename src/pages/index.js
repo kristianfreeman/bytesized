@@ -8,7 +8,6 @@ import Posts from '../components/Posts'
 
 const Index = () => (
   <Layout>
-    <Nav />
     <HomepageHero />
     <div className="container md:w-full mx-auto px-4 md:px-0">
       <Events />

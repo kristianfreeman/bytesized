@@ -7,6 +7,7 @@ import './Layout.css'
 
 import CTA from './CTA'
 import Footer from './Footer'
+import Nav from './Nav'
 import Share from './Share'
 
 const Layout = ({ children }) => {
@@ -97,6 +98,9 @@ const Layout = ({ children }) => {
                 src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-sql.min.js"
               />
             </Helmet>
+            <div className="mb-32">
+              <Nav />
+            </div>
             {children}
             <CTA />
             <Footer />

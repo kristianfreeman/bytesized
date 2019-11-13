@@ -7,7 +7,6 @@ import EventHero from '../components/Event/Hero'
 import EventSpeakers from '../components/Event/Speakers'
 import Layout from '../components/Layout'
 import LegacySponsors from '../components/Event/Sponsors'
-import Nav from '../components/Nav'
 import Schedule from '../components/Event/Schedule'
 
 import S3Url from '../utils/s3Url'
@@ -69,9 +68,6 @@ const Event = ({ data }) => {
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:site" content="@byteconf" />
       </Helmet>
-      <div className="mb-32">
-        <Nav />
-      </div>
       <EventHero event={event} />
       <>
         <svg

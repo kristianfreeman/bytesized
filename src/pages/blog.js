@@ -3,7 +3,6 @@ import { Link, graphql } from 'gatsby'
 import { filter, get, orderBy } from 'lodash'
 
 import Layout from '../components/Layout'
-import Nav from '../components/Nav'
 import Post from '../components/Post'
 import s3Url from '../utils/s3Url'
 
@@ -14,7 +13,6 @@ class Blog extends React.Component {
 
     return (
       <Layout>
-        <Nav />
         <div className="container mx-auto py-8 px-4 md:px-0 justify-between">
           {posts.map(({ node }) => (
             <Post key={node.id} full post={node} />

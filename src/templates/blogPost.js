@@ -4,7 +4,6 @@ import { Link, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
 import Layout from '../components/Layout'
-import Nav from '../components/Nav'
 
 import './blogPost.scss'
 
@@ -52,7 +51,6 @@ const Post = ({ data }) => {
   const post = data && data.ghostPost
   return (
     <Layout>
-      <Nav />
       <Helmet>
         <title>{post.title} | Bytesized Code</title>
         <meta property="og:title" content={`${post.title} | Bytesized Code`} />
