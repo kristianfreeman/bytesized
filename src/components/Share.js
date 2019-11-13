@@ -38,7 +38,7 @@ const Share = () => {
 
   return (
     <div
-      className="fixed bg-red-200 flex flex-col items-center justify-center hidden md:block"
+      className="fixed bg-red-200 flex flex-col items-center justify-center hidden md:block shadow hover:shadow-lg transition-all"
       style={{ top: '33%', right: 0 }}
     >
       <i
@@ -61,4 +61,21 @@ const Share = () => {
   )
 }
 
-export default Share
+class SSRWrapper extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      display: false,
+    }
+  }
+
+  componentDidMount() {
+    this.setState({ display: true })
+  }
+
+  render() {
+    return this.state.display ? <Share /> : null
+  }
+}
+
+export default SSRWrapper
