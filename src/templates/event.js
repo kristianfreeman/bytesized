@@ -27,7 +27,7 @@ const CFPLink = ({ event: { cfp_link, name, slug } }) => (
     </p>
     <p className="py-8">
       <a
-        className="text-2xl hover:bg-yellow-700 text-white bg-yellow-800 transition-all w-full px-4 py-2 shadow hover:shadow-2xl"
+        className="text-2xl hover:bg-orange-700 text-white bg-orange-800 transition-all w-full px-4 py-2 shadow hover:shadow-2xl rounded"
         href={cfp_link}
       >
         View the Call for Papers for {name}
@@ -38,9 +38,9 @@ const CFPLink = ({ event: { cfp_link, name, slug } }) => (
 
 const Sponsors = ({ event }) => (
   <div className="bg-white w-full md:w-1/2 container mx-auto shadow mt-16 mb-32 md:mb-0 p-8">
-    <h3 className="text-2xl mb-8">Sponsors and community partners</h3>
+    <h3 className="text-3xl mb-8">Sponsors and community partners</h3>
     <a
-      className="hover:bg-yellow-700 text-white bg-yellow-800 transition-all w-full px-4 py-2 shadow hover:shadow-lg"
+      className="hover:bg-orange-700 text-white bg-orange-800 transition-all w-full px-4 py-2 shadow hover:shadow-lg rounded"
       href={event.sponsor_interest_link}
     >
       Check out our sponsorship prospectus

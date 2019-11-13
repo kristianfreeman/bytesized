@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
 const s3Url = path => `https://byteconf-production.s3.amazonaws.com/${path}`
 
@@ -20,14 +21,14 @@ const Container = ({ children, recent, url }) => (
 
 const Event = ({ event, recent }) => {
   return (
-    <a
+    <Link
       className={recent ? 'w-full' : 'w-full md:w-1/2 h-64'}
-      href={event.slug}
       style={{
         marginBottom: '10px',
         paddingLeft: recent ? '' : '10px',
         paddingRight: recent ? '' : '10px',
       }}
+      to={event.slug}
     >
       <Container recent={recent} url={s3Url(event.cover_path)}>
         <div className={`flex items-center justify-center h-full p-4 md:p-0`}>
@@ -42,7 +43,7 @@ const Event = ({ event, recent }) => {
           </div>
         </div>
       </Container>
-    </a>
+    </Link>
   )
 }
 

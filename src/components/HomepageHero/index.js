@@ -1,6 +1,6 @@
 import React from 'react'
 import { first, get, orderBy } from 'lodash'
-import { useStaticQuery, graphql } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 
 import S3Url from '../../utils/s3Url'
 
@@ -53,9 +53,9 @@ const HomepageHero = () => {
         }
 
   return (
-    <a href={heroItem.slug}>
+    <Link to={heroItem.slug}>
       <div
-        className="heroContainer w-full flex flex-col items-center justify-center shadow-lg my-8 hover:lighten transition-all"
+        className="heroContainer w-full flex flex-col items-center justify-center shadow-inner my-8 hover:lighten transition-all"
         style={{
           backgroundImage: `url(${heroItem.image})`,
           backgroundPosition: 'center',
@@ -63,10 +63,8 @@ const HomepageHero = () => {
           minHeight: '50vh',
         }}
       >
-        <div className="p-2 -mb-6 bg-orange-600 z-10 rounded-lg shadow">
-          <span className="font-bold text-white hover:text-orange-100 transition-all text-xl">
-            What's new
-          </span>
+        <div className="px-3 py-2 -mb-6 bg-orange-800 z-10 rounded-lg shadow">
+          <span className="font-bold text-white text-xl">What's new</span>
         </div>
         <div className="p-8 bg-white rounded-lg text-center shadow hover:shadow-2xl transition-all">
           <h1 className="text-black transition-all hover:text-gray-800 text-4xl font-bold">
@@ -75,7 +73,7 @@ const HomepageHero = () => {
           <p className="text-black text-xl">{heroItem.description}</p>
         </div>
       </div>
-    </a>
+    </Link>
   )
 }
 

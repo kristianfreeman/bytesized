@@ -1,6 +1,6 @@
 import React from 'react'
 import { get, orderBy } from 'lodash'
-import { useStaticQuery, graphql } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 
 import Post from './Post'
 
@@ -42,12 +42,12 @@ const Posts = () => {
           </p>
         </div>
         <div className="w-full md:flex-1 md:text-right mt-8 md:mt-0">
-          <a
-            className="bg-orange-800 hover:bg-orange-600 text-white transition-all px-4 py-2 shadow hover:shadow-2xl transition-all text-lg"
-            href="/blog"
+          <Link
+            className="bg-orange-800 hover:bg-orange-700 text-white transition-all px-4 py-2 shadow hover:shadow-2xl transition-all text-lg rounded"
+            to="/blog"
           >
             Read the Bytesized blog
-          </a>
+          </Link>
         </div>
       </div>
       <div className="py-8">

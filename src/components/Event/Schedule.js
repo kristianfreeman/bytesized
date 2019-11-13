@@ -13,7 +13,7 @@ const Schedule = ({ event }) => {
   )
 
   return (
-    <div className="text-center py-24">
+    <div className="text-center pt-24">
       <h3 className="text-3xl font-bold">Schedule</h3>
 
       <div className="mt-8 mb-12 max-w-xl mx-auto">

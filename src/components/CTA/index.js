@@ -22,7 +22,7 @@ const CTA = () => (
       </p>
       <p>
         <a
-          className="hover:bg-white bg-orange-700 hover:text-orange-800 text-white transition-all font-bold p-4 text-lg"
+          className="hover:bg-orange-700 bg-orange-800 text-white transition-all font-bold p-4 text-lg rounded"
           href="https://www.bytesized.xyz/newsletter"
         >
           Join now

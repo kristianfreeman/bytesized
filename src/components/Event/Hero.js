@@ -15,7 +15,7 @@ const RSVP = ({ event: { name, rsvp_url } }) => (
       unsubscribe at any time.
     </p>
     <a
-      className="bg-orange-200 text-orange-800 hover:bg-orange-800 hover:text-white transition-all font-bold p-4 text-lg"
+      className="text-white bg-orange-800 hover:bg-orange-600 transition-all font-bold p-4 text-lg rounded"
       href={rsvp_url}
     >
       Register for {name}
@@ -66,7 +66,7 @@ class EventHero extends React.Component {
               <div className="mt-12">
                 <div className="py-4">
                   <a
-                    className="py-2 px-4 rounded-lg bg-red-800 hover:bg-red-900 transition-all text-white text-lg md:text-xl lg:text-xl shadow hover:shadow-xl"
+                    className="py-2 px-4 rounded bg-red-800 hover:bg-red-600 transition-all text-white text-lg md:text-xl lg:text-xl shadow hover:shadow-xl"
                     href={event.youtube_playlist}
                   >
                     <i className="fab fa-youtube mr-2" />
@@ -83,6 +83,7 @@ class EventHero extends React.Component {
             <RSVP event={event} />
           ) : (
             <img
+              alt={event.name}
               className="illustration transition-all hover:lighten-sm w-1/2 hidden lg:block"
               src={illustration}
             />

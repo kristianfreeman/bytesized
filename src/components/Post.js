@@ -1,19 +1,21 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 
+import { Link } from 'gatsby'
+
 const Post = ({ post }) => (
-  <a className="font-bold pb-8 odd:pr-8 w-full md:w-1/2" href={post.slug}>
+  <Link className="font-bold pb-8 odd:pr-8 w-full md:w-1/2" to={post.slug}>
     <div className={`w-full h-full`}>
-      <div className="bg-white shadow hover:shadow-xl transition-all p-8 text-2xl flex items-center h-full border border-gray-200">
+      <div className="bg-white rounded-lg shadow hover:shadow-xl transition-all p-8 text-2xl flex items-center h-full border border-gray-200">
         {post.title}
       </div>
     </div>
-  </a>
+  </Link>
 )
 
 const Full = ({ post }) => (
-  <a className="w-full h-full bg-white flex-1 mb-4" href={`/` + post.slug}>
-    <div className="bg-white shadow hover:shadow-xl transition-all p-8 flex flex-col h-full my-4 border border-gray-200">
+  <Link className="w-full h-full bg-white flex-1 mb-4" to={`/` + post.slug}>
+    <div className="bg-white rounded-lg shadow hover:shadow-xl transition-all p-8 flex flex-col h-full my-4 border border-gray-200">
       <div className="flex">
         <h3 className="text-3xl font-bold flex-1">{post.title}</h3>
         {post.featured && (
@@ -33,7 +35,7 @@ const Full = ({ post }) => (
         Published {new Date(post.published_at).toLocaleDateString('en-US')}
       </p>
     </div>
-  </a>
+  </Link>
 )
 
 const Switcher = ({ full, post }) =>

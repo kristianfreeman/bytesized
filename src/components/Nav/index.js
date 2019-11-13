@@ -8,8 +8,8 @@ const Nav = () => (
   <div className="container mx-auto md:w-full bg-white pt-6">
     <Social alignment="right" size="lg" />
     <div className="flex justify-center items-center w-full">
-      <Link alt="Bytesized" to="/">
-        <img className="h-48" src={nav} />
+      <Link title="Bytesized" to="/">
+        <img alt="Bytesized" className="h-48" src={nav} />
       </Link>
     </div>
     <div className="text-center my-8 lg:text-xl hidden md:block">

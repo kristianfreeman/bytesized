@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
 import Layout from '../components/Layout'
@@ -76,12 +76,12 @@ const Post = ({ data }) => {
               <div className="uppercase tracking-wide font-semibold">
                 {new Date(post.published_at).toLocaleDateString('en-US')}{' '}
                 <span className="text-black font-light">&middot;</span>{' '}
-                <a
+                <Link
                   className="no-underline text-orange-800 hover:underline"
-                  href={`/` + post.primary_tag.slug}
+                  to={`/` + post.primary_tag.slug}
                 >
                   {post.primary_tag.name}
-                </a>
+                </Link>
               </div>
               <h1 className="mt-16">{post.title}</h1>
               <Author author={post.primary_author} justName />

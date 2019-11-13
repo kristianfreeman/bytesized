@@ -4,7 +4,7 @@ import S3Url from '../utils/s3Url'
 
 const Speaker = ({ speaker }) => (
   <div className="sm:w-full md:w-1/4 overflow-hidden m-8">
-    <div className="flex items-center justify-center w-full h-auto shadow hover:shadow-lg transition-all">
+    <div className="flex items-center justify-center w-full h-auto shadow hover:shadow-xl transition-all">
       <img
         className="w-full h-full"
         src={S3Url(speaker.static_image_path)}
