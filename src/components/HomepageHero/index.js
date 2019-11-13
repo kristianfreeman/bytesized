@@ -67,7 +67,7 @@ const HomepageHero = () => {
           <span className="font-bold text-white text-xl">What's new</span>
         </div>
         <div className="p-8 bg-white rounded-lg text-center shadow hover:shadow-2xl transition-all">
-          <h1 className="text-black transition-all hover:text-gray-800 text-4xl font-bold measure-narrow">
+          <h1 className="text-black text-4xl font-bold measure-narrow">
             {heroItem.name}
           </h1>
           {heroItem.description && (
