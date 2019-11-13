@@ -12,7 +12,7 @@ class Blog extends React.Component {
     const posts = get(data, 'allGhostPost.edges', [])
 
     return (
-      <Layout>
+      <Layout title="Blog">
         <div className="container mx-auto py-8 px-4 md:px-0 justify-between">
           {posts.map(({ node }) => (
             <Post key={node.id} full post={node} />

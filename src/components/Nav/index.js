@@ -14,46 +14,31 @@ const Nav = () => (
     </div>
     <div className="text-center my-8 lg:text-xl hidden md:block">
       <Link
-        className="hover:font-bold hover:text-red-800 transition-all mx-8"
+        className="hover:font-bold hover:text-blue-800 transition-all mx-4"
+        activeClassName="font-bold text-blue-800"
+        to="/about"
+      >
+        👋 About
+      </Link>
+      <Link
+        className="hover:font-bold hover:text-orange-800 transition-all mx-4"
         to="/conference"
+        activeClassName="font-bold text-orange-800"
       >
-        Byteconf
+        📺 Byteconf
       </Link>
       <Link
-        className="hover:font-bold hover:text-red-800 transition-all mx-8"
-        to="/videos"
+        className="hover:font-bold hover:text-green-800 transition-all mx-4"
+        to="/blog/"
+        activeClassName="font-bold text-green-800"
       >
-        Videos
-      </Link>
-      <Link
-        className="hover:font-bold hover:text-red-800 transition-all mx-8"
-        to="/javascript"
-      >
-        JavaScript
-      </Link>
-      <Link
-        className="hover:font-bold hover:text-red-800 transition-all mx-8"
-        to="/react"
-      >
-        React
-      </Link>
-      <Link
-        className="hover:font-bold hover:text-red-800 transition-all mx-8"
-        to="/career"
-      >
-        Career
-      </Link>
-      <Link
-        className="hover:font-bold hover:text-red-800 transition-all mx-8"
-        to="/blog"
-      >
-        Blog
+        📝 Blog
       </Link>
       <a
-        className="hover:font-bold hover:text-red-800 transition-all mx-8"
+        className="hover:font-bold hover:text-red-800 transition-all mx-4"
         href="/newsletter"
       >
-        Newsletter
+        📰 Newsletter
       </a>
     </div>
   </div>

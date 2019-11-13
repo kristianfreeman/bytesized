@@ -14,7 +14,7 @@ class Tag extends React.Component {
     const tag = data.ghostTag
 
     return (
-      <Layout>
+      <Layout title={name}>
         <div className="mt-32 mb-16 container mx-auto px-4 md:px-0 flex items-center justify-center">
           {tag.feature_image && (
             <div className="flex-1 flex items-center justify-center">

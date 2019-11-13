@@ -55,7 +55,7 @@ const HomepageHero = () => {
   return (
     <Link to={heroItem.slug}>
       <div
-        className="heroContainer w-full flex flex-col items-center justify-center shadow-inner my-8 hover:lighten transition-all"
+        className="heroContainer w-full flex flex-col items-center justify-center shadow-inner mb-8 hover:lighten transition-all"
         style={{
           backgroundImage: `url(${heroItem.image})`,
           backgroundPosition: 'center',

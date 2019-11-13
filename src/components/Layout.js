@@ -10,7 +10,7 @@ import Footer from './Footer'
 import Nav from './Nav'
 import Share from './Share'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, title }) => {
   return (
     <StaticQuery
       query={layoutQuery}
@@ -22,7 +22,9 @@ const Layout = ({ children }) => {
             <Helmet
               htmlAttributes={{ lang: 'en' }}
               meta={[{ name: 'description', content: siteDescription }]}
-              title={siteTitle}
+              title={title}
+              titleTemplate={`%s | ${siteTitle}`}
+              defaultTitle={siteTitle}
             >
               <link rel="shortcut icon" type="image/png" href={`${favicon}`} />
               <link
@@ -40,7 +42,10 @@ const Layout = ({ children }) => {
                 name="description"
                 content="Free developer conferences for everyone"
               />
-              <meta property="og:title" content="Byteconf" />
+              <meta
+                property="og:title"
+                content={title ? `${title} | Bytesized Code` : `Bytesized Code`}
+              />
               <meta
                 property="og:description"
                 content="Free developer conferences for everyone"
@@ -98,7 +103,7 @@ const Layout = ({ children }) => {
                 src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-sql.min.js"
               />
             </Helmet>
-            <div className="mb-32">
+            <div className="mb-16">
               <Nav />
             </div>
             {children}

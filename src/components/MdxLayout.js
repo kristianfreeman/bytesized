@@ -1,13 +1,20 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
+import { MDXProvider } from '@mdx-js/react'
+
+import System from '../system'
 
 import Layout from './Layout'
 
-const MdxLayout = ({ children }) => {
+const MdxLayout = ({ children, pageContext: { frontmatter } }) => {
+  const { title } = frontmatter
+
   return (
-    <Layout>
-      <div className="container mx-auto">{children}</div>
+    <Layout title={title}>
+      <MDXProvider components={System}>
+        <div className="container mx-4 md:mx-auto">{children}</div>
+      </MDXProvider>
     </Layout>
   )
 }

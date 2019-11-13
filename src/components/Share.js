@@ -10,6 +10,8 @@ import {
   RedditShareButton,
 } from 'react-share'
 
+import SSRWrapper from './SSRWrapper'
+
 const Share = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -61,21 +63,5 @@ const Share = () => {
   )
 }
 
-class SSRWrapper extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      display: false,
-    }
-  }
-
-  componentDidMount() {
-    this.setState({ display: true })
-  }
-
-  render() {
-    return this.state.display ? <Share /> : null
-  }
-}
-
-export default SSRWrapper
+const WrappedShare = () => SSRWrapper(Share)
+export default WrappedShare

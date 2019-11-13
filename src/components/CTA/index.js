@@ -12,10 +12,10 @@ const CTA = () => (
     }}
   >
     <div className="container mx-auto flex items-center justify-center flex-col my-16">
-      <h3 className="text-white text-3xl font-bold">
+      <h3 className="text-white text-3xl font-bold shadow">
         Join our weekly newsletter
       </h3>
-      <p className="text-gray-300 measure-wide mt-4 mb-8 text-lg mx-4 md:mx-0">
+      <p className="text-gray-300 measure-wide my-8 text-xl mx-4 md:mx-0 shadow">
         Every Tuesday you'll get <strong>Bytesized Weekly</strong> in your
         inbox, with the latest and greatest in the web development world. No
         spam, and you can unsubscribe at any time.

@@ -1,1 +1,39 @@
-# About
+---
+title: "About Bytesized"
+slug: "/about"
+---
+
+import { TwitterTweetEmbed } from 'react-twitter-embed'
+// This could be from Sanity...
+export const tweetIds = ["1035565808313946112", "1035578939647778816", "1035590846920445952", "1073624910025486336", "1035223761543299072", "1035694593415700480", "1109122760226201600", "1109120005126438913"]
+
+<div className="md:flex">
+  <div className="w-full md:flex-1 md:pr-16">
+
+  # Bytesized Code
+
+  Bytesized Code was started in 2017 to innovate on developer education online. In March of 2018, we launched our first Byteconf conference, Byteconf React, which was streamed online on Twitch to over 900 people across the world.
+
+  <TwitterTweetEmbed tweetId="982110755255287808" />
+
+  Since then, we've expanded our approach - not just conferences, but full tutorials and guest posts on our blog, and screencasts and video content on our [YouTube channel](https://www.bytesized.xyz/s/youtube).
+
+  Of course, at the end of the day, Bytesized is built by a developer (hi!) and so there's a fair amount of yak-shaving and technical experiments too. It's a lot of fun to iterate on a platform using cutting-edge open-source tools: it helps us understand our audience and the kind of topics we should cover next.
+
+  <TwitterTweetEmbed tweetId="1071835466406617089" />
+
+  ## The Team
+
+  Bytesized Code is... a team of one! I'm Kristian, and I've been teaching developers in some form since 2013, when I uploaded my first YouTube video, showing how to get [up and running with Vim](https://www.youtube.com/watch?v=TwJbr2KIR0E). Say hey to me on Twitter 👍
+
+  ## Contact
+
+  For general contact: k@bytesized.xyz
+
+  For Byteconf sponsorship/media inquiries: conf@bytesized.xyz
+  </div>
+
+  <div className="w-full md:w-1/4">
+    {tweetIds.map(id => <TwitterTweetEmbed tweetId={id} />)}
+  </div>
+</div>

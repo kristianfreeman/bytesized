@@ -5,7 +5,7 @@ const s3Url = path => `https://byteconf-production.s3.amazonaws.com/${path}`
 
 const Container = ({ children, recent, url }) => (
   <div
-    className={`h-full shadow hover:shadow-2xl transition-all hover:lighten ${
+    className={`rounded-lg h-full shadow hover:shadow-2xl transition-all hover:lighten ${
       recent ? 'w-full' : ''
     }`}
     style={{

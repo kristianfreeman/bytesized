@@ -57,11 +57,9 @@ const Event = ({ data }) => {
   )
 
   return (
-    <Layout>
+    <Layout title={event.name}>
       <Helmet>
-        <title>{event.name} | Byteconf</title>
         <meta name="description" content={event.simple_copy} />
-        <meta property="og:title" content={event.name} />
         <meta property="og:description" content={event.simple_copy} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={cover} />

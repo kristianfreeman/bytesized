@@ -50,10 +50,8 @@ const Author = ({
 const Post = ({ data }) => {
   const post = data && data.ghostPost
   return (
-    <Layout>
+    <Layout title={post.title}>
       <Helmet>
-        <title>{post.title} | Bytesized Code</title>
-        <meta property="og:title" content={`${post.title} | Bytesized Code`} />
         <meta property="og:type" content="website" />
         {post.feature_image && (
           <meta property="twitter:image" content={post.feature_image} />
