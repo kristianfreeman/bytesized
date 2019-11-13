@@ -53,7 +53,9 @@ const SponsorsIfReact = ({ event: { slug } }) =>
 
 const Event = ({ data }) => {
   const event = data.sanity.allEvents.length && data.sanity.allEvents[0]
-  const cover = S3Url(event.cover_path || 'headers/attendees.jpg')
+  const cover = S3Url(
+    event.og_meta_image_path || event.cover_path || 'headers/attendees.jpg'
+  )
 
   return (
     <Layout>
@@ -124,7 +126,6 @@ export const pageQuery = graphql`
       allEvents(where: { slug: $slug }) {
         _id
         slug
-        icon
         start_date
         end_date
         name
@@ -137,6 +138,7 @@ export const pageQuery = graphql`
         cfp_link
         rsvp_url
         cover_path
+        og_meta_image_path
         event_speakers {
           available_live
           speaker {

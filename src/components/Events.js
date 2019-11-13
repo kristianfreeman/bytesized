@@ -18,7 +18,6 @@ const Events = () => {
         allEvents(where: { published: true }) {
           _id
           description
-          icon
           name
           slug
           start_date
