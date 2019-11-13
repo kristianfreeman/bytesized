@@ -13,7 +13,7 @@ const Social = ({
         title="Join our newsletter"
       >
         <i
-          className={`fa-${size} fas fa-envelope ${color} hover:text-green-800 transition-all no-underline border-white`}
+          className={`fa-${size} fas fa-newspaper ${color} hover:text-green-800 transition-all no-underline border-white`}
         />
       </a>
       <a
