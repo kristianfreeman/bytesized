@@ -99,9 +99,11 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(
         `
           {
-            sanity {
-              allEvents {
-                slug
+            allSanityEvent {
+              edges {
+                node {
+                  slug
+                }
               }
             }
             allGhostPost {
@@ -148,7 +150,7 @@ exports.createPages = ({ graphql, actions }) => {
         })
 
         // Create pages for each markdown file.
-        result.data.sanity.allEvents.forEach(({ slug }) => {
+        result.data.allSanityEvent.edges.forEach(({ node: { slug } }) => {
           createPage({
             path: slug,
             component: eventTemplate,
@@ -160,7 +162,7 @@ exports.createPages = ({ graphql, actions }) => {
             path: slug + '/thanks',
             component: eventRSVPTemplate,
             context: {
-              slug
+              slug,
             },
           })
         })

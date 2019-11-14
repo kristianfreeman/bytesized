@@ -1,4 +1,6 @@
-require('dotenv').config()
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 const fs = require('fs')
 const { buildClientSchema } = require('graphql')
@@ -35,12 +37,13 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-graphql',
+      resolve: 'gatsby-source-sanity',
       options: {
-        typeName: 'SANITY',
-        fieldName: 'sanity',
-        refetchInterval: 15,
-        url: 'https://82qqyrei.api.sanity.io/v1/graphql/byteconf/default',
+        projectId: '82qqyrei',
+        dataset: 'byteconf',
+        watchMode: process.env.NODE_ENV == 'development',
+        overlayDrafts: process.env.NODE_ENV == 'development',
+        token: process.env.SANITY_READ_TOKEN,
       },
     },
     {

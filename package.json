@@ -29,6 +29,7 @@
     "gatsby-source-filesystem": "^2.0.2",
     "gatsby-source-ghost": "^4.0.1",
     "gatsby-source-graphql": "^2.1.17",
+    "gatsby-source-sanity": "^5.0.4",
     "gatsby-transformer-remark": "^2.1.6",
     "gatsby-transformer-sharp": "^2.2.23",
     "lodash": "^4.17.11",

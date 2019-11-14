@@ -14,25 +14,28 @@ const afterToday = date => new Date(date) > TODAY
 const Events = () => {
   const data = useStaticQuery(graphql`
     query {
-      sanity {
-        allEvents(where: { published: true }) {
-          _id
-          description
-          name
-          slug
-          start_date
-          end_date
-          youtube_playlist
-          cover_path
-          event_type
-          status
+      allSanityEvent(filter: { published: { eq: true } }) {
+        edges {
+          node {
+            _id
+            description
+            name
+            slug
+            start_date
+            end_date
+            youtube_playlist
+            cover_path
+            event_type
+            status
+          }
         }
       }
     }
   `)
 
-  const events = get(data, 'sanity.allEvents', [])
-  const filtered = events.filter(({ status }) => status !== 'planning')
+  const events = get(data, 'allSanityEvent.edges', []).map(e => e.node)
+  const sorted = orderBy(events, 'start_date', 'desc')
+  const filtered = sorted.filter(({ status }) => status !== 'planning')
   const [recent, ...announced] = filtered
 
   return (

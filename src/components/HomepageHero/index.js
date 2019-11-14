@@ -17,15 +17,17 @@ const HomepageHero = () => {
           }
         }
       }
-      sanity {
-        # Need to re-add published filter
-        allEvents {
-          name
-          description
-          slug
-          start_date
-          cover_path
-          status
+      # Need to re-add published filter
+      allSanityEvent {
+        edges {
+          node {
+            name
+            description
+            slug
+            start_date
+            cover_path
+            status
+          }
         }
       }
     }
@@ -34,7 +36,7 @@ const HomepageHero = () => {
   const posts = get(data, 'allGhostPost.edges', []).map(p => p.node)
   const heroPost = first(orderBy(posts, 'published_at', 'desc'))
 
-  const events = get(data, 'sanity.allEvents', [])
+  const events = get(data, 'allSanityEvent.edges', []).map(e => e.node)
   const heroEvent = first(orderBy(events, 'start_date', 'desc'))
 
   const heroItem =

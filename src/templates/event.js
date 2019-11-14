@@ -51,7 +51,7 @@ const SponsorsIfReact = ({ event: { slug } }) =>
   slug === 'react-2018' && <LegacySponsors />
 
 const Event = ({ data }) => {
-  const event = data.sanity.allEvents.length && data.sanity.allEvents[0]
+  const event = data.sanityEvent
   const cover = S3Url(
     event.og_meta_image_path || event.cover_path || 'headers/attendees.jpg'
   )
@@ -116,24 +116,43 @@ const Event = ({ data }) => {
 
 export const pageQuery = graphql`
   query EventQuery($slug: String!) {
-    sanity {
-      allEvents(where: { slug: $slug }) {
+    sanityEvent(slug: { eq: $slug }) {
+      _id
+      slug
+      start_date
+      end_date
+      name
+      status
+      location
+      simple_copy
+      event_type
+      youtube_playlist
+      sponsor_interest_link
+      cfp_link
+      rsvp_url
+      cover_path
+      og_meta_image_path
+      event_speakers {
+        available_live
+        speaker {
+          _id
+          name
+          company
+          static_image_path
+          github
+          twitter
+          website
+        }
+      }
+      talks {
         _id
-        slug
-        start_date
-        end_date
         name
-        status
-        location
-        simple_copy
-        event_type
-        youtube_playlist
-        sponsor_interest_link
-        cfp_link
-        rsvp_url
-        cover_path
-        og_meta_image_path
-        event_speakers {
+        description
+        level
+        time
+        slides
+        position
+        event_speaker {
           available_live
           speaker {
             _id
@@ -143,27 +162,6 @@ export const pageQuery = graphql`
             github
             twitter
             website
-          }
-        }
-        talks {
-          _id
-          name
-          description
-          level
-          time
-          slides
-          position
-          event_speaker {
-            available_live
-            speaker {
-              _id
-              name
-              company
-              static_image_path
-              github
-              twitter
-              website
-            }
           }
         }
       }

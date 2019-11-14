@@ -1,31 +1,23 @@
 import * as React from 'react'
-
 import { Helmet } from 'react-helmet'
 
-import Layout from '../components/Layout'
-import Nav from '../components/Nav'
+import { get } from 'lodash'
 
+import Layout from '../components/Layout'
 import S3Url from '../utils/s3Url'
 
 const EventRSVP = ({ data }) => {
-  const event = data.sanity.allEvents.length && data.sanity.allEvents[0]
+  const event = data.sanityEvent
   const cover = S3Url(
     event.og_meta_image_path || event.cover_path || 'headers/attendees.jpg'
   )
 
+  const pastEvents = get(data, 'allSanityEvent.edges', [])
+    .map(e => e.node)
+    .filter(e => e._id !== event._id)
+
   return (
-    <Layout>
-      <Helmet>
-        <title>{event.name} | Byteconf</title>
-        <meta name="description" content={event.simple_copy} />
-        <meta property="og:title" content={event.name} />
-        <meta property="og:description" content={event.simple_copy} />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content={cover} />
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:site" content="@byteconf" />
-      </Helmet>
-      <Nav customTitle={event.name} showSubtitle={false} />
+    <Layout title={event.name}>
       <div className="container md:flex mx-auto px-4 md:px-0 min-h-screen md:min-h-0 leading-loose">
         <div className="w-full md:w-1/2">
           <h1 className="text-3xl mb-8">Thanks for RSVPing!</h1>
@@ -65,6 +57,27 @@ const EventRSVP = ({ data }) => {
               </a>
             </li>
           </ul>
+
+          <hr className="my-8" />
+
+          <p className="text-xl my-4">
+            Interested in some of our past Byteconf conferences? You can watch
+            every talk from each of our past conferences on YouTube - rad! Check
+            out the playlists below:
+          </p>
+
+          <ul className="text-xl my-4 list-disc">
+            {pastEvents.map(pastEvent => (
+              <li className="my-4" key={pastEvent._id}>
+                <a
+                  className="text-red-800 font-bold"
+                  href={pastEvent.youtube_playlist}
+                >
+                  {pastEvent.name}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
         <div className="w-full md:w-1/2 flex items-center justify-center">
           <img src="https://media.giphy.com/media/TabwFck9vEt44/giphy.gif" />
@@ -76,17 +89,24 @@ const EventRSVP = ({ data }) => {
 
 export const pageQuery = graphql`
   query EventRSVPQuery($slug: String!) {
-    sanity {
-      allEvents(where: { slug: $slug }) {
-        _id
-        slug
-        start_date
-        end_date
-        name
-        cover_path
-        og_meta_image_path
-        twitter_announcement
+    allSanityEvent(filter: { event_type: { eq: "conference" } }) {
+      edges {
+        node {
+          _id
+          name
+          youtube_playlist
+        }
       }
+    }
+    sanityEvent(slug: { eq: $slug }) {
+      _id
+      slug
+      start_date
+      end_date
+      name
+      cover_path
+      og_meta_image_path
+      twitter_announcement
     }
   }
 `
