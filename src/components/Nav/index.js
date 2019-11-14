@@ -36,7 +36,7 @@ const Nav = () => (
       </Link>
       <a
         className="hover:font-bold hover:text-red-800 transition-all mx-4"
-        href="/newsletter"
+        href="https://www.bytesized.xyz/newsletter"
       >
         📰 Newsletter
       </a>

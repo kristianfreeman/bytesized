@@ -18,7 +18,7 @@ const Footer = () => (
       </div>
       <div className="w-full lg:mx-0 mx-4 lg:flex-1 lg:border-dashed lg:border-r lg:border-gray-400 mt-8 lg:mt-0 lg:flex lg:flex-col lg:items-center lg:justify-center">
         <h4 className="font-bold text-xl mb-8">Bytesized Code</h4>
-        <ul className="flex flex-wrap">
+        <ul className="flex flex-wrap w-2/3">
           <li className="w-1/3 my-2">
             <Link
               className="hover:text-red-800 transition-all"

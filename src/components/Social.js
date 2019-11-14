@@ -8,7 +8,7 @@ const Social = ({
   <div className={`text-${alignment}`}>
     <p className="mb-4">
       <a
-        href="/s/newsletter"
+        href="https://www.bytesized.xyz/newsletter"
         className="no-underline p-4"
         title="Join our newsletter"
       >
