@@ -43,9 +43,9 @@ class EventHero extends React.Component {
     const { event } = this.props
 
     return (
-      <>
-        <div className="container mx-auto my-8">
-          <h1 className="text-4xl px-4 md:px-0 font-bold">{event.name}</h1>
+      <div className="px-4">
+        <div className="container my-8 mx-4 md:mx-auto">
+          <h1 className="text-4xl font-bold">{event.name}</h1>
         </div>
         <div className="md:flex items-center container mx-auto pt-8 pb-16">
           <div className="w-full md:flex-2 px-4 md:px-0 md:w-1/2">
@@ -89,7 +89,7 @@ class EventHero extends React.Component {
             />
           )}
         </div>
-      </>
+      </div>
     )
   }
 }
