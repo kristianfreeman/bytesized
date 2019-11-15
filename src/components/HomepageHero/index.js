@@ -40,7 +40,7 @@ const HomepageHero = () => {
   const heroEvent = first(orderBy(events, 'start_date', 'desc'))
 
   const heroItem =
-    heroEvent.status === 'upcoming'
+    heroEvent.status === 'announced'
       ? {
           name: heroEvent.name,
           slug: heroEvent.slug,

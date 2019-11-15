@@ -34,7 +34,7 @@ const Share = () => {
     setClosed(true)
   }
 
-  if (closed) {
+  if (closed || location.pathname === '/') {
     return null
   }
 

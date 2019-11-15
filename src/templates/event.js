@@ -29,7 +29,8 @@ const CFPLink = ({ event: { cfp_link, name, slug } }) => (
         className="text-2xl hover:bg-orange-700 text-white bg-orange-800 transition-all w-full px-4 py-2 shadow hover:shadow-2xl rounded"
         href={cfp_link}
       >
-        View the Call for Papers for {name}
+        View the Call for Papers{' '}
+        <span className="hidden xl:inline">for {name}</span>
       </a>
     </p>
   </div>

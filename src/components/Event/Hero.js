@@ -18,7 +18,7 @@ const RSVP = ({ event: { name, rsvp_url } }) => (
       className="text-white bg-orange-800 hover:bg-orange-600 transition-all font-bold p-4 text-lg rounded"
       href={rsvp_url}
     >
-      Register for {name}
+      RSVP <span className="hidden xl:inline">for {name}</span>
     </a>
   </div>
 )
