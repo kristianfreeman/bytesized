@@ -3,19 +3,18 @@ import bg from './bg.jpg'
 
 const CTA = () => (
   <div
-    className="shadow-inner w-full my-16 flex items-center justify-center"
+    className="shadow-inner w-full my-16 flex items-center justify-center h-vh-60 md:h-vh-40"
     style={{
       backgroundImage: `url(${bg})`,
       backgroundPosition: 'center',
       backgroundSize: 'cover',
-      height: '40vh',
     }}
   >
-    <div className="container mx-auto flex items-center justify-center flex-col my-16">
+    <div className="container lg:mx-auto mx-4 md:mx-0 flex items-center justify-center flex-col my-16">
       <h3 className="text-white text-3xl font-bold shadow">
         Join our weekly newsletter
       </h3>
-      <p className="text-gray-300 measure-wide my-8 text-xl mx-4 md:mx-0 shadow">
+      <p className="text-gray-300 measure-wide my-8 text-xl shadow">
         Every Tuesday you'll get <strong>Bytesized Weekly</strong> in your
         inbox, with the latest and greatest in the web development world. No
         spam, and you can unsubscribe at any time.

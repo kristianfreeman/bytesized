@@ -9,7 +9,7 @@ import Posts from '../components/Posts'
 const Index = () => (
   <Layout>
     <HomepageHero />
-    <div className="container md:w-full mx-auto px-4 md:px-0">
+    <div className="container md:w-full mx-auto px-4">
       <Events />
       <Posts />
     </div>
