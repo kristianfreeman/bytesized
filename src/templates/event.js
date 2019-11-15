@@ -43,7 +43,7 @@ const Sponsors = ({ event }) => (
       className="hover:bg-orange-700 text-white bg-orange-800 transition-all w-full px-4 py-2 shadow hover:shadow-lg rounded"
       href={event.sponsor_interest_link}
     >
-      Check out our sponsorship prospectus
+      View the sponsorship prospectus
     </a>
   </div>
 )
