@@ -32,22 +32,24 @@ const EventRSVP = ({ data }) => {
           </p>
           <ul className="text-xl my-4 list-disc">
             <li className="my-4">
-              If you have Twitter,{' '}
-              <a
-                className="text-red-800 font-bold"
-                href={event.twitter_announcement}
-              >
-                retweet our announcement tweet for {event.name}
-              </a>{' '}
-              (and{' '}
               <a
                 className="text-red-800 font-bold"
                 href="https://twitter.com/bytesizedcode"
               >
-                follow us
-              </a>{' '}
-              on there too, if you aren't already!)
+                Follow us on Twitter
+              </a>
             </li>
+            {event.twitter_announcement && (
+              <li className="my-4">
+                If you have Twitter, help spread the word by{' '}
+                <a
+                  className="text-red-800 font-bold"
+                  href={event.twitter_announcement}
+                >
+                  retweeting our announcement for {event.name}
+                </a>
+              </li>
+            )}
             <li className="my-4">
               <a
                 className="text-red-800 font-bold"
