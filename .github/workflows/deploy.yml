@@ -17,8 +17,7 @@ jobs:
     - name: Build app
       run: "npm run build"
     - name: Publish app
-      uses: signalnerve/wrangler-action@master
+      uses: signalnerve/wrangler-action@1.1.0
       with:
-        apiKey: ${{ secrets.apiKey }}
-        email: ${{ secrets.email }}
+        apiToken: ${{ secrets.apiToken }}
         environment: "production"
