@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import Img from 'gatsby-image'
+
 import { Helmet } from 'react-helmet'
 
 import EventHeader from '../components/Event/Header'
@@ -36,15 +38,47 @@ const CFPLink = ({ event: { cfp_link, name, slug } }) => (
   </div>
 )
 
-const Sponsors = ({ event }) => (
-  <div className="bg-white w-full md:w-1/2 container mx-auto shadow mt-16 mb-32 md:mb-0 p-8">
-    <h3 className="text-3xl mb-8">Sponsors and community partners</h3>
-    <a
-      className="hover:bg-orange-700 text-white bg-orange-800 transition-all w-full px-4 py-2 shadow hover:shadow-lg rounded"
-      href={event.sponsor_interest_link}
-    >
-      View the sponsorship prospectus
-    </a>
+const Sponsors = ({
+  event: { name, sponsor_interest_link, sponsorship_tiers },
+}) => (
+  <div className="bg-white w-full container mx-auto mt-16 mb-32 md:mb-0 p-8">
+    <h2 className="text-3xl font-bold mb-8">Sponsors and community partners</h2>
+
+    {!!sponsorship_tiers &&
+      sponsorship_tiers.map(({ section_name, sponsors }) => (
+        <div className="py-4">
+          <h3 className="text-2xl pb-4 font-medium">{section_name}</h3>
+          <div className="flex">
+            {!!sponsors &&
+              sponsors.map(
+                ({
+                  company_name,
+                  image: {
+                    asset: { fixed },
+                  },
+                  url,
+                }) => (
+                  <div className="pr-8 transition-all grayscale-1 hover:grayscale-0">
+                    <a href={url} title={company_name}>
+                      <Img fixed={fixed} />
+                    </a>
+                  </div>
+                )
+              )}
+          </div>
+        </div>
+      ))}
+
+    <p className="mt-8 text-lg">
+      Interested in sponsoring {name}?{' '}
+      <a
+        className="text-red-800 hover:text-red-600 transition-all"
+        href={sponsor_interest_link}
+      >
+        View the sponsorship prospectus
+      </a>
+      .
+    </p>
   </div>
 )
 
@@ -56,6 +90,8 @@ const Event = ({ data }) => {
   const cover = S3Url(
     event.og_meta_image_path || event.cover_path || 'headers/attendees.jpg'
   )
+
+  console.log(event)
 
   return (
     <Layout title={event.name}>
@@ -163,6 +199,20 @@ export const pageQuery = graphql`
             github
             twitter
             website
+          }
+        }
+      }
+      sponsorship_tiers {
+        section_name
+        sponsors {
+          company_name
+          url
+          image {
+            asset {
+              fixed(width: 150) {
+                ...GatsbySanityImageFixed
+              }
+            }
           }
         }
       }

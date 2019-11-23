@@ -29,6 +29,14 @@
   .darken {
     filter: brightness(80%);
   }
+
+  .grayscale-0 {
+    filter: grayscale(0);
+  }
+
+  .grayscale-1 {
+    filter: grayscale(1);
+  }
 }
 
 @variants responsive {
