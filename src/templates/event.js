@@ -42,7 +42,9 @@ const Sponsors = ({
   event: { name, sponsor_interest_link, sponsorship_tiers },
 }) => (
   <div className="bg-white w-full container mx-auto mt-16 mb-32 md:mb-0 p-8">
-    <h2 className="text-3xl font-bold mb-8">Sponsors and community partners</h2>
+    <h2 className="text-3xl font-bold mb-8 text-center">
+      Sponsors and community partners
+    </h2>
 
     {!!sponsorship_tiers &&
       sponsorship_tiers.map(({ section_name, sponsors }) => (
