@@ -4,20 +4,22 @@ on:
       - master
   repository_dispatch:
   schedule:
-    - cron: "0 * * * *"
+    - cron: '0 * * * *'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     name: Deploy
     steps:
-    - uses: actions/checkout@master
-    - name: NPM install
-      run: "npm install"
-    - name: Build app
-      run: "npm run build"
-    - name: Publish app
-      uses: signalnerve/wrangler-action@1.1.0
-      with:
-        apiToken: ${{ secrets.apiToken }}
-        environment: "production"
+      - uses: actions/checkout@master
+      - name: NPM install
+        run: 'npm install'
+      - name: Build app
+        run: 'npm run build'
+        env:
+          SANITY_READ_TOKEN: ${{ secrets.sanityReadToken }}
+      - name: Publish app
+        uses: signalnerve/wrangler-action@1.1.0
+        with:
+          apiToken: ${{ secrets.apiToken }}
+          environment: 'production'
