@@ -6,20 +6,34 @@ import './illustration.css'
 import { DateTime } from 'luxon'
 import RelativeTime from '../RelativeTime'
 
-const RSVP = ({ event: { name, rsvp_url } }) => (
+const RSVP = ({ event: { name, ck_rsvp_form_id } }) => (
   <div className="bg-white p-12 w-full md:flex-1 md:w-1/3 shadow shadow-lg mt-8 md:mt-0 md:ml-16 md:m-8 text-center">
-    <h2 className="text-2xl font-bold">Get your free ticket</h2>
-    <p className="mt-4 mb-8 text-lg">
-      We'll also sign you up for Bytesized Weekly, our newsletter covering
-      what's new and hot in the web development world. No spam, and you can
-      unsubscribe at any time.
-    </p>
-    <a
-      className="text-white bg-orange-800 hover:bg-orange-600 transition-all font-bold p-4 text-lg rounded"
-      href={rsvp_url}
+    <h2 className="text-2xl font-bold mb-8">RSVP for {name}</h2>
+    <form
+      action={`https://app.convertkit.com/forms/${ck_rsvp_form_id}/subscriptions`}
+      method="post"
     >
-      RSVP <span className="hidden xl:inline">for {name}</span>
-    </a>
+      <input
+        className="shadow appearance-none border border-gray-200 rounded w-full py-2 px-3 text-gray-700 mb-4 leading-tight focus:outline-none focus:shadow-outline text-xl"
+        name="fields[first_name]"
+        placeholder="Your first name"
+        required
+        type="text"
+      ></input>
+      <input
+        className="shadow appearance-none border border-gray-200 rounded w-full py-2 px-3 text-gray-700 mb-8 leading-tight focus:outline-none focus:shadow-outline text-xl"
+        name="email_address"
+        placeholder="Your email"
+        required
+        type="email"
+      ></input>
+      <button
+        className="text-white bg-orange-800 hover:bg-orange-600 transition-all font-bold p-4 text-lg rounded"
+        type="submit"
+      >
+        Send me my ticket
+      </button>
+    </form>
   </div>
 )
 

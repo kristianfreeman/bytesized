@@ -93,8 +93,6 @@ const Event = ({ data }) => {
     event.og_meta_image_path || event.cover_path || 'headers/attendees.jpg'
   )
 
-  console.log(event)
-
   return (
     <Layout title={event.name}>
       <Helmet>
@@ -168,6 +166,7 @@ export const pageQuery = graphql`
       youtube_playlist
       sponsor_interest_link
       cfp_link
+      ck_rsvp_form_id
       rsvp_url
       cover_path
       og_meta_image_path
