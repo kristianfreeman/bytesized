@@ -9,29 +9,36 @@ import RelativeTime from '../RelativeTime'
 const RSVP = ({ event: { name, ck_rsvp_form_id } }) => (
   <div className="bg-white p-12 w-full md:flex-1 md:w-1/3 shadow shadow-lg mt-8 md:mt-0 md:ml-16 md:m-8 text-center">
     <h2 className="text-2xl font-bold mb-8">RSVP for {name}</h2>
+    <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
     <form
       action={`https://app.convertkit.com/forms/${ck_rsvp_form_id}/subscriptions`}
+      class="seva-form formkit-form"
       method="post"
+      data-sv-form={ck_rsvp_form_id}
+      data-format="inline"
+      data-version="5"
     >
       <input
-        className="shadow appearance-none border border-gray-200 rounded w-full py-2 px-3 text-gray-700 mb-4 leading-tight focus:outline-none focus:shadow-outline text-xl"
+        class="formkit-input shadow appearance-none border border-gray-200 rounded w-full py-2 px-3 text-gray-700 mb-4 leading-tight focus:outline-none focus:shadow-outline text-xl"
+        aria-label="Your first name"
         name="fields[first_name]"
         placeholder="Your first name"
         required
         type="text"
-      ></input>
+      />
       <input
-        className="shadow appearance-none border border-gray-200 rounded w-full py-2 px-3 text-gray-700 mb-8 leading-tight focus:outline-none focus:shadow-outline text-xl"
+        class="formkit-input shadow appearance-none border border-gray-200 rounded w-full py-2 px-3 text-gray-700 mb-4 leading-tight focus:outline-none focus:shadow-outline text-xl"
         name="email_address"
-        placeholder="Your email"
+        placeholder="Your email address"
         required
         type="email"
-      ></input>
+      />
       <button
-        className="text-white bg-orange-800 hover:bg-orange-600 transition-all font-bold p-4 text-lg rounded"
+        data-element="submit"
+        class="formkit-submit text-white bg-orange-800 hover:bg-orange-600 transition-all font-bold p-4 text-lg rounded"
         type="submit"
       >
-        Send me my ticket
+        <span>Send me my free ticket</span>
       </button>
     </form>
   </div>
