@@ -1,12 +1,10 @@
 import { getAssetFromKV, mapRequestToAsset } from '@cloudflare/kv-asset-handler'
+import ghReleaseFetch from './gh-release'
 
-/**
- * The DEBUG flag will do two things that help during development:
- * 1. we will skip caching on the edge, which makes it easier to
- *    debug.
- * 2. we will return an error message on exception in your Response rather
- *    than the default 404.html page.
- */
+const leadMagnets = {
+  fss: 'signalnerve/fullstackserverless',
+}
+
 const DEBUG = false
 
 addEventListener('fetch', event => {
@@ -17,7 +15,7 @@ addEventListener('fetch', event => {
       return event.respondWith(
         new Response(e.message || e.toString(), {
           status: 500,
-        }),
+        })
       )
     }
     event.respondWith(new Response('Internal Error', { status: 500 }))
@@ -28,11 +26,17 @@ async function handleEvent(event) {
   const url = new URL(event.request.url)
   let options = {}
 
-  /**
-   * You can add custom logic to how we fetch your assets
-   * by configuring the function `mapRequestToAsset`
-   */
-  // options.mapRequestToAsset = handlePrefix(/^\/docs/)
+  if (url.pathname.includes('dls')) {
+    const matches = url.pathname.match(/dls\/(.*)/)
+    const match = matches[1]
+    if (match) {
+      const assetUrl = await ghReleaseFetch(leadMagnets[match])
+      if (assetUrl) {
+        return Response.redirect(assetUrl, 301)
+      }
+    }
+    return new Response('Not found', { status: 404 })
+  }
 
   try {
     if (DEBUG) {
@@ -47,34 +51,17 @@ async function handleEvent(event) {
     if (!DEBUG) {
       try {
         let notFoundResponse = await getAssetFromKV(event, {
-          mapRequestToAsset: req => new Request(`${new URL(req.url).origin}/404.html`, req),
+          mapRequestToAsset: req =>
+            new Request(`${new URL(req.url).origin}/404.html`, req),
         })
 
-        return new Response(notFoundResponse.body, { ...notFoundResponse, status: 404 })
+        return new Response(notFoundResponse.body, {
+          ...notFoundResponse,
+          status: 404,
+        })
       } catch (e) {}
     }
 
     return new Response(e.message || e.toString(), { status: 500 })
-  }
-}
-
-/**
- * Here's one example of how to modify a request to
- * remove a specific prefix, in this case `/docs` from
- * the url. This can be useful if you are deploying to a
- * route on a zone, or if you only want your static content
- * to exist at a specific path.
- */
-function handlePrefix(prefix) {
-  return request => {
-    // compute the default (e.g. / -> index.html)
-    let defaultAssetKey = mapRequestToAsset(request)
-    let url = new URL(defaultAssetKey.url)
-
-    // strip the prefix from the path for lookup
-    url.pathname = url.pathname.replace(prefix, '/')
-
-    // inherit all other props from the default request
-    return new Request(url.toString(), defaultAssetKey)
   }
 }
