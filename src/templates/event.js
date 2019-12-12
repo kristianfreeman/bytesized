@@ -52,21 +52,13 @@ const Sponsors = ({
           <h3 className="text-2xl pb-4 font-medium">{section_name}</h3>
           <div className="flex">
             {!!sponsors &&
-              sponsors.map(
-                ({
-                  company_name,
-                  image: {
-                    asset: { fixed },
-                  },
-                  url,
-                }) => (
-                  <div className="pr-8 transition-all grayscale-1 hover:grayscale-0">
-                    <a href={url} title={company_name}>
-                      <Img fixed={fixed} />
-                    </a>
-                  </div>
-                )
-              )}
+              sponsors.map(({ company_name, image, url }) => (
+                <div className="pr-8 transition-all grayscale-1 hover:grayscale-0">
+                  <a href={url} title={company_name}>
+                    <Img fixed={image.asset.fixed} />
+                  </a>
+                </div>
+              ))}
           </div>
         </div>
       ))}
@@ -178,6 +170,13 @@ export const pageQuery = graphql`
           company
           static_image_path
           github
+          image {
+            asset {
+              fluid(maxWidth: 400) {
+                ...GatsbySanityImageFluid
+              }
+            }
+          }
           twitter
           website
         }
