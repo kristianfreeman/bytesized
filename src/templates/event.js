@@ -41,7 +41,7 @@ const CFPLink = ({ event: { cfp_link, name, slug } }) => (
 const Sponsors = ({
   event: { name, sponsor_interest_link, sponsorship_tiers },
 }) => (
-  <div className="bg-white w-full container mx-auto mt-16 mb-32 md:mb-0 p-8">
+  <div className="bg-white w-full container mx-auto mt-16 mb-32 md:mb-0 p-8 flex flex-col items-center">
     <h2 className="text-3xl font-bold mb-8 text-center">
       Sponsors and community partners
     </h2>
@@ -49,8 +49,8 @@ const Sponsors = ({
     {!!sponsorship_tiers &&
       sponsorship_tiers.map(({ section_name, sponsors }) => (
         <div className="py-4">
-          <h3 className="text-2xl pb-4 font-medium">{section_name}</h3>
-          <div className="flex">
+          <h3 className="text-2xl font-medium">{section_name}</h3>
+          <div className="flex py-8">
             {!!sponsors &&
               sponsors.map(({ company_name, image, url }) => (
                 <div className="pr-8 transition-all grayscale-1 hover:grayscale-0">

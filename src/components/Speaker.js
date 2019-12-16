@@ -6,15 +6,16 @@ import S3Url from '../utils/s3Url'
 const Speaker = ({ speaker }) => {
   return (
     <div className="sm:w-full md:w-1/4 overflow-hidden m-8">
-      <div className="flex items-center justify-center w-full h-auto shadow hover:shadow-xl transition-all">
+      <div className="flex items-center justify-center w-full h-auto shadow-md">
         {speaker.image ? (
           <img
+            className="grayscale-1 hover:grayscale-0 transition-all"
             srcSet={speaker.image.asset.fluid.srcSet}
             src={speaker.image.asset.fluid.src}
           />
         ) : (
           <img
-            className="w-full h-full"
+            className="w-full h-full grayscale-1 hover:grayscale-0 transition-all"
             src={S3Url(speaker.static_image_path)}
             alt={speaker.name}
           />
