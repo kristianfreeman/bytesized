@@ -12,10 +12,8 @@ const Schedule = ({ event }) => {
       .toISODate()
   )
 
-  return (
-    <div className="text-center pt-24">
-      <h3 className="text-3xl font-bold">Schedule</h3>
-
+  const renderedTalks = (
+    <>
       <div className="mt-8 mb-12 max-w-xl mx-auto">
         <h4 className="text-xl">
           All times listed are in your browser's timezone,{' '}
@@ -42,6 +40,19 @@ const Schedule = ({ event }) => {
           )
         })}
       </div>
+    </>
+  )
+
+  return (
+    <div className="text-center pt-24">
+      <h3 className="text-3xl font-bold">Schedule</h3>
+      {event.talks.length ? (
+        renderedTalks
+      ) : (
+        <h4 className="text-xl mt-8">
+          Stay tuned for the conference schedule, coming soon!
+        </h4>
+      )}
     </div>
   )
 }
