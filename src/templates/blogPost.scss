@@ -4,10 +4,16 @@
 
   a {
     color: #9c4221;
-    &:hover { text-decoration: underline; }
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
-  .author { p { margin-bottom: 0; } }
+  .author {
+    p {
+      margin-bottom: 0;
+    }
+  }
 
   h2,
   h3,
@@ -17,12 +23,19 @@
   p,
   pre,
   ul,
-  ol { margin-bottom: 1.5rem; }
+  ol {
+    margin-bottom: 1.5rem;
+  }
 
-  h1, h2, h3, h4 { font-weight: bold; }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: bold;
+  }
 
   h1 {
-    color: #9B2C2C;
+    color: #9b2c2c;
     font-size: 3.5rem;
     line-height: 3.25rem;
   }
@@ -50,7 +63,7 @@
   }
 
   .kg-card {
-    background: #FFFAF0;
+    background: #fffaf0;
     padding: 1rem;
     border-radius: 4px;
   }
@@ -60,7 +73,9 @@
     flex-wrap: wrap;
     color: black;
     text-decoration: none;
-    &:hover { text-decoration: none; }
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   .kg-bookmark-content {
@@ -71,7 +86,7 @@
   }
 
   .kg-bookmark-title {
-      font-weight: 600;
+    font-weight: 600;
   }
 
   .kg-bookmark-description,
@@ -82,26 +97,25 @@
   }
 
   .kg-bookmark-thumbnail {
-      flex-basis: 15rem;
-      flex-grow: 1;
+    flex-basis: 15rem;
+    flex-grow: 1;
   }
 
-
   .kg-bookmark-thumbnail img {
-      vertical-align: bottom;
-      object-fit: cover;
-      width: 100%;
+    vertical-align: bottom;
+    object-fit: cover;
+    width: 100%;
   }
 
   .kg-bookmark-icon {
-      width: 22px;
-      height: 22px;
-      margin-right: 8px;
-      vertical-align: bottom;
+    width: 22px;
+    height: 22px;
+    margin-right: 8px;
+    vertical-align: bottom;
   }
 
   .kg-bookmark-author:after {
-      content: "•";
-      margin: 0 6px;
+    content: '•';
+    margin: 0 6px;
   }
 }
