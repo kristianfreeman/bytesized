@@ -39,40 +39,44 @@ const CFPLink = ({ event: { cfp_link, name, slug } }) => (
 )
 
 const Sponsors = ({
-  event: { name, sponsor_interest_link, sponsorship_tiers },
+  event: { name, status, sponsor_interest_link, sponsorship_tiers },
 }) => (
-  <div className="bg-white w-full container mx-auto mt-16 mb-32 md:mb-0 p-8 flex flex-col items-center">
-    <h2 className="text-3xl font-bold mb-8 text-center">
-      Sponsors and community partners
-    </h2>
+  <div className="mt-16 mb-32">
+    <div className="bg-white rounded-lg shadow w-full container mx-auto md:mb-0 p-8 flex flex-col items-center text-center">
+      <h2 className="text-3xl font-bold mb-8">
+        Sponsors and community partners
+      </h2>
 
-    {!!sponsorship_tiers &&
-      sponsorship_tiers.map(({ section_name, sponsors }) => (
-        <div className="py-4">
-          <h3 className="text-2xl font-medium">{section_name}</h3>
-          <div className="flex py-8">
-            {!!sponsors &&
-              sponsors.map(({ company_name, image, url }) => (
-                <div className="pr-8 transition-all grayscale-1 hover:grayscale-0">
-                  <a href={url} title={company_name}>
-                    <Img fixed={image.asset.fixed} />
-                  </a>
-                </div>
-              ))}
+      {!!sponsorship_tiers &&
+        sponsorship_tiers.map(({ section_name, sponsors }) => (
+          <div className="py-4">
+            <h3 className="text-2xl font-medium">{section_name}</h3>
+            <div className="flex py-8">
+              {!!sponsors &&
+                sponsors.map(({ company_name, image, url }) => (
+                  <div className="even:pr-8 transition-all grayscale-1 hover:grayscale-0">
+                    <a href={url} title={company_name}>
+                      <Img fixed={image.asset.fixed} />
+                    </a>
+                  </div>
+                ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
 
-    <p className="mt-8 text-lg">
-      Interested in sponsoring {name}?{' '}
-      <a
-        className="text-red-800 hover:text-red-600 transition-all"
-        href={sponsor_interest_link}
-      >
-        View the sponsorship prospectus
-      </a>
-      .
-    </p>
+      {status !== 'finished' && (
+        <p className="mt-8 text-lg">
+          Interested in sponsoring {name}?{' '}
+          <a
+            className="text-red-800 hover:text-red-600 transition-all"
+            href={sponsor_interest_link}
+          >
+            View the sponsorship prospectus
+          </a>
+          .
+        </p>
+      )}
+    </div>
   </div>
 )
 
@@ -133,10 +137,11 @@ const Event = ({ data }) => {
           {!['planning', 'announced'].includes(event.status) && (
             <Schedule event={event} />
           )}
-          {['planning', 'announced'].includes(event.status) && (
+          {event.sponsorship_tiers.length ? (
             <Sponsors event={event} />
+          ) : (
+            <SponsorsIfReact event={event} />
           )}
-          <SponsorsIfReact event={event} />
         </div>
       </>
     </Layout>
