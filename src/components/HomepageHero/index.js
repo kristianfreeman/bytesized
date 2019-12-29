@@ -39,20 +39,19 @@ const HomepageHero = () => {
   const events = get(data, 'allSanityEvent.edges', []).map(e => e.node)
   const heroEvent = first(orderBy(events, 'start_date', 'desc'))
 
-  const heroItem =
-    heroEvent.status === 'announced'
-      ? {
-          name: heroEvent.name,
-          slug: heroEvent.slug,
-          description: heroEvent.description,
-          image: S3Url(heroEvent.cover_path || 'headers/attendees.jpg'),
-        }
-      : {
-          name: heroPost.title,
-          slug: heroPost.slug,
-          description: heroPost.description,
-          image: heroPost.feature_image,
-        }
+  const heroItem = ['announced', 'upcoming'].includes(heroEvent.status)
+    ? {
+        name: heroEvent.name,
+        slug: heroEvent.slug,
+        description: heroEvent.description,
+        image: S3Url(heroEvent.cover_path || 'headers/attendees.jpg'),
+      }
+    : {
+        name: heroPost.title,
+        slug: heroPost.slug,
+        description: heroPost.description,
+        image: heroPost.feature_image,
+      }
 
   return (
     <Link to={heroItem.slug}>
