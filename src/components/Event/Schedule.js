@@ -28,7 +28,7 @@ const Schedule = ({ event }) => {
               <h2 className="text-lg uppercase tracking-widest font-semibold">
                 <RelativeTime date={DateTime.fromISO(key)} />
               </h2>
-              {orderBy(groupedTalks[key], 'position').map(talk => (
+              {orderBy(groupedTalks[key], 'time').map(talk => (
                 <Talk
                   key={talk._id}
                   company={false}

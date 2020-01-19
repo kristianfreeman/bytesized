@@ -204,6 +204,13 @@ export const pageQuery = graphql`
             github
             twitter
             website
+            image {
+              asset {
+                fluid(maxWidth: 100) {
+                  ...GatsbySanityImageFluid
+                }
+              }
+            }
           }
         }
       }
