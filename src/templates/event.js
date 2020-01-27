@@ -49,12 +49,12 @@ const Sponsors = ({
 
       {!!sponsorship_tiers &&
         sponsorship_tiers.map(({ section_name, sponsors }) => (
-          <div className="py-4">
+          <div className="py-4 w-full flex flex-col items-center">
             <h3 className="text-2xl font-medium">{section_name}</h3>
-            <div className="flex py-8">
+            <div className="md:flex justify-center py-8 w-full md:w-1/3 justify-around">
               {!!sponsors &&
                 sponsors.map(({ company_name, image, url }) => (
-                  <div className="even:pr-8 transition-all grayscale-1 hover:grayscale-0">
+                  <div className="transition-all grayscale-1 hover:grayscale-0">
                     <a href={url} title={company_name}>
                       <Img fixed={image.asset.fixed} />
                     </a>
