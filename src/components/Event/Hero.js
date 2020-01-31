@@ -6,9 +6,13 @@ import './illustration.css'
 import { DateTime } from 'luxon'
 import RelativeTime from '../RelativeTime'
 
-const RSVP = ({ event: { name, ck_rsvp_form_id } }) => (
+const RSVP = ({ event: { name, ck_rsvp_form_id, status } }) => (
   <div className="bg-white p-12 w-full md:flex-1 md:w-1/3 shadow shadow-lg mt-8 md:mt-0 md:ml-16 md:m-8 text-center">
-    <h2 className="text-2xl font-bold mb-8">RSVP for {name}</h2>
+    <h2 className="text-2xl font-bold mb-8">
+      {status === 'concluding'
+        ? `Attended ${name}? Get the free conference swag bag in your inbox`
+        : `RSVP for ${name}`}
+    </h2>
     <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
     <form
       action={`https://app.convertkit.com/forms/${ck_rsvp_form_id}/subscriptions`}
