@@ -42,7 +42,11 @@ const RSVP = ({ event: { name, ck_rsvp_form_id, status } }) => (
         class="formkit-submit text-white bg-orange-800 hover:bg-orange-600 transition-all font-bold p-4 text-lg rounded"
         type="submit"
       >
-        <span>Send me my free ticket</span>
+        <span>
+          {status === 'concluding'
+            ? `Send me the swag bag`
+            : `Send me my free ticket`}
+        </span>
       </button>
     </form>
   </div>
