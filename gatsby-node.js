@@ -24,7 +24,7 @@ exports.createPages = ({ graphql, actions }) => {
     },
     {
       fromPath: '/s/instagram',
-      toPath: 'https://instagram.com/byteconf',
+      toPath: 'https://instagram.com/bytesizedcode',
     },
     {
       fromPath: '/s/medium',
@@ -32,15 +32,15 @@ exports.createPages = ({ graphql, actions }) => {
     },
     {
       fromPath: '/s/github',
-      toPath: 'https://github.com/byteconf',
+      toPath: 'https://github.com/signalnerve/bytesized',
     },
     {
       fromPath: '/s/patreon',
-      toPath: 'https://patreon.com/byteconf',
+      toPath: 'https://www.patreon.com/bytesizedcode/',
     },
     {
       fromPath: '/patrons',
-      toPath: 'https://patreon.com/byteconf',
+      toPath: 'https://www.patreon.com/bytesizedcode/',
     },
     {
       fromPath: '/s/twitch',
@@ -64,7 +64,7 @@ exports.createPages = ({ graphql, actions }) => {
     },
     {
       fromPath: '/s/twitter',
-      toPath: 'https://twitter.com/byteconf',
+      toPath: 'https://twitter.com/bytesizedcode',
     },
     {
       fromPath: '/s/periscope',
