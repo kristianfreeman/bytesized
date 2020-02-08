@@ -25,6 +25,13 @@ const HomepageHero = () => {
             description
             slug
             start_date
+            cover {
+              asset {
+                fluid(maxWidth: 1600) {
+                  ...GatsbySanityImageFluid
+                }
+              }
+            }
             cover_path
             status
           }
@@ -44,7 +51,9 @@ const HomepageHero = () => {
         name: heroEvent.name,
         slug: heroEvent.slug,
         description: heroEvent.description,
-        image: S3Url(heroEvent.cover_path || 'headers/attendees.jpg'),
+        image: heroEvent.cover
+          ? heroEvent.cover.asset.fluid.src
+          : S3Url(heroEvent.cover_path || 'headers/attendees.jpg'),
       }
     : {
         name: heroPost.title,

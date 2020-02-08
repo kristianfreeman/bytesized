@@ -25,6 +25,13 @@ const Events = () => {
             end_date
             youtube_playlist
             cover_path
+            cover {
+              asset {
+                fluid(maxWidth: 800) {
+                  ...GatsbySanityImageFluid
+                }
+              }
+            }
             event_type
             status
           }

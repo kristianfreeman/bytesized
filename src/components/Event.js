@@ -3,21 +3,25 @@ import { Link } from 'gatsby'
 
 const s3Url = path => `https://byteconf-production.s3.amazonaws.com/${path}`
 
-const Container = ({ children, recent, url }) => (
-  <div
-    className={`rounded-lg h-full shadow hover:shadow-2xl transition-all hover:lighten ${
-      recent ? 'w-full' : ''
-    }`}
-    style={{
-      backgroundImage: `url(${url})`,
-      backgroundSize: `cover`,
-      paddingLeft: recent ? '' : '10px',
-      paddingRight: recent ? '' : '10px',
-    }}
-  >
-    {children}
-  </div>
-)
+const Container = ({ children, image, recent, url }) => {
+  const imageStyle = {
+    backgroundImage: `url(${image ? image.asset.fluid.src : url})`,
+  }
+  return (
+    <div
+      className={`rounded-lg h-full shadow hover:shadow-2xl transition-all hover:lighten ${
+        recent ? 'w-full' : ''
+      }`}
+      style={Object.assign({}, imageStyle, {
+        backgroundSize: `cover`,
+        paddingLeft: recent ? '' : '10px',
+        paddingRight: recent ? '' : '10px',
+      })}
+    >
+      {children}
+    </div>
+  )
+}
 
 const Event = ({ event, recent }) => {
   return (
@@ -30,7 +34,11 @@ const Event = ({ event, recent }) => {
       }}
       to={event.slug}
     >
-      <Container recent={recent} url={s3Url(event.cover_path)}>
+      <Container
+        recent={recent}
+        image={event.cover ? event.cover : null}
+        url={s3Url(event.cover_path)}
+      >
         <div className={`flex items-center justify-center h-full p-4 md:p-0`}>
           <div className="py-2 px-4 shadow hover:shadow-2xl transition-all bg-white rounded text-center">
             <h1

@@ -85,9 +85,11 @@ const SponsorsIfReact = ({ event: { slug } }) =>
 
 const Event = ({ data }) => {
   const event = data.sanityEvent
-  const cover = S3Url(
-    event.og_meta_image_path || event.cover_path || 'headers/attendees.jpg'
-  )
+  const cover = event.cover
+    ? event.cover.asset.fluid.src
+    : S3Url(
+        event.og_meta_image_path || event.cover_path || 'headers/attendees.jpg'
+      )
 
   return (
     <Layout title={event.name}>
@@ -165,6 +167,13 @@ export const pageQuery = graphql`
       cfp_link
       ck_rsvp_form_id
       rsvp_url
+      cover {
+        asset {
+          fluid(maxWidth: 800) {
+            ...GatsbySanityImageFluid
+          }
+        }
+      }
       cover_path
       og_meta_image_path
       event_speakers {
