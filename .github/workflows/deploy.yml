@@ -28,4 +28,4 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.discordWebhook }}
         uses: Ilshidur/action-discord@master
         with:
-          args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'
+          args: 'bytesized.xyz has been deployed.'
