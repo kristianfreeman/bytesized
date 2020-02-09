@@ -1,11 +1,12 @@
 import * as React from 'react'
-import * as moment from 'moment'
 
+import Markdown from 'react-markdown'
 import illustration from './illustration.svg'
 import './illustration.css'
 import { DateTime } from 'luxon'
 import RelativeTime from '../RelativeTime'
 
+import System from '../../system'
 import Form from '../Form'
 
 const RSVP = ({ event: { name, ck_rsvp_form_id, status } }) => {
@@ -57,9 +58,12 @@ class EventHero extends React.Component {
             </div>
 
             <div className="mt-4">
-              <p className="block leading-normal text-2xl">
+              <Markdown
+                className="block leading-normal text-2xl"
+                renderers={{ link: System.Link }}
+              >
                 {event.simple_copy}
-              </p>
+              </Markdown>
             </div>
 
             {event.youtube_playlist && (

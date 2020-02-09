@@ -72,6 +72,7 @@ const System = {
   h3: props => <Title {...props} size="h3" />,
   h4: props => <Title {...props} size="h4" />,
   a: Link,
+  Link: Link,
   p: Paragraph,
 }
 
