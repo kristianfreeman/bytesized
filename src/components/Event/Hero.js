@@ -6,51 +6,22 @@ import './illustration.css'
 import { DateTime } from 'luxon'
 import RelativeTime from '../RelativeTime'
 
-const RSVP = ({ event: { name, ck_rsvp_form_id, status } }) => (
-  <div className="bg-white p-12 w-full md:flex-1 md:w-1/3 shadow shadow-lg mt-8 md:mt-0 md:ml-16 md:m-8 text-center">
-    <h2 className="text-2xl font-bold mb-8">
-      {status === 'concluding'
-        ? `Attended ${name}? Get the free conference swag bag in your inbox`
-        : `RSVP for ${name}`}
-    </h2>
-    <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
-    <form
-      action={`https://app.convertkit.com/forms/${ck_rsvp_form_id}/subscriptions`}
-      class="seva-form formkit-form"
-      method="post"
-      data-sv-form={ck_rsvp_form_id}
-      data-format="inline"
-      data-version="5"
-    >
-      <input
-        class="formkit-input shadow appearance-none border border-gray-200 rounded w-full py-2 px-3 text-gray-700 mb-4 leading-tight focus:outline-none focus:shadow-outline text-xl"
-        aria-label="Your first name"
-        name="fields[first_name]"
-        placeholder="Your first name"
-        required
-        type="text"
-      />
-      <input
-        class="formkit-input shadow appearance-none border border-gray-200 rounded w-full py-2 px-3 text-gray-700 mb-4 leading-tight focus:outline-none focus:shadow-outline text-xl"
-        name="email_address"
-        placeholder="Your email address"
-        required
-        type="email"
-      />
-      <button
-        data-element="submit"
-        class="formkit-submit text-white bg-orange-800 hover:bg-orange-600 transition-all font-bold p-4 text-lg rounded"
-        type="submit"
-      >
-        <span>
-          {status === 'concluding'
-            ? `Send me the swag bag`
-            : `Send me my free ticket`}
-        </span>
-      </button>
-    </form>
-  </div>
-)
+import Form from '../Form'
+
+const RSVP = ({ event: { name, ck_rsvp_form_id, status } }) => {
+  const submitText =
+    status === 'concluding' ? `Send me the swag bag` : `Send me my free ticket`
+  return (
+    <div className="bg-white p-12 w-full md:flex-1 md:w-1/3 shadow shadow-lg mt-8 md:mt-0 md:ml-16 md:m-8 text-center">
+      <h2 className="text-2xl font-bold mb-8">
+        {status === 'concluding'
+          ? `Attended ${name}? Get the free conference swag bag in your inbox`
+          : `RSVP for ${name}`}
+      </h2>
+      <Form formId={ck_rsvp_form_id} submitText={submitText} />
+    </div>
+  )
+}
 
 const DateString = ({ start_date, end_date }) => {
   const start = DateTime.fromISO(start_date)

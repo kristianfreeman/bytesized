@@ -3,7 +3,7 @@ import c from 'classnames'
 
 const Paragraph = ({ children, ...props }) => {
   return (
-    <p className={c('measure-wide', 'text-xl', 'py-4')} {...props}>
+    <p className={c('measure-wide', 'py-4')} {...props}>
       {children}
     </p>
   )

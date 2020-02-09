@@ -29,6 +29,13 @@ const Nav = () => (
       </Link>
       <Link
         className="hover:font-bold hover:text-green-800 transition-all mx-4"
+        to="/giveaway/"
+        activeClassName="font-bold text-green-800"
+      >
+        🎁 Giveaway
+      </Link>
+      <Link
+        className="hover:font-bold hover:text-green-800 transition-all mx-4"
         to="/blog/"
         activeClassName="font-bold text-green-800"
       >
