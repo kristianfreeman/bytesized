@@ -64,7 +64,7 @@ const Sponsors = ({
           </div>
         ))}
 
-      {status !== 'finished' && (
+      {!['concluding', 'finished'].includes(status) && (
         <p className="mt-8 text-lg">
           Interested in sponsoring {name}?{' '}
           <a
@@ -139,11 +139,7 @@ const Event = ({ data }) => {
           {!['planning', 'announced'].includes(event.status) && (
             <Schedule event={event} />
           )}
-          {event.sponsorship_tiers.length ? (
-            <Sponsors event={event} />
-          ) : (
-            <SponsorsIfReact event={event} />
-          )}
+          <Sponsors event={event} />
         </div>
       </>
     </Layout>
