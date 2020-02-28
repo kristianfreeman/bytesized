@@ -4,7 +4,7 @@ on:
       - master
   repository_dispatch:
   schedule:
-    - cron: '0 0/6 * * *'
+    - cron: '*/10 * * * *'
 
 jobs:
   deploy:
@@ -23,9 +23,3 @@ jobs:
         with:
           apiToken: ${{ secrets.apiToken }}
           environment: 'production'
-      - name: Discord notification
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.discordWebhook }}
-        uses: Ilshidur/action-discord@master
-        with:
-          args: 'bytesized.xyz has been deployed.'
