@@ -48,11 +48,11 @@ exports.createPages = ({ graphql, actions }) => {
     },
     {
       fromPath: '/discord',
-      toPath: 'https://discordapp.com/invite/KnzprSD',
+      toPath: 'https://discordapp.com/invite/dTKdswv',
     },
     {
       fromPath: '/s/discord',
-      toPath: 'https://discordapp.com/invite/KnzprSD',
+      toPath: 'https://discordapp.com/invite/dTKdswv',
     },
     {
       fromPath: '/s/newsletter',
