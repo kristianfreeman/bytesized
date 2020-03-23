@@ -26,6 +26,10 @@ async function handleEvent(event) {
   const url = new URL(event.request.url)
   let options = {}
 
+  if (url.pathname === "/sponsors") {
+    return Response.redirect("https://roamresearch.com/#/app/signalnerve/page/p3zpEB5XQ")
+  }
+
   if (url.pathname.includes('dls')) {
     const matches = url.pathname.match(/dls\/(.*)/)
     const match = matches[1]
