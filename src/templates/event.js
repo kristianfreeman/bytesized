@@ -1,10 +1,10 @@
 import * as React from 'react'
 
+import { DateTime } from 'luxon'
 import Img from 'gatsby-image'
 
 import { Helmet } from 'react-helmet'
 
-import EventHeader from '../components/Event/Header'
 import EventHero from '../components/Event/Hero'
 import EventSpeakers from '../components/Event/Speakers'
 import Layout from '../components/Layout'
@@ -80,9 +80,6 @@ const Sponsors = ({
   </div>
 )
 
-const SponsorsIfReact = ({ event: { slug } }) =>
-  slug === 'react-2018' && <LegacySponsors />
-
 const Event = ({ data }) => {
   const event = data.sanityEvent
   const cover = event.cover
@@ -91,8 +88,12 @@ const Event = ({ data }) => {
         event.og_meta_image_path || event.cover_path || 'headers/attendees.jpg'
       )
 
+  const metaTitle = `${event.name} - ${DateTime.fromISO(
+    event.start_date
+  ).toLocaleString(DateTime.DATE_FULL)}`
+
   return (
-    <Layout title={event.name}>
+    <Layout title={metaTitle}>
       <Helmet>
         <meta name="description" content={event.simple_copy} />
         <meta property="og:description" content={event.simple_copy} />
