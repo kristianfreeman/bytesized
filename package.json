@@ -41,6 +41,7 @@
     "luxon": "^1.8.2",
     "moment": "^2.23.0",
     "node-sass": "^4.10.0",
+    "path-to-regexp": "^6.1.0",
     "prismjs": "^1.15.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",

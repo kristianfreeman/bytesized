@@ -1,7 +1,9 @@
 import { getAssetFromKV, mapRequestToAsset } from '@cloudflare/kv-asset-handler'
 import ghReleaseFetch from './gh-release'
 import isBot from 'isbot'
+import { pathToRegexp } from 'path-to-regexp'
 import sponsor from './templates/sponsor_prerender.hbs'
+import weekly from './templates/weekly_prerender.hbs'
 
 isBot.extend(['Mbed'])
 
@@ -29,6 +31,16 @@ addEventListener('fetch', event => {
 async function handleEvent(event) {
   const url = new URL(event.request.url)
   let options = {}
+
+  if (url.pathname.includes('/weekly')) {
+    const regexp = pathToRegexp('/weekly/:id')
+    const [_, id] = regexp.exec(url.pathname)
+    if (isBot(event.request.headers.get('User-Agent'))) {
+      return new Response(weekly())
+    } else {
+      return Response.redirect(`https://ckarchive.com/b/${id}`)
+    }
+  }
 
   if (url.pathname === '/sponsors') {
     if (isBot(event.request.headers.get('User-Agent'))) {
