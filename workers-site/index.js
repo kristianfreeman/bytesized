@@ -1,5 +1,9 @@
 import { getAssetFromKV, mapRequestToAsset } from '@cloudflare/kv-asset-handler'
 import ghReleaseFetch from './gh-release'
+import isBot from 'isbot'
+import sponsor from './templates/sponsor_prerender.hbs'
+
+isBot.extend(['Mbed'])
 
 const leadMagnets = {
   fss: 'signalnerve/fullstackserverless',
@@ -26,8 +30,14 @@ async function handleEvent(event) {
   const url = new URL(event.request.url)
   let options = {}
 
-  if (url.pathname === "/sponsors") {
-    return Response.redirect("https://roamresearch.com/#/app/signalnerve/page/p3zpEB5XQ")
+  if (url.pathname === '/sponsors') {
+    if (isBot(event.request.headers.get('User-Agent'))) {
+      return new Response(sponsor())
+    } else {
+      return Response.redirect(
+        'https://roamresearch.com/#/app/signalnerve/page/p3zpEB5XQ'
+      )
+    }
   }
 
   if (url.pathname.includes('dls')) {

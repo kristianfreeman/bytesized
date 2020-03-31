@@ -7,6 +7,10 @@
   "author": "Ashley Lewis <ashleymichal@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@cloudflare/kv-asset-handler": "^0.0.7"
+    "@cloudflare/kv-asset-handler": "^0.0.7",
+    "handlebars": "^4.7.3"
+  },
+  "scripts": {
+    "build": "handlebars templates/sponsor_prerender.hbs -f templates/sponsor.js"
   }
 }

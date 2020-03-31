@@ -33,6 +33,9 @@
     "gatsby-source-sanity": "^5.0.4",
     "gatsby-transformer-remark": "^2.1.6",
     "gatsby-transformer-sharp": "^2.2.23",
+    "handlebars": "^4.7.3",
+    "handlebars-loader": "^1.7.1",
+    "isbot": "^2.5.7",
     "lodash": "^4.17.11",
     "lscache": "^1.3.0",
     "luxon": "^1.8.2",
@@ -66,14 +69,12 @@
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
-    "dev": "gatsby develop",
-    "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
-    "develop": "gatsby develop",
+    "gatsby:develop": "gatsby develop",
+    "gatsby:build": "gatsby build",
+    "workers-site:build": "cd workers-site && npm run build",
+    "wrangler:build": "wrangler build && npm run workers-site:build",
+    "build": "npm run gatsby:build && npm run wrangler:build",
     "start": "npm run develop",
-    "build": "gatsby build",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
-    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
+    "deploy": "npm run build && wrangler publish"
   }
 }
