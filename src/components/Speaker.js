@@ -5,7 +5,7 @@ import S3Url from '../utils/s3Url'
 
 const Speaker = ({ speaker }) => {
   return (
-    <div className="sm:w-full md:w-1/4 overflow-hidden m-8">
+    <div className="overflow-hidden">
       <div className="flex items-center justify-center w-full h-auto shadow-md">
         {speaker.image ? (
           <img
@@ -22,7 +22,7 @@ const Speaker = ({ speaker }) => {
         )}
       </div>
 
-      <div className="px-6 py-4">
+      <div className="p-4">
         <div className="font-bold text-2xl mb-2">{speaker.name}</div>
         <p className="text-lg">{speaker.company}</p>
         <div className="mt-4">
