@@ -67,9 +67,9 @@ const Footer = () => (
           Byteconf attendees and speakers are expected to follow our{' '}
           <a
             className="hover:text-red-800 transition-all font-bold"
-            href="http://confcodeofconduct.com/"
+            href="https://github.com/byteconf/ccoc"
           >
-            Conference Code of Conduct
+            Code of Conduct
           </a>
           .
         </p>
@@ -78,7 +78,7 @@ const Footer = () => (
 
     <div className="flex flex-grow flex-col mx-auto text-black text-center mt-8">
       <p className="block leading-normal text-sm sm:mx-6 md:mx-24 py-8">
-        © Copyright Bytesized, LLC 2018-2019. All Rights Reserved.
+        © Copyright Bytesized, LLC 2018-2020. All Rights Reserved.
       </p>
     </div>
   </div>
