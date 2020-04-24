@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-blog",
-  "description": "Starter Gatsby Blog",
+  "name": "bytesized",
+  "description": "bytesized.xyz",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Kristian Freeman <kristian@bytesized.xyz>",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby-starter-blog/issues"
   },
@@ -10,7 +10,7 @@
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
     "classnames": "^2.2.6",
-    "gatsby": "^2.15.28",
+    "gatsby": "latest",
     "gatsby-image": "^2.2.36",
     "gatsby-plugin-feed": "^2.0.8",
     "gatsby-plugin-google-analytics": "^2.0.5",
@@ -72,9 +72,11 @@
   "scripts": {
     "gatsby:develop": "gatsby develop",
     "gatsby:build": "gatsby build",
+    "gatsby:build:incremental": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "workers-site:build": "cd workers-site && npm run build",
     "wrangler:build": "wrangler build && npm run workers-site:build",
     "build": "npm run gatsby:build && npm run wrangler:build",
+    "build:incremental": "npm run gatsby:build:incremental && npm run wrangler:build",
     "start": "npm run develop",
     "deploy": "npm run build && wrangler publish"
   }

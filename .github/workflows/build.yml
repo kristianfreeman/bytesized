@@ -7,9 +7,23 @@ jobs:
     name: Build
     steps:
       - uses: actions/checkout@master
+      - name: Cache .cache folder
+        uses: actions/cache@v1
+        env:
+          cache-name: cache-bytesized-public
+        with:
+          key: ${{ runner.os }}-cache
+          path: ${{ github.workspace }}/.cache
+      - name: Cache public folder
+        uses: actions/cache@v1
+        env:
+          cache-name: cache-bytesized-public
+        with:
+          key: ${{ runner.os }}-public
+          path: ${{ github.workspace }}/public
       - name: NPM install
         run: 'npm install'
       - name: Build app
-        run: 'npm run gatsby:build'
+        run: 'npm run gatsby:build:incremental'
         env:
           SANITY_READ_TOKEN: ${{ secrets.sanityReadToken }}
