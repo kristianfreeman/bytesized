@@ -82,11 +82,11 @@ const Sponsors = ({
 
 const Event = ({ data }) => {
   const event = data.sanityEvent
-  const cover = event.cover
+  const cover = event.og_meta_image_path
+    ? event.og_meta_image_path
+    : event.cover
     ? event.cover.asset.fluid.src
-    : S3Url(
-        event.og_meta_image_path || event.cover_path || 'headers/attendees.jpg'
-      )
+    : S3Url('headers/attendees.jpg')
 
   const metaTitle = `${event.name} - ${DateTime.fromISO(
     event.start_date
