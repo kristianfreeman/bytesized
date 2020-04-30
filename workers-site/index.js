@@ -42,6 +42,11 @@ async function handleEvent(event) {
     }
   }
 
+  // TODO: make this more re-usable
+  if (url.pathname === '/react-2020/live') {
+    return Response.redirect('https://youtu.be/MEeZLM1XVLI')
+  }
+
   if (url.pathname === '/sponsors') {
     if (isBot(event.request.headers.get('User-Agent'))) {
       return new Response(sponsor())
