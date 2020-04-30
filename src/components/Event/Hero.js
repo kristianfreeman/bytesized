@@ -11,7 +11,7 @@ import Form from '../Form'
 
 const RSVP = ({ event: { name, ck_rsvp_form_id, status } }) => {
   const submitText =
-    status === 'concluding' ? `Send me the swag bag` : `Send me my free ticket`
+    status === 'concluding' ? `Send me the swag bag` : `I'm going!`
   return (
     <div className="bg-white p-12 w-full md:flex-1 md:w-1/3 shadow shadow-lg mt-8 md:mt-0 md:ml-16 md:m-8 text-center">
       <h2 className="text-2xl font-bold mb-8">

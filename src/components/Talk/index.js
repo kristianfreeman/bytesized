@@ -8,20 +8,18 @@ import './index.css'
 
 const Talk = ({ company, social, talk }) => {
   const { description, slides, event_speaker, level, name, time } = talk
-  if (!event_speaker) {
-    return <div>fml {name}</div>
-  }
   const { available_live, speaker } = event_speaker
 
   return (
-    <div className="bg-white mx-auto max-w-3xl shadow hover:shadow-2xl transition-all rounded overflow-hidden my-8">
-      <div className="sm:flex sm:items-center p-12">
+    <div className="bg-white mx-0 md:mx-auto w-full md:max-w-3xl md:shadow md:rounded overflow-hidden my-8">
+      <div className="sm:flex sm:items-center pt-8 md:p-12">
         <div className="text-center sm:text-left sm:flex-grow">
           <div className="flex mb-8 items-center justify-center">
             <div className="flex-1">
               {time && (
                 <p className="text-2xl leading-tight text-grey-darkest tracking-wide py-2">
-                  <RelativeTime date={time} type="time" />
+                  <RelativeTime date={time} type="time" /> {' / '}
+                  <RelativeTime date={time} type="time" timezone="GMT" />
                 </p>
               )}
               <p className="text-3xl leading-tight font-bold text-black py-4 pb-2 measure-wide">

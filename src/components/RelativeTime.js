@@ -4,10 +4,10 @@ import { DateTime } from 'luxon'
 const pastFormat = 'MMMM d, yyyy'
 const upcomingFormat = 'EEEE, MMMM d, yyyy'
 
-const time = 't'
+const time = 't ZZZZ'
 
-const RelativeTime = ({ date, type = 'date' }) => {
-  const relativeTime = DateTime.fromISO(date)
+const RelativeTime = ({ date, type = 'date', timezone: zone }) => {
+  const relativeTime = DateTime.fromISO(date, { zone })
   const past = DateTime.local() > relativeTime
   const format = type == 'date' ? (past ? pastFormat : upcomingFormat) : time
   const asString = relativeTime.toFormat(format)

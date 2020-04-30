@@ -14,13 +14,6 @@ const Schedule = ({ event }) => {
 
   const renderedTalks = (
     <>
-      <div className="mt-8 mb-12 max-w-xl mx-auto">
-        <h4 className="text-xl">
-          All times listed are in your browser's timezone,{' '}
-          {Intl.DateTimeFormat().resolvedOptions().timeZone}.
-        </h4>
-      </div>
-
       <div>
         {Object.keys(groupedTalks).map(key => {
           return (
