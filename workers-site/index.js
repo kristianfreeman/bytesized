@@ -47,6 +47,12 @@ async function handleEvent(event) {
     return Response.redirect('https://youtu.be/MEeZLM1XVLI')
   }
 
+  if (url.pathname === '/yt') {
+    return Response.redirect(
+      'https://www.youtube.com/channel/UC046lFvJZhiwSRWsoH8SFjg/'
+    )
+  }
+
   if (url.pathname === '/sponsors') {
     if (isBot(event.request.headers.get('User-Agent'))) {
       return new Response(sponsor())
