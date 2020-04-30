@@ -21,31 +21,27 @@ const Nav = () => (
         👋 About
       </Link>
       <Link
-        className="hover:font-bold hover:text-orange-800 transition-all mx-4"
+        className="mx-4"
         to="/conference"
         activeClassName="font-bold text-orange-800"
       >
         📺 Byteconf
       </Link>
+      <a className="mx-4" href="https://www.patreon.com/bytesizedcode">
+        💖 Patreon
+      </a>
       <Link
-        className="hover:font-bold hover:text-green-800 transition-all mx-4"
-        to="/giveaway/"
-        activeClassName="font-bold text-green-800"
-      >
-        🎁 Giveaway
-      </Link>
-      <Link
-        className="hover:font-bold hover:text-green-800 transition-all mx-4"
+        className="mx-4"
         to="/blog/"
-        activeClassName="font-bold text-green-800"
+        activeClassName="font-bold text-orange-800"
       >
         📝 Blog
       </Link>
-      <a
-        className="hover:font-bold hover:text-red-800 transition-all mx-4"
-        href="https://www.bytesized.xyz/newsletter"
-      >
+      <a className="mx-4" href="https://www.bytesized.xyz/newsletter">
         📰 Newsletter
+      </a>
+      <a className="mx-4" href="https://www.bytesized.xyz/sponsors">
+        💼 Sponsorship
       </a>
     </div>
   </div>
