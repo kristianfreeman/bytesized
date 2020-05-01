@@ -38,7 +38,9 @@ const Schedule = ({ event }) => {
 
   return (
     <div className="bg-white w-full container mx-auto mt-16 mb-32 md:mb-0 p-8 flex flex-col items-center">
-      <h3 className="text-3xl font-bold">Schedule</h3>
+      <h3 className="text-3xl font-bold" id="schedule">
+        Schedule
+      </h3>
       {event.talks.length ? (
         renderedTalks
       ) : (

@@ -4,7 +4,9 @@ import Speaker from '../Speaker'
 
 const EventSpeakers = ({ event }) => (
   <>
-    <h3 className="text-3xl font-bold">Speakers</h3>
+    <h3 className="text-3xl font-bold" id="speakers">
+      Speakers
+    </h3>
 
     <div className="max-w-md md:max-w-screen-xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-16 px-4 md:px-16">
