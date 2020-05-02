@@ -44,7 +44,7 @@ async function handleEvent(event) {
 
   // TODO: make this more re-usable
   if (url.pathname === '/react-2020/live') {
-    return Response.redirect('https://www.youtube.com/watch?v=MeEADrueBIA')
+    return Response.redirect('https://www.youtube.com/watch?v=hCURSlsjnoA')
   }
 
   if (url.pathname === '/yt') {
