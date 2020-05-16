@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Cache .cache folder
-        uses: actions/cache@v1
+        uses: actions/cache@master
         env:
           cache-name: cache-bytesized-public
         with:
