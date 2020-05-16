@@ -17,14 +17,14 @@ jobs:
         env:
           cache-name: cache-bytesized-public
         with:
-          key: ${{ runner.os }}-cache
+          key: gatsby-cache
           path: ${{ github.workspace }}/.cache
       - name: Cache public folder
         uses: actions/cache@master
         env:
           cache-name: cache-bytesized-public
         with:
-          key: ${{ runner.os }}-public
+          key: gatsby-public
           path: ${{ github.workspace }}/public
       - name: Cache node modules
         uses: actions/cache@v1
