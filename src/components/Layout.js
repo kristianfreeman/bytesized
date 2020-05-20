@@ -58,6 +58,7 @@ const Layout = ({ children, title }) => {
               <meta property="og:url" content="https://www.byteconf.com/" />
               <meta name="twitter:card" content="summary_large_image" />
               <meta name="twitter:site" content="@byteconf" />
+              <meta name="monetization" content="$wallet.signalnerve.com" />
               <script
                 async
                 src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/prism.min.js"
