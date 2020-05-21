@@ -23,7 +23,7 @@ jobs:
       - name: "[cache] workers-site/dist/worker.js"
         uses: actions/cache@master
         with:
-          key: ${{ runner.os }}-workers-site-dist
+          key: ${{ runner.os }}-workers-site-dist-${{ hashFiles('**/worker.js') }}
           path: workers-site/dist/worker.js
       - name: "[cache] yarn cache"
         uses: actions/cache@master
