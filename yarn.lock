@@ -896,7 +896,7 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@cloudflare/wrangler@^1.9.1":
+"@cloudflare/wrangler@latest":
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/@cloudflare/wrangler/-/wrangler-1.9.1.tgz#2108854e1252558a512c3b653a579363a6f33a98"
   integrity sha512-XIZRFLsCEQSEyFppMcFIxNMc3UEJ8tAEQ5IWua1x3TH+R9Lr/ar+xnX1YoI7E2eOneWQl43vb6hCqg7Bm3vdgA==

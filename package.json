@@ -7,7 +7,7 @@
     "url": "https://github.com/gatsbyjs/gatsby-starter-blog/issues"
   },
   "dependencies": {
-    "@cloudflare/wrangler": "^1.9.1",
+    "@cloudflare/wrangler": "latest",
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
     "classnames": "^2.2.6",
