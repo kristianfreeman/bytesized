@@ -38,6 +38,8 @@ jobs:
         run: 'yarn run gatsby:build:incremental'
         env:
           SANITY_READ_TOKEN: ${{ secrets.sanityReadToken }}
+      - name: Build workers-site config
+        run: 'yarn run workers-site:build'
       - name: Publish app
         uses: cloudflare/wrangler-action@8c3e02e
         with:

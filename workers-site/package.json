@@ -3,14 +3,20 @@
   "name": "worker",
   "version": "1.0.0",
   "description": "A template for kick starting a Cloudflare Workers project",
-  "main": "index.js",
+  "main": "dist/worker.js",
   "author": "Ashley Lewis <ashleymichal@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "@cloudflare/kv-asset-handler": "^0.0.7",
-    "handlebars": "^4.7.3"
-  },
   "scripts": {
-    "build": "handlebars templates/sponsor_prerender.hbs -f templates/sponsor.js"
-  }
+    "build": "npx parcel build index.js -o dist/worker.js --no-source-maps"
+  },
+  "dependencies": {
+    "@cloudflare/kv-asset-handler": "^0.0.7"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-handlebars-precompile": "^1.0.2"
+  },
+  "browserslist": [
+    "last 1 Chrome versions"
+  ]
 }

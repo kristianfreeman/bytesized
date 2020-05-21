@@ -75,10 +75,9 @@
     "gatsby:build": "gatsby build",
     "gatsby:build:incremental": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "workers-site:build": "cd workers-site && npm run build",
-    "wrangler:build": "wrangler build && npm run workers-site:build",
-    "build": "npm run gatsby:build && npm run wrangler:build",
-    "build:incremental": "npm run gatsby:build:incremental && npm run wrangler:build",
-    "start": "npm run develop",
-    "deploy": "npm run build && wrangler publish"
+    "build": "yarn run gatsby:build && npm run workers-site:build",
+    "build:incremental": "yarn run gatsby:build:incremental && yarn run workers-site:build",
+    "start": "yarn run develop",
+    "deploy": "yarn run build && wrangler publish"
   }
 }
