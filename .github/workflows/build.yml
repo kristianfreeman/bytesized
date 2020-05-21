@@ -20,6 +20,13 @@ jobs:
         with:
           key: gatsby-public-folder
           path: public
+      - name: Workers Site Build Folder
+        uses: actions/cache@master
+        with:
+          key: ${{ runner.os }}-workers-site-dist-${{ hashFiles('workers-site/dist/worker.js') }}
+          path: workers-site/dist/worker.js
+          restore-keys: |
+            ${{ runner.os }}-workers-site-dist-
       - name: Yarn cache
         uses: actions/cache@master
         with:
@@ -30,6 +37,6 @@ jobs:
       - name: Yarn install
         run: 'yarn install --pure-lockfile'
       - name: Build app
-        run: 'yarn run gatsby:build:incremental'
+        run: 'yarn run build'
         env:
           SANITY_READ_TOKEN: ${{ secrets.sanityReadToken }}
