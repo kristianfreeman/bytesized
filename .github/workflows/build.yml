@@ -39,6 +39,13 @@ jobs:
           key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node_modules-
+      - name: "[cache] workers-site node_modules"
+        uses: actions/cache@master
+        with:
+          path: workers-site/node_modules
+          key: ${{ runner.os }}-workkers-site-node_modules-${{ hashFiles('**/workers-site/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-workers-site-node_modules-
       - run: 'yarn install --frozen-lockfile'
       - run: 'yarn run build'
         env:
