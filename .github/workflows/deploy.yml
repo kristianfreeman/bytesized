@@ -40,7 +40,7 @@ jobs:
         env:
           SANITY_READ_TOKEN: ${{ secrets.sanityReadToken }}
       - name: Publish app
-        uses: cloudflare/wrangler-action@master
+        uses: cloudflare/wrangler-action@npx
         with:
           apiToken: ${{ secrets.apiToken }}
           environment: 'production'
