@@ -48,7 +48,7 @@ jobs:
       - name: Build workers-site config
         run: 'yarn run workers-site:build'
       - name: Publish app
-        uses: cloudflare/wrangler-action@8c3e02e
+        uses: cloudflare/wrangler-action@npx
         with:
           apiToken: ${{ secrets.apiToken }}
           environment: 'production'
