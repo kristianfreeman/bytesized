@@ -11,32 +11,31 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy
     steps:
-      - uses: actions/checkout@master
-      - name: Cache .cache folder
+      - uses: actions/checkout@v2
+      - name: Yarn cache directory
+        id: yarn-cache-dir
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Gatsby Cache Folder
         uses: actions/cache@master
-        env:
-          cache-name: cache-bytesized-public
         with:
-          key: gatsby-cache
-          path: ${{ github.workspace }}/.cache
-      - name: Cache public folder
+          key: gatsby-cache-folder
+          path: .cache
+      - name: Gatsby Public Folder
         uses: actions/cache@master
-        env:
-          cache-name: cache-bytesized-public
         with:
-          key: gatsby-public
-          path: ${{ github.workspace }}/public
-      - name: Cache node modules
-        uses: actions/cache@v1
+          key: gatsby-public-folder
+          path: public
+      - name: Yarn cache
+        uses: actions/cache@master
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          path: ${{ steps.yarn-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-node-
-      - name: NPM ci
-        run: 'npm ci'
+            ${{ runner.os }}-yarn-
+      - name: Yarn install
+        run: 'yarn install --pure-lockfile'
       - name: Build app
-        run: 'npm run gatsby:build:incremental'
+        run: 'yarn run gatsby:build:incremental'
         env:
           SANITY_READ_TOKEN: ${{ secrets.sanityReadToken }}
       - name: Publish app
