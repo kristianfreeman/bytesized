@@ -7,34 +7,39 @@ jobs:
     name: Build
     steps:
       - uses: actions/checkout@v2
-      - name: Yarn cache directory
+      - name: "[var] Yarn cache directory"
         id: yarn-cache-dir
         run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Gatsby Cache Folder
+      - name: "[cache] .cache"
         uses: actions/cache@master
         with:
           key: gatsby-cache-folder
           path: .cache
-      - name: Gatsby Public Folder
+      - name: "[cache] public"
         uses: actions/cache@master
         with:
           key: gatsby-public-folder
           path: public
-      - name: Workers Site Build Folder
+      - name: "[cache] workers-site/dist/worker.js"
         uses: actions/cache@master
         with:
           key: ${{ runner.os }}-workers-site-dist
           path: workers-site/dist/worker.js
-      - name: Yarn cache
+      - name: "[cache] yarn cache"
         uses: actions/cache@master
         with:
           path: ${{ steps.yarn-cache-dir.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-      - name: Yarn install
-        run: 'yarn install --frozen-lockfile'
-      - name: Build app
-        run: 'yarn run build'
+      - name: "[cache] node_modules"
+        uses: actions/cache@master
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules-
+      - run: 'yarn install --frozen-lockfile'
+      - run: 'yarn run build'
         env:
           SANITY_READ_TOKEN: ${{ secrets.sanityReadToken }}
