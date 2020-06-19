@@ -8,8 +8,8 @@ import { Helmet } from 'react-helmet'
 import EventHero from '../components/Event/Hero'
 import EventSpeakers from '../components/Event/Speakers'
 import Layout from '../components/Layout'
-import LegacySponsors from '../components/Event/Sponsors'
 import Schedule from '../components/Event/Schedule'
+import Organizers from '../components/Event/Organizers'
 
 import S3Url from '../utils/s3Url'
 import './event.css'
@@ -140,7 +140,8 @@ const Event = ({ data }) => {
           {!['planning', 'announced'].includes(event.status) && (
             <Schedule event={event} />
           )}
-          <Sponsors event={event} />
+          {event.sponsorship_tiers.length ? <Sponsors event={event} /> : null}
+          {event.organizers.length ? <Organizers event={event} /> : null}
         </div>
       </>
     </Layout>
@@ -216,6 +217,17 @@ export const pageQuery = graphql`
                   ...GatsbySanityImageFluid
                 }
               }
+            }
+          }
+        }
+      }
+      organizers {
+        name
+        twitter
+        image {
+          asset {
+            fixed(width: 300) {
+              ...GatsbySanityImageFixed
             }
           }
         }
