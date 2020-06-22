@@ -56,7 +56,7 @@ jobs:
         env:
           SANITY_READ_TOKEN: ${{ secrets.sanityReadToken }}
       - name: "[ci] Publish with Cloudflare Workers"
-        uses: cloudflare/wrangler-action@master
+        uses: cloudflare/wrangler-action@1.2.0
         with:
           apiToken: ${{ secrets.apiToken }}
           environment: 'production'
