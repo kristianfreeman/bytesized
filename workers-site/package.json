@@ -10,7 +10,7 @@
     "build": "npx parcel build index.js -o dist/worker.js --no-source-maps"
   },
   "dependencies": {
-    "@cloudflare/kv-asset-handler": "^0.0.7"
+    "@cloudflare/kv-asset-handler": "^0.0.11"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.4",
